@@ -1,0 +1,36 @@
+/* pages/personalCenter/myCleaning/myCleaning.wxss */
+.myCleaningContent{
+  width: 690rpx;
+  margin: 35rpx auto;
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+  box-shadow: 0px 0px 30rpx 5rpx #ddd;
+}
+.myCleaningContent>view{
+  height: 80rpx;
+  width: 100%;
+  border-bottom: 1px solid #CCCCCC;
+}
+.myCleaningContent>view>view:nth-child(1){
+  float: left;
+  font-size: 28rpx;
+  line-height:80rpx;
+  margin-left:20rpx;
+  font-family:"SourceHanSansSC-Regular";
+}
+.myCleaningContent>view>view:nth-child(2){
+  float: right;
+  font-size: 28rpx;
+  line-height:80rpx;
+  margin-right:20rpx;
+  color: #999999;
+  font-family:"SourceHanSansSC-Regular";
+}
+.sc_lower{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}

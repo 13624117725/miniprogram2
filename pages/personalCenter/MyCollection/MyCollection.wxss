@@ -1,0 +1,98 @@
+.MyCollection{
+  width:100%;
+  height:100%;
+}
+.topBar{
+  height: 80rpx;
+  line-height: 80rpx;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.tab_name{
+  width:33.3333%;
+  height: 80rpx;
+  line-height: 80rpx;
+  float: left;
+  text-align: center;
+  font-size: 30rpx;
+  background-color: #eee;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  
+}
+.tab_name.actived{
+  color:#d6000f;
+  background-color: #fff;
+}
+.Binfo{
+  position: fixed;
+  top: 82rpx;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  overflow: auto;
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+}
+.cards{
+  height: 240rpx;
+  padding: 30rpx 10rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+.left{
+  width: 240rpx;
+  height: 180rpx;
+  float: left;
+  position: relative;
+}
+.left .img{
+  width: 100%;
+  height:100%;
+}
+.build_info{
+  padding-left: 250rpx;
+  height: 100%;
+
+}
+.build_name{
+  line-height: 50rpx;
+  font-size: 32rpx;
+}
+.build_price{
+  line-height: 50rpx;
+  font-size: 32rpx;
+}
+.build_area{
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color:#999;
+}
+.build_adress{
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color:#999;
+}
+.heart{
+  width: 90rpx;
+  height:90rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/shoucang02.png") center no-repeat/60rpx 60rpx;
+  position: absolute;
+  left: 0;
+  top:0rpx;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+
+
+}
+.image>image{
+    width: 480rpx;
+    height: 480rpx;
+    margin: 0 auto;
+    display: block;
+    padding-top: 100rpx;
+}

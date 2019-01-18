@@ -1,0 +1,40 @@
+<!-- 新房首页 -->
+<view class = "newIndex">
+    <view class = "newIndex_top">
+        <!-- swiper -->
+        <view class = "swipers">
+             <swiper class='swiper_box' indicator-dots="{{indicatorDots}}"
+             indicator-color="rgba(255, 255, 255, .3)" indicator-active-color= "rgba(255, 255, 255, .9)"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+            <block wx:for="{{imgUrls}}" wx:key="index" >
+              <swiper-item bindtap = "swiperClick" data-id = "{{item.id}}">
+                <image src="{{item.url}}" class="slide-image"  height="240"/>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <!-- 楼盘列表 -->
+        <view class= "housesList">
+            <view wx:for = "{{housesList}}" class = "loupanList"  wx:key = "index">
+                <view bindtap='housesListGo' data-id = "{{item.id}}">
+                  <view class = "name">{{item.name}}</view>
+                  <view class = "English">{{item.English}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class = "line"></view>
+    <!-- 楼盘列表 -->
+    <view>
+        <!-- 北海市楼盘 -->
+        <view wx:for = "{{loupan_list}}" wx:key = "index">
+            <newTile
+              city = "{{item.city}}"
+              loupan ="{{item.buildname}}"
+              price = "{{item.averageprice}}"
+              new_house_list_li = "{{item.buildPictureList}}"
+              bind:gethouselist = "gethouselist"
+            ></newTile>
+        </view>
+    </view>
+</view>

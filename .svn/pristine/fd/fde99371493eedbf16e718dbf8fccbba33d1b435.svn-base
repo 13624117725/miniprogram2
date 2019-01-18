@@ -1,0 +1,64 @@
+<view class='masks' wx:if="{{maskShow}}" bindtap='cancal'>
+  <view class='camBox {{ btnShow?"showbtn":""}}' >
+    <view class='cbbtn' catchtap='chouseImg' data-type="0">拍照</view>
+    <view class='cbbtn' catchtap='chouseImg' data-type="1">选取相册</view>
+    <view class='cbbtn' catchtap='cancal'>取消</view>
+  </view>
+</view>
+<view class='repair'>
+
+  <view class='info_box'>
+    <view class='title'>
+      选择维修的项目
+    </view>
+    <view class='check_btn clearfix'>
+      <view class='btn'> 
+      <!-- bindchange="bindPickerChange" value="{{index}}" -->
+       <picker bindchange="PChange" range="{{list1}}" data-pindex="0">
+          <text class='btn_text {{showChous[0]!="选择类别"?"redF":""}}'>{{showChous[0]}}</text>
+          <view class='down'></view>
+          <!-- <view class="picker">当前选择：{{array[index]}}</view> -->
+        </picker> 
+      </view>
+      <view class='btn'>  
+        <picker bindchange="PChange" range="{{list2}}" data-pindex="1">
+          <text class='btn_text {{showChous[1]!="选择物品"?"redF":""}}'>{{showChous[1]}}</text>
+          <view class='down'></view>
+        </picker>
+      </view>
+      <view class='btn'> 
+        <picker bindchange="PChange" range="{{list3}}" data-pindex="2">
+          <text class='btn_text {{showChous[2]!="选择位置"?"redF":""}}'>{{showChous[2]}}</text>
+          <view class='down'></view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class='info_box'>
+    <view class='title'>
+      上传照片
+    </view>
+    <view class='clearfix underLine'>
+      <view class='imgAdd' wx:for="{{imgArr}}" wx:key="index" wx:index="index">
+        <image class='imgAdd_img' src="{{item+'?imageView2/0/w/100/h/100'}}" lazy-load = "true" bindtap='showImg' data-src="{{item}}"/>
+        <view class='closed' bindtap='imgClose' data-index="{{index}}"></view>
+      </view>
+      <view class='imgAdd addBtn' bindtap='addImg'></view>
+     
+    </view>
+  </view>
+  <view class='info_box'>
+    <view class='title'>
+      填写问题
+    </view>
+    <view class='text_area'>
+       <textarea class='textArea' value="{{textValue}}" bindinput="textareaInput"  placeholder="自动变高" />
+    </view>
+  </view>
+</view>
+<view class='pageBottom'></view>
+<view class='bbtn_box'>
+  <view class='bbtn' bindtap='addAgain'>继续添加</view>
+  <view class='bbtn btn2' bindtap='saveOrder'>提交订单</view>
+</view>
+

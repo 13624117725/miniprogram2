@@ -1,0 +1,38 @@
+<!--pages/personalCenter/lesseeContractDetailsPay/lesseeContractDetailsPay.wxml-->
+<!--承租合同支付详情-->
+<view class = "lesseeContractDetailsPay">
+      <view class = "lesseeContractDetailsPayTop">
+         <view wx:for = "{{details}}" wx:key="{{item}}">
+            <view>{{item.name}}</view>
+            <view>{{item.content}}</view>
+         </view>
+      </view>
+      <view class= "{{showHide=='1'?'show':'hide'}}" >
+        <view class='info-group'>
+          <view class='info-line'>
+            <label class='label'>本期支付租金（元）</label>
+          </view>
+          
+            <view class='info-line center'>
+              <view class='num-btn' bindtap='reduceMoney'>-</view>
+              <input class='rant-number' type='number' maxlength="5" bindinput="changeRant" bindblur='clearMoney' value="{{rentMoney}}"></input>
+              <view class='num-btn' bindtap='addMoney'>+</view>
+            </view>
+          </view>
+          <!-- 确认支付 -->
+          <view class = "truePay">确认支付</view>
+      </view>
+      <view class= "{{showHide=='0'?'show':'hide'}}" >
+            <view class = "title">
+                <view wx:for = "{{title_list}}">{{item.name}}</view>
+            </view>
+            <view class = "content">
+                <view wx:for = "{{content_list}}" class = "content_list">
+                    <view>{{'第'+item.receiptNo+'次'}}</view>
+                    <view>{{'¥'+item.realReceipt}}</view>
+                    <view>{{item.realReceiptDate}}</view>
+                    <view>{{item.receiptStatusName}}</view>
+                </view>
+            </view>
+      </view> 
+</view>

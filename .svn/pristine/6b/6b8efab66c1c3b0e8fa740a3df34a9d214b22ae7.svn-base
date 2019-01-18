@@ -1,0 +1,398 @@
+<!--pages/new/newHouseDetail/newHouseDetail.wxml-->
+ <!-- 轮播 -->
+
+
+  <view class='viewText'>
+  
+  
+    <view class="swipers">
+      <swiper class='swiper_box' 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{currentNum}}" bindchange="SwiperChange" bindanimationfinish="SwiperFinished">
+        <block wx:for="{{swiperArr}}" wx:key="item.src">
+          <swiper-item catchtap = "swiperClick">
+            <image src="{{item.src}}" class="slide-image"  height="240"/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 弹幕 -->
+      <view class='Danmu'>
+        <view
+          wx:for="{{barList}}"
+          class='danmu_bg'
+          wx:key="{{item.text}}" wx:for-index="index" style="animation: danmu {{item.settime}}s linear 0s infinite;top:{{index*60}}rpx" 
+        >
+          
+          <view class="absitemp">
+          <image class='absitemp_img' src="/img/whiteren.png" alt=""></image>
+           {{item.text}}
+          </view>
+        </view>
+      </view>
+      <!-- 收藏 -->
+      <view class='headBtn' bindtap='Toresave'>
+        <image src="{{hertImage}}" class="hertimage"/>
+      </view>
+    </view>
+    <!-- tab -->
+    <view class='tab_box'>
+      <view  class='tab_ul'>
+        <view  class="tab_li {{swiperArr[newCurrent]['picturetype']==0? 'actived':''}}" xw:if="buileType.EffectImg!==0" bindtap='SwiperMove' data-type="0" >效果图({{buileType.EffectImg}})</view>
+        <view class="tab_li {{swiperArr[newCurrent]['picturetype']==1? 'actived':''}}" xw:if="buileType.GuihuaImg!==0" bindtap='SwiperMove' data-type="1" >规划图({{buileType.GuihuaImg}})</view>
+        <view class="tab_li {{swiperArr[newCurrent]['picturetype']==2? 'actived':''}}" xw:if="buileType.YangbanImg!==0" bindtap='SwiperMove' data-type="2" >样板间({{buileType.YangbanImg}})</view>
+        <view class="tab_li {{swiperArr[newCurrent]['picturetype']==3? 'actived':''}}" xw:if="buileType.ShijingImg!==0" bindtap='SwiperMove' data-type="3" >实景图({{buileType.ShijingImg}})</view>
+      </view>
+    </view>
+
+    <view class='build_info'>
+      <view class='build_name'>{{buildinfo.buildname}}</view>
+    </view>
+    
+    <view class='tag_box'>
+      <text class='tag_name' wx:for="{{buildinfo.buildtagnameList}}" wx:key="{{index}}">{{item}}</text>
+      
+    </view> 
+    <view class='build_msg'>
+      <view class='msg_box'>
+        <view class='titles'>均价</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.averageprice}}
+          元/㎡
+        </view>
+      </view>
+      <view class='msg_box'>
+        <view class='titles'>开盘时间</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.openquotationtime}}
+        </view>
+      </view>
+      <view class='msg_box'>
+        <view class='titles'>交房时间</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.launchtime}}
+        </view>
+      </view>
+      <view class='msg_box'>
+        <view class='titles'>地址</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.address}}
+        </view>
+      </view>
+    </view>
+    <!-- 户型 -->
+    <view class='build_type'>
+      <view class='titles'>在售户型5套</view>
+      <scroll-view class='type_box' scroll-x="true">
+        <view class='type_ul'>
+          <view class='type_li' wx:for="{{buildinfo.buildTypeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-buildid="{{item.buildid}}" bindtap='showType'>
+            <image class='type_li_img' src='{{item.housetypefilename}}'></image>
+            <view class='type_info' >
+              <view class='type_name'>
+                <text class='build_name_t'>{{item.housetypecode}}</text>
+                <text class='build_name_area'>{{item.salearea}}</text>
+              </view>
+               <view class='type_name'>
+                <text class='type_name_size'>{{item.housetypedescribe}}</text>
+              </view>
+            </view>
+          </view>
+         
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 楼盘详细信息 -->
+
+    <view class='build_mags'>
+      <view class='titles2'>
+        楼盘基础信息
+      </view>
+      <view class='topshow'>
+        <view class='msg_box1 msg_box'>
+          <view class='titles'>开盘时间</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.openquotationtime}}
+            </view>
+          </view>
+        <view class='msg_box1 msg_box'>
+          <view class='titles'>物业类型</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.tenementtypename}}
+            </view>
+         
+        </view>
+         <view class=' msg_box1 msg_box'>
+          <view class='titles'>装修情况</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.hardcoverstandard}}
+            </view>
+          
+        </view>
+              
+        <view class=' msg_box' wx:if="{{buildinfo.newbuildtype}}">
+          <view class='titles'>建筑类型</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.newbuildtype}}
+            </view>
+          
+        </view>
+       
+        <view class=' msg_box'>
+          <view class='titles'>开发商</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.developers}}
+          </view>
+        
+        </view>
+        <view class=' msg_box'>
+          <view class='titles'>物业顾问</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.tenementcompany}}
+          </view>
+         
+        </view>
+        <view class=' msg_box'>
+          <view class='titles'>物业费</view>
+          <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.tenementfee}}
+            </view>
+
+        </view>
+        <view class='right_box'>
+          <view class='msg_box'>
+            <view class='titles'>总户数</view>
+            <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.totalhouseholdnumber}}
+            </view>
+         
+          </view>
+          <view class=' msg_box'>
+            <view class='titles'>容积率</view>
+            <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.volumefraction}}
+            </view>
+          </view>
+     
+          <view class=' msg_box'>
+            <view class='titles'>绿化率</view>
+            <view class='msgs'>
+              <text class='maohao'>：</text>
+              {{buildinfo.greenrate}}
+            </view>
+          </view>
+         
+        </view>
+          
+      </view>
+
+      <!-- 更多部分 -->
+      <view class='bottom_box' hidden='{{bottomShow}}'>
+        <view class=' msg_box'  wx:if="{{buildinfo.country}}">
+          <view class='titles'>区域</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.country}}
+          </view>
+        </view>
+        <view class=' msg_box'  wx:if="{{buildinfo.foolernumber}}">
+          <view class='titles'>层数</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.foolernumber}}
+          </view>
+        </view>
+        <view class=' msg_box'  wx:if="{{buildinfo.foolerhight}}">
+          <view class='titles'>层高</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.foolerhight}}
+          </view>
+        </view>
+        <view class=' msg_box'  wx:if="{{buildinfo.housepotial}}">
+          <view class='titles'>医院</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.housepotial}}
+          </view>
+        </view>
+        <view class=' msg_box'  wx:if="{{buildinfo.shoppingCenter}}">
+          <view class='titles'>学校</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.shoppingCenter}}
+          </view>
+        </view>
+         <view class=' msg_box'  wx:if="{{buildinfo.restRant}}">
+          <view class='titles'>餐饮</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.restRant}}
+          </view>
+        </view>
+        <view class=' msg_box' wx:if="{{buildinfo.school}}">
+          <view class='titles'>购物</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.school}}
+          </view>
+        </view>
+        <view class=' msg_box' wx:if="{{buildinfo.othter}}">
+          <view class='titles'>其他</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.othter}}
+          </view>
+        </view>
+        <view class=' msg_box' wx:if="{{buildinfo.occupiedarea}}">
+          <view class='titles'>占地面积</view>
+          <view class='msgs'>
+            <text class='maohao'>：</text>
+            {{buildinfo.occupiedarea}}
+          </view>
+        
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildingarea}}">
+        <view class='titles'>建筑面积</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildingarea}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildinfo}}">
+        <view class='titles'>建筑信息</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildinfo}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.noopsychefurnishing}}">
+        <view class='titles'>智能家居</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.noopsychefurnishing}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.threeconstantsys}}">
+        <view class='titles'>三恒系统</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.threeconstantsys}}
+        </view>
+      </view>
+       <view class=' msg_box' wx:if="{{buildinfo.landcertificate}}">
+        <view class='titles'>土地证</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.landcertificate}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.builddesigncompany}}">
+        <view class='titles'>建筑设计</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.builddesigncompany}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.parkdesigncompany}}">
+        <view class='titles'>园林设计</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.parkdesigncompany}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildingexecutionlicence}}">
+        <view class='titles'>建筑施工</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildingexecutionlicence}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.hardbackdesigncompany}}">
+        <view class='titles'>精装设计</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.hardbackdesigncompany}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildingplanlicence}}">
+        <view class='titles'>工规证</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildingplanlicence}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildingexecutionlicence}}">
+        <view class='titles'>施工证</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildingexecutionlicence}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.buildingopenlicence}}">
+        <view class='titles'>开工证</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.buildingopenlicence}}
+        </view>
+      </view>
+      <view class=' msg_box' wx:if="{{buildinfo.commodityhousedeallicence}}">
+        <view class='titles'>预售证</view>
+        <view class='msgs'>
+          <text class='maohao'>：</text>
+          {{buildinfo.commodityhousedeallicence}}
+        </view>
+      </view>
+    </view>
+    <view class='btn_all' bindtap='showMore'>
+      <image class='imgs' wx:if="{{bottomShow}}" src='/img/zhankai.png'></image>
+      <image class='imgs' wx:if="{{!bottomShow}}"   src='/img/heqi.png'></image>
+    </view>
+    <view class='tel_box'>
+      <view class='titles2'>
+        专享服务
+      </view>
+      <view class='tels'>
+        <view class='left'>
+          <view class='tel_num'>400-900-2225转1</view>
+          <view class='tel_msg'>最新政策、更多优惠详情，请致电展示中心</view>
+        </view>
+        <view class='right' bindtap='Call'></view>
+      </view>
+    </view>
+  
+    </view>
+  </view>
+
+<view class='btn_box'>
+  <view class='btn_sty red' bindtap='Predetermine'>预约看房</view>
+</view>
+<view class = "loading" wx:if = "{{loading}}">
+  <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+</view> 
+
+<view class = "bigPicture" catchtap='bigPicture' wx:if="{{bigPicture}}">
+     <view class="swipers bigPictureOne bigPicturefouce">
+      <swiper class='swiper_box' 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{newCurrent}}" bindchange="SwiperChange2" >
+        <block wx:for="{{swiperArr}}" wx:key="item.src">
+          <swiper-item>
+            <image src="{{item.src}}" class="slide-image"  height="240"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  
+</view>
+    
+

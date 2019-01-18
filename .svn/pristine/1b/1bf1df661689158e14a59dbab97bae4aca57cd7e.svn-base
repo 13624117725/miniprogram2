@@ -1,0 +1,30 @@
+<view class="suggestion">
+  <view class='tab_box'>
+    <view class='tab_btn {{acindex==1? "Actived" : ""}}' data-acindex='1' bindtap='tabChouse'>我要投诉</view>
+    <view class='tab_btn {{acindex==2? "Actived" : ""}}'  data-acindex='2' bindtap='tabChouse'>查看投诉记录</view>
+  </view>
+  <view class='bodys' wx:if='{{acindex==1}}'>
+    <view class='suggest'>
+      <view class='titles'>
+        投诉详情
+      </view>
+      <view>
+      <form bindsubmit="SaveTextVal">
+        <textarea class='textarea' maxlength="200" placeholder='请您详细描述投诉对象及理由，保证国安家及时准确处理您的投诉'  name="textarea"></textarea>
+        <button  class='btn_box' form-type="submit">
+        提交投诉
+      
+        </button >
+      </form>
+        
+      </view>
+      
+    </view>
+    <!-- <view class='suggestList'>
+    
+    </view> -->
+  </view>
+  <view class='bodys' wx:if='{{acindex==2}}'>
+    <suggesScall></suggesScall>
+  </view>
+</view>

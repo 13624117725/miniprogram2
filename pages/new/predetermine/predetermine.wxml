@@ -1,0 +1,60 @@
+<view class='predetermine'>
+  <view class='buildCard'>
+    <image src='{{buildData.firsturl}}' class='leftImg'></image>
+    <view class='right_box'>
+      <view class='buildName'>[{{buildData.city}}]{{buildData.buildname}}</view>
+      <view class='area'>
+        {{buildData.averageprice}}元/㎡
+      </view>
+       <view class='sizes'>
+        {{buildData.arearegion}}
+      </view>
+      <view class='sizes'>
+        {{buildData.address}}
+      </view>
+    </view>
+
+  </view>
+  <view class='form_box'>
+    <view class='int_box'>
+      <view class='labels'>姓名</view>
+      <input class='input' type='text' bindinput="getName" placeholder='请输入姓名' ></input>
+    </view>
+    <view class='int_box'>
+      <view class='labels'>电话</view>
+      <input class='input' type='text' bindinput="setPhone" placeholder='请输入电话'></input>
+    </view>
+    <view class='int_box'>
+      <view class='labels'>人数</view>
+      <input class='input' type='number' bindinput="setScancount" placeholder='请输入人数（人）'></input>
+    </view>
+     <!-- <view class='int_box'>
+      <view class='labels'>时间</view>
+      <picker mode="date" value="{{pdate}}" class='input' start="2015-01-01" end="2022-12-12" bindchange="bindDateChange">
+         <view class="picker pickerView">
+         <text class='scantime' wx:if="{{postData.scantime}}">{{postData.scantime}}</text>
+         <text wx:else>请选择日期</text>
+            
+          
+         </view>
+      </picker>
+    </view> -->
+    <view class='int_box'>
+      <view class='labels'>时间</view>
+      <picker mode="multiSelector" value="{{pdate}}" class='input' start="2018-12-12" end="2019-01-11" bindchange="bindDateChange" range="{{multiArray}}">
+         <view class="picker pickerView">
+         <text class='scantime' wx:if="{{postData.scantime}}">{{year+'-'}}{{time}}</text>
+         <text wx:else>请选择日期</text>
+            
+          
+         </view>
+      </picker>
+    </view>
+  </view>
+  <view class='bottombtn' bindtap='postPredete'>
+    提交约看
+  </view>
+   <view class = "loading" wx:if = "{{loading}}">
+        <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+  </view> 
+</view>

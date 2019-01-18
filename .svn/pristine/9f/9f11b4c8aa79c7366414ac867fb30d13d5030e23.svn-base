@@ -1,0 +1,85 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<view class = "personalCenter">
+    <view class = "header">
+        <image src = "/img/personalInfo.png" class = "image"></image>
+        <view class = "header_info">
+            <view class = "header_info_left">
+                <image wx:if="{{!headImg}}" src = "/img/topHeader.png" class = "imageOne"></image>
+                <image wx:if="{{headImg}}" src = "{{headImg}}" class = "imageOne"></image>
+            </view>
+            <view class = "header_info_right">
+              <view class= "header_info_right_height">
+                <view class = "header_info_right_top">
+                    <view  class = "loginIsRegister" bindtap = "loginIsRegister" wx:if = "{{loginIsRegisterHidden}}">请登录/注册</view>
+                    <view class = "loginIsRegister"   wx:if = "{{!loginIsRegisterHidden}}">{{loginIsRegister}}</view>
+                    <view class = "SignIn" bindtap = "SignIn">{{SignIn}}</view>
+                </view>
+                <view class = "header_info_right_bottom"  wx:if = "{{phoneHidden}}">您的手机号我们将为您严格保密</view>
+                <view class = "header_info_right_bottom"  wx:if = "{{!phoneHidden}}">{{phone}}</view>
+              </view>
+            </view>
+        </view>
+        <image src = "/img/Setedit.png" class = "imageTwo" bindtap = "setUp"></image>
+    </view>
+    <!-- 列表 -->
+    <view class = "list">
+      <view class= "list_li" wx:for = "{{list}}" wx:key="{{item.src}}">
+          <view bindtap="goListLi" data-id="{{item.id}}">
+            <image src = "{{item.src}}" class = "url"></image>
+            <view class= "name">{{item.name}}</view>
+          </view>
+      </view>
+    </view>
+    <!-- 新房列表 -->
+    <view class= "new">新房</view>
+    <view class= "new_list">
+       <view class= "new_list_li" wx:for = "{{new_list}}" wx:key = "index">
+          <view bindtap = "new_goListLi" data-id = "{{item.id}}">
+            <image src = "{{item.src}}" class = "url"></image>
+            <view class= "name">{{item.name}}</view>
+          </view>
+      </view>
+    </view>
+    <!-- 租房列表 -->
+    <view  class= "rent">租房</view>
+    <view class= "new_list">
+       <view class= "new_list_li" wx:for = "{{rent_list}}" wx:key = "index">
+          <view bindtap = "rent_goListLi" data-id = "{{item.id}}">
+            <image src = "{{item.src}}" class = "url"></image>
+            <view class= "name">{{item.name}}</view>
+          </view>
+      </view>
+    </view>
+    <!-- 新房img -->
+    <image class = "new_img" src = "/img/HainanCity.png"></image>
+    <!-- 电话 -->
+    <view class= "hotline_phone" bindtap = "callPhone">
+            <view class = "hotline">服务热线</view>
+            <view class = "phone">400 900 2225</view>
+    </view>
+    <view  class = "share">
+        <button  data-name="shareBtn" open-type="share" class = "button"> 分享国安家 </button>
+    </view>
+    
+    <!-- ulli -->
+     <view class= "Btn_bottom">
+       <view class= "Btn_bottom_li" wx:for = "{{Btn_bottom}}" wx:key = "index">
+          <view bindtap = "Btn_bottom_goListLi" data-id = "{{item.id}}" class = "li">
+            <view class= "name">{{item.name}}</view>
+            <image src = "/img/jump.png" class= "url"></image>
+          </view>
+      </view>
+    </view>
+    <!-- <login class="{{show==2?'true':'hidden'}}"
+      bind:close = "closeLogin"
+      bind:loginSuccess = "loginSuccess"
+    ></login> -->
+    
+</view>
+<view class = "market"  wx:if="{{showMarket}}" bindtap = "marketHide">
+      <view class="singnSuccess" v-transfer-dom wx:if="{{showSuccess}}" bindtap="marketClick">
+          <view style="color:#333333;margin-top:440rpx;font-size:35rpx;display:block;text-align:center;overflow:hidden;">{{showText}}</view>
+          <view style="text-align:center;font-size:60rpx;margin-top:25rpx;display:block;color:rgb(254, 81, 55);font-weight:500;">{{showNum}}</view>
+          <view class="qdBtn" bindtap="qdBtnClick">查看积分</view>
+      </view>
+    </view>

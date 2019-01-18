@@ -1,0 +1,35 @@
+<scroll-view class='InvitedBuild' scroll-y='true'>
+  <view class='card' wx:for='{{showList}}' wx:key='{{item.id}}'>
+    <view class='top'>
+      <view class='titles'>
+        约看时间:{{item.appointmentTime}}
+      </view>
+      <view class='titles_msg'>
+        {{item.state}}
+      </view>
+      
+    </view>
+    <view class='middle'>
+      <image class='leftImg'
+      src="{{item.picture}}"></image>
+      <view class='build_info'>
+        <view class='bname'>[{{item.location}}]{{item.buildName}}</view>
+        <view class='list2'>{{item.price}}元/㎡</view>
+        <view class='list'>{{item.content}}</view>        
+        <view class='list'>{{item.appointmentAddress}}</view>
+      </view>
+
+
+    </view>
+    <view class='bottom'>
+      
+      <view class='pay_bxo'>约看地点： {{item.lookAddress}}</view>
+
+      <view class='smbtn1' bindtap='Call' >联系客服</view>
+     
+    </view>
+    
+  </view>
+  <view class='line'>－　已经到最后了　－</view>
+  <view class='no-Data' wx:if="{{showList.length<1}}"></view>
+</scroll-view>

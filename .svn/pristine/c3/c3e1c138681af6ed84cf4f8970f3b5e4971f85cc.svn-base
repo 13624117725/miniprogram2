@@ -1,0 +1,77 @@
+  <!--pages/personalCenter/myLease/myLease.wxml-->
+<view class = "myLease" wx:if = "{{myLeaseShowHide}}">
+    <view class = "myLeaseTop">
+    <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current = "{{index}}" class = "swiper" bindchange="SwiperChange">
+      <block wx:for="{{rentHouseNumber}}" wx:key= "{{index}}" >
+        <swiper-item class = "everySwiper">
+            <view>
+                <view>合同编号</view>
+                <view>{{item.saleContractId}}</view>
+            </view>
+            <view>
+                <view>物业地址</view>
+                <view>{{item.houseAddress}}</view>
+            </view>
+            <view>
+                <view>合约期</view>
+                <view>{{item.realRentMoney}}</view>
+            </view>
+            <view>
+                <view>租金</view>
+                <view>{{item.validDate+'--'+item.endDate}}</view>
+            </view>
+            <view>
+                <view>付款方式</view>
+                <view>{{item.receiptCycleName}}</view>
+            </view>
+            <view>
+                <view>本期</view>
+                <view>{{item.currentNumber}}</view>
+            </view>
+        </swiper-item>
+        
+      </block>
+    </swiper>
+  </view>
+  <view class = "myLeaseBottom">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" bindscrolltolower="bindDownLoad" bindscroll="scroll">
+    <block wx:for="{{goodsList}}" wx:key="item" >
+          <view class = "goodsList" data-receiptPlanId = "{{item.receiptPlanId}}" data-saleContractId = "{{item.saleContractId}}">
+                <view>
+                      <view>
+                          <view>{{'第'+item.number+'期'}}</view>
+                          <view>{{item.planRent+'元'}}</view>
+                      </view>
+                      <view>
+                          <view>
+                                <view>账单日期:</view>
+                                <view>{{item.rentDateStart+'--'+item.rentDateEnd}}</view>
+                          </view>
+                          <view>
+                                <view>应付款日:</view>
+                                <view>{{item.rentDate}}</view>
+                                <view></view>
+                          </view>
+                      </view>
+                </view> 
+                <view>
+                      <view>
+                          <view>实际缴纳费用:</view>
+                          <view>{{item.realRent==0?'0.00'+'元':item.realRent+'元'}}</view>
+                      </view>
+                      <view>
+                          <view class="dzf" wx:if="{{item.realRent>0}}" bindtap="payDetails" data-receiptPlanId = "{{item.receiptPlanId}}" data-saleContractId = "{{item.saleContractId}}"  data-listShowHide = "{{show}}">支付详情</view>
+                          <view class="zf" bindtap="paywayClick" wx:if="{{!item.payStatus}}"  data-receiptPlanId = "{{item.receiptPlanId}}" data-saleContractId = "{{item.saleContractId}}" data-listShowHide = "{{hide}}">在线支付</view>
+                      </view>
+                </view>
+          </view>
+   </block>
+</scroll-view>
+  </view>
+</view>
+<view wx:if = "{{!myLeaseShowHide}}" style = "width:480rpx;height:480rpx;margin:0 auto;">
+
+   <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png" style = "width:100%;height:100%;display:block"></image>
+
+</view>

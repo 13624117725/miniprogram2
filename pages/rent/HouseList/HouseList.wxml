@@ -1,0 +1,209 @@
+<!-- 房间列表 -->
+<view class= "houseList">
+      <!-- 输入框 -->
+        <view class='searchInput'>
+          <view class='ipu_box'>
+            <input class='ipt' value="{{Iptvalue}}" bindinput = "inputSearch" bindfocus="inputFocus"></input>
+            <view class='searchs' bindtap = "searchs"></view>
+          </view>
+          <!-- <view class='dress'></view> -->
+        </view>
+
+        <view class='cearchList'  wx:if="{{cearchListShow}}">
+          <searchpage bind:textClick="textClick"></searchpage>
+        </view>
+
+          <view class = "title_list">
+              <view wx:for = "{{titleList}}" wx:key="index" bindtap = "titleList" data-index = "{{index}}" >
+                    <view class = "{{item.id == titleListOne?'red':''}}">{{item.name}}</view>
+                    <image src = "{{item.img}}"></image>
+              </view>
+          </view>
+          <view class = "screen {{screenShowHide?'screenShow':'screenHide'}}">
+              <view class = "region">
+                  <view class = "regionLeft">
+                      <view  class = "regionLeftBuXian" >
+                           <text class = " li {{regionLeftBuXian?'regionLeftListredColor':''}}"  bindtap='regionLeftBuXian'>不限</text>
+                      </view>
+                      <view wx:for = "{{regionLeft}}" bindtap = "regionLeftList" data-index = "{{index}}" data-name = "{{item.name}}" >
+                            <text class = " li {{item.ct==0?'':'regionLeftListredColor'}}">{{item.name}}</text>
+                      </view>
+                  </view>
+                  <view class = "regionRight">
+                        <view  class = "regionRightBuXian" >
+                           <text class = " li {{regionRightBuXian?'regionRightListredColor':''}}"  bindtap='regionRightBuXian'>不限</text>
+                        </view>
+                      <view wx:for = "{{regionRight}}" bindtap = "regionRightList" data-index = "{{index}}" data-id ="{{item.id}}" data-name ="{{item.name}}">
+                            <text class = " li {{item.ct==0?'':'regionRightListredColor'}}">{{item.name}}</text>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view class = "screenOne {{screenOneShowHide?'screenOneShow':'screenOneHide'}}">
+              <view class = "metro">
+                  <view class = "metroLeft">
+                
+                      <view  class = "metroLeftBuXian" >
+                           <text class = " li {{metroLeftBuXian?'metroLeftredColor':''}}"  bindtap='metroLeftBuXian'>不限</text>
+                      </view>
+                      <view wx:for = "{{metroLeft}}" bindtap = "metroLeftList" data-index = "{{index}}" data-id = "{{item.id}}" >
+                          <text class = " li {{item.ct==0?'':'redColor'}}">{{item.name+'('+ item.totalNum +')'}}</text>
+                      </view>
+                  </view>
+                  <view class = "metroRight">
+                        <view  class = "metroRightBuXian" >
+                           <text class = " li {{metroRightBuXian?'metroRightredColor':''}}"  bindtap='metroRightBuXian'>不限</text>
+                      </view>
+                      <view wx:for = "{{metroRight}}" bindtap = "metroRightList" data-index = "{{index}}" data-id ="{{item.id}}" data-name ="{{item.name}}">
+                          <text class = " li {{item.ct==0?'':'redColor'}}">{{item.name+'('}}{{(item.totalNum===undefined?0:item.totalNum)+')'}}</text>
+                      </view>
+                  </view>
+              </view>
+            </view>
+        <view class = "screenTwo {{screenTwoShowHide?'sscreenTwoShow':'screenTwoHide'}}">
+            <!-- <view class='sliderHCon'>
+              <view class='showMoney'>
+                <text class='MoneyValue'>￥{{leftValue}}</text>
+                <text class='MoneyValue'>￥{{rightValue}}</text>
+              </view>
+              <view class='twoSlider'>
+                <slider min='{{leftMin}}' max='{{leftMax}}' value='{{leftValue}}' activeColor='#cecacb' backgroundColor='#f26a36' block-size='20' step='100' style='width:{{leftWidth}}%;margin-right:0rpx;' bindchange="leftChange" />
+                <slider min='{{rightMin}}' max='{{rightMax}}' value='{{rightValue}}' activeColor='#f26a36' backgroundColor='#cecacb' block-size='20' step='100' style='width:{{rightWidth}}%;margin-left:0rpx;' bindchange="rightChange" />
+              </view>
+            </view> -->
+            <!-- <view style = "display:flex">
+                <view>
+                  <view>最少金额</view><input type= "number" min = "500" max = "10000" maxlength='5' value= "500" style = "border:1rpx solid #000;text-align:center"></input>
+                </view>
+                <view>
+                  <view>最大金额</view><input type= "number" min = "500" max = "10000" maxlength='5' value= "10000" style = "border:1rpx solid #000;text-align:center"></input>
+                </view>
+            
+            </view> -->
+          
+            <view class= "search">
+              <view bindtap = "priceSearch">确定</view>
+              <view bindtap = "clearPrice">重置</view>
+            </view>
+        </view>
+        <view class = "screenThree {{screenThreeShowHide?'screenThreeShow':'screenThreeHide'}}">
+        <view class = "regloinlists">
+                  <view class="search-house-list">
+                      <view class="types">房型</view>
+                      <view class="house-type-ul">
+                          <view wx:for="{{productTypes}}" wx:key="index">
+            <view  class="oLi {{item.type==Type?'redColorType':''}}"  bindtap="allMoreTypeClick" data-id = "{{item.id}}" data-type = "{{item.type}}" data-index = "{{index}}"  >{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="search-house-list household">
+                      <view class="types">户型</view>
+                      <view class="house-type-ul">
+                          <view wx:for="{{roomNos}}" wx:key="index">
+                              <view wx:key="index" class=" oLi {{item.type==roomNoType?'redColorType':''}}" bindtap="allHouseholdTypeClick" data-type = "{{item.type}}" data-index = "{{index}}" data-id = "{{item.id}}">{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="search-house-list household">
+                      <view class="types">朝向</view>
+                      <view class="house-type-ul">
+                          <view wx:for="{{orientationList}}">
+                              <view wx:key="index" class=" oLi {{item.type==orientationType?'redColorType':''}}"  bindtap="allOrientationClick" data-code="{{item.code}}" data-type="{{item.type}}">{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="search-house-list area">
+                      <view class="types">面积</view>
+                      <view class="house-type-ul">
+                          <view>
+                              <!-- <view  class="no-limit"  bindtap="areaLimitClick">不限</view>  -->
+                              <view wx:for="{{size}}"  wx:key="index" class=" oLi {{item.type==userAreaType?'redColorType':''}}"  bindtap="allAreaClick" data-id= "{{item.id}}" data-index= "{{item.index}}" data-type= "{{item.type}}" >{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>  
+                  <view class="search-house-list household">
+                      <view class="types">室友性别</view>
+                      <view class="house-type-ul">
+                          <view wx:for="{{genderList}}">
+                              <view wx:key="index" class=" oLi {{item.label == genderType ?'redColorType':''}}" data-id="{{item.value}}" bindtap="genderClick"  data-label="{{item.label}}">{{item.label}}</view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="search-house-list household">
+                      <view class="types">星座</view>
+                      <view class="house-type-ul">
+                          <view wx:for="{{constellationList}}"  wx:key="index">
+                              <view class=" oLi {{item.type == constellationType ?'redColorType':''}}" data-type = "{{item.type}}" bindtap="constellationClick">{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>
+                  <!-- <view class="search-house-list area">
+                      <view class="types">更多</view>
+                      <view class="house-type-ul" style="border:none;">
+                          <view>
+                              <!-- <li  class="no-limit" :class="{redColor:isLimitFeature}" @click="featureLimitClick">不限</li>  -->
+                              <!-- <view></view>
+                              <view wx:for="{{feature}}" wx:key="index" class="feature-list {{item.ct == 1 ?'redColorType':''}}" bindtap="featureClick" data-type = "{{item.type}}" data-item = "{{item}}"  data-index = "{{index}}">{{item.type}}</view>
+                          </view>
+                      </view>
+                  </view>  -->
+                  <view style="height:120rpx;"></view>
+        </view> 
+          <view class="buttons">
+              <view class = "subMit" bindtap = "subMit">筛选</view>
+              <view class = "exit" bindtap = "exit">重置</view>
+          </view>  
+        </view>
+        <scroll-view scroll-y="true" class='sc_lower'  bindscrolltolower = "lower" >
+            <view class= "house_content">
+                <view wx:if="{{rentHouseListShowHide == false}}" class ="rentHouseListNo" >
+                  <view>
+                    <image src = "https://media.guoanfamily.com//miniProgram/nodataimg.png"></image>
+                  </view>
+                  <view>本区域暂时没有满足您需求的房源,可继续搜索其他区域!</view>
+                  <view>调整您的搜索条件可能会有所帮助!</view>
+                  <view>继续找房</view>
+                </view>
+                <view wx:if="{{rentHouseListShowHide == true}}" class = "rentHouseList">
+                      <view wx:for = "{{rentHouseList}}">
+                          <view bindtap = "goRentDetails" data-id="{{item.id}}" data-productType = "{{item.productType}}">
+                              <view>  
+                                  <view>
+                                      <image src = "{{'http://img.guoanfamily.com/'+item.attachImage[0]}}" lazy-load="true"></image>
+                                      <view class = "price">
+                                        {{item.price+'元/月'}}
+                                      </view>
+                                  </view>
+                                  <view>
+                                      <image src = "{{'http://img.guoanfamily.com/'+item.attachImage[1]}}"></image>
+                                      <image src = "{{'http://img.guoanfamily.com/'+item.attachImage[2]}}"></image>
+                                  </view>
+                              </view> 
+                              <view>
+                                    <view>{{item.houseName+''+item.roomName}}</view>
+                                    <view>
+                                          <view>{{item.buildNo+'号楼'+item.roomName}}</view>
+                                          <view>{{item.buildFloor+'层/'+item.userArea+'㎡'}}</view>
+                                    </view>
+                              </view>
+                              <view>
+                                  <view  wx:for = "{{item.tags}}">{{item}}</view>
+                              </view>
+                      
+                          </view>  
+                      </view>
+                </view>
+                <view wx:if = "{{bottomShow}}" class = "bottomShow">
+                    <view>--------已经到最后了--------</view>
+                    <view>400-900-2225</view>
+                    <view>试试拨打热线告诉我们你的租房需求!</view>
+                </view>
+            </view>
+        </scroll-view>
+ <view class = "loading" wx:if = "{{loading}}">
+        <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+   </view>  
+        <view class="myslider" >
+          <myslider  id="myslider1" minValue="{{minValue}}" maxValue="{{maxValue}}" min="500" max="10000" blockColor="#eee" backgroundColor="#ccc" selectedColor="#d6000f" bind:lowValueChange="lowValueChangeAction" bind:heighValueChange="heighValueChangeAction"></myslider>
+        </view>
+</view>

@@ -1,0 +1,25 @@
+<!--components/login/login.wxml-->
+<view class= "login">
+      <view class = "close" bindtap = "close">
+          <image class = "closeImg" src = "/img/close2.png" ></image>
+      </view>
+      <view class = "login_top">
+            <text class = "login_top_title">登录</text>
+            <text class = "login_top_title_one">欢迎来到国安家</text>
+            <text  class = "login_top_title_two">若是您第一次登录,我们将自动以您的手机号注册</text>
+      </view> 
+      <view class = "login_center">
+            <view >
+                  <input type= "number" class = "inputPhone" maxlength='11' placeholder="请输入手机号" bindinput  = "getPhone" ></input>
+            </view>
+             <view class = "Code">
+                <input type= "number" class = "inputCode codeContent" placeholder="请输入验证码" maxlength='6' bindinput = "getCode"></input>
+                <button disabled="{{disabled}}"  class = "getCode codeContent" bindtap = "getCodeInfo">{{buttonTip}}</button>
+             </view>
+             <view class= "content"  hidden='{{show}}'>{{isContent}}</view>
+      </view>
+      <view class = "login_bottom">
+          <view class = "login_button" bindtap="submit">安全登录</view>
+          <view class = "Hotline">服务热线:400-900-2225</view>
+      </view>
+</view>

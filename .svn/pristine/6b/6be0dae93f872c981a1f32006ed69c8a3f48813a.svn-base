@@ -1,0 +1,101 @@
+/* pages/new/newIndex/newIndex.wxss */
+.newIndex{
+  padding: 0 30rpx;
+}
+.cards .bgi{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50% ,-50%)
+}
+.swipers{
+  position: relative;
+}
+.section{
+  position: absolute;
+  top:20rpx;
+  width: 92%;
+  left: 4%;
+  background-color:rgba(255,255,255,0.6);
+   height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-radius: 5px;
+}
+.section .left_box{
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+ 
+}
+.section .left_box .bgi{
+  width: 50%;
+  height: 50%;
+}
+.section .middle_box{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top:0;
+  padding:0 80rpx ; 
+  box-sizing: border-box;
+  color: #fff;
+}
+.section .right_box{
+  float: right;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  /* background: #000; */
+}
+.section .right_box .adress{
+  width: 100%;
+  position:absolute;
+  top:50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-left:1px solid #fff;
+  height: 40rpx;
+}
+.section .right_box .adress .bgi{
+  width: 40%;
+  height: 90%;
+}
+.swiper_box{
+  height: 400rpx;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.slide-image{
+  width: 100%;
+  height: 400rpx;
+}
+.housesList{
+  width: 100%;
+  display: flex;
+  padding: 40rpx 0;
+}
+.housesList .loupanList{
+  flex:1;
+  text-align: center;
+  background: #eeeeee;
+  margin: 0 10rpx;
+  padding: 10rpx 0;
+  border-radius: 8rpx;
+}
+.housesList .loupanList .name {
+  font-size: 28rpx;
+}
+.housesList .loupanList .English {
+  font-size: 18rpx;
+  color: #cccccc;
+}
+
+/* 分隔线 */
+.line{
+  width: 100%;
+  height: 20rpx;
+  background: #eeeeee;
+  margin-bottom: 40rpx;
+}

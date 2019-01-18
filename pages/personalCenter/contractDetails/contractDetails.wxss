@@ -1,0 +1,96 @@
+ /* pages/personalCenter/contractDetails/contractDetails.wxss */
+.contractDetails{
+
+  box-sizing: border-box;
+}
+
+.tabs{
+  margin-left: 10rpx;
+  background-color: #eee;
+  color: #999;
+}
+.contractDetailsList_details{
+  display: flex;
+  padding:30rpx; 
+  box-sizing: border-box;
+
+  border-bottom:20rpx solid #ddd;
+}
+.contractDetailsList_details>image{
+  width: 280rpx;
+  height:210rpx;
+  border-radius: 10rpx;
+}
+.contractDetailsList_details_li{
+  margin-left: 20rpx; 
+}
+.contractDetailsList_details_li>view:nth-child(1){
+  font-size:32rpx;
+  white-space: nowrap;
+  color:#000;
+}
+.contractDetailsList_details_li>view:nth-child(2){
+  font-size: 26rpx;
+  white-space: nowrap;
+  color: #666;
+  margin: 15rpx 0;
+}
+.contractDetailsList_details_li>view:nth-child(3){
+  font-size: 28rpx;
+  white-space: nowrap;
+  color: #000;
+}
+.contractDetailsList_details_li>view:nth-child(4){
+ 
+ margin-top: 10rpx;
+ overflow-x:hidden; 
+}
+.contractDetailsList_details_li>view:nth-child(4)>view{
+    font-size: 28rpx;
+    float: left;
+    padding: 5rpx 10rpx;
+  
+}
+.contractDetailsList_li{
+  padding: 30rpx 30rpx 0;
+  box-sizing: border-box;
+   border-bottom:20rpx solid #ddd;
+}
+.contractDetailsList_li>view{
+  display: flex;
+  justify-content:space-between ;
+  align-items:center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #DDDDDD;
+}
+.contractDetailsList_li>view:nth-child(3)>view:nth-child(2){
+  display: flex;
+}
+.contractDetailsList_li>view:nth-child(4)>view:nth-child(2){
+  display: flex;
+}
+.contractDetailsList_li>view>view:nth-child(1){
+  color:#000;
+  font-size: 32rpx;
+
+}
+.contractDetailsList_li>view>view:nth-child(2){
+  color:#999;
+  font-size: 28rpx;
+  
+}
+.remark_box{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.remark_label{
+  font-size: 32rpx;
+  float: left;
+  width: 26%;
+}
+.infos{
+
+  font-size: 28rpx;
+  float: left;
+  width: 74%;
+}

@@ -1,0 +1,45 @@
+<!--pages/rent/Apartment/Apartment.wxml-->
+<view style="width: 100%;height: 100%;">
+		<view class="background-banner">
+			<view class="background-banner-hosue">
+				<view class="serve-box">
+					<view class="serve-item">
+            <image src="https://img.guoanfamily.com/miniProgram/anquan.png" alt=""></image>
+						<view>安全舒适</view>
+					</view>
+					<view class="serve-item">
+            <image src="https://img.guoanfamily.com/miniProgram/diduan.png" alt="" ></image>
+						<view>热门地段</view>
+					</view>
+					<view class="serve-item">
+            <image src="https://img.guoanfamily.com/miniProgram/shequ.png" alt="" ></image>
+						<view>青年社区</view>
+					</view>
+					<view class="serve-item">
+            <image src="https://img.guoanfamily.com/miniProgram/guajia.png" alt=""></image>
+						<view>专属管家</view>
+					</view>
+				</view>
+				<view class="right-home1" bindtap="tohouselistHjl">
+          <image src = "https://img.guoanfamily.com/home1.jpg" alt="" ></image>
+				</view>
+				<view class="right-home1" style="margin-top: 0.2rem;" bindtap="tohouselistHjl">
+          <image src = "https://img.guoanfamily.com/home2.jpg" alt="" ></image>
+				</view>
+				<view class="lookMore1" bindtap="tohouselistHjl">查看更多>>	
+				</view>
+				<view class="right-home2" bindtap="tohouselist" >
+          <image  src = "https://img.guoanfamily.com/home3.jpg" alt="" ></image>
+				</view>
+				<view class="right-home2" style="margin-top: 0.2rem;" bindtap="tohouselist">
+					<image src = "https://img.guoanfamily.com/home4.jpg" alt="" ></image>
+				</view>
+				<view class="lookMore1 lookMore2" bindtap="tohouselist">查看更多>>
+					
+				</view>
+				<view class="bottom-home" bindtap="houselist"></view>
+			
+			</view>
+		</view>
+		<view class="back-vr" bindtap="goback"></view>
+	</view>

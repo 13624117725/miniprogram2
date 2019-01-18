@@ -1,0 +1,201 @@
+.Mycard{
+  height: 100%;
+  width: 100%;
+
+}
+.masks{
+  position: fixed;
+
+}
+.scroll_box{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.card{
+  height: 400rpx;
+  margin-bottom: 80rpx;
+  position: relative;
+  overflow: hidden;
+  background: url("https://img.guoanfamily.com/miniProgram/cardBg2.png") center no-repeat/contain;
+}
+.card_info{
+  width: 180rpx;
+  height: 40rpx;
+  position: absolute;
+  right:20rpx;
+  top:120rpx;
+}
+.card.card1{
+  background: url("https://img.guoanfamily.com/miniProgram/cardbg01.png") center no-repeat/contain;
+}
+.top_box{
+  width: 518rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0;
+}
+.Datafrom{
+  font-size: 32rpx; 
+  float: left;
+  margin-left: 20rpx;
+  color: #fff;
+  margin-top: 48rpx; 
+}
+.maney_box{
+  float: right;
+  margin: 32rpx 32rpx 0 0;
+  color: #fff;
+}
+.danwei{
+  font-size: 32rpx
+}
+.Num{
+  font-size: 48rpx;
+}
+.middle_box{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 80rpx;
+  margin-top: 154rpx;
+}
+.cardMsg{
+  height: 50rpx;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+}
+.card_num{
+  margin-top: 5rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  padding-left: 30rpx; 
+  color: #fff;
+}
+.btn_type{
+  float: right;
+  width: 140rpx;
+  height:50rpx;
+  margin-right:50rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  color: #DE5959;
+  border-radius: 4rpx;
+  line-height: 50rpx;
+}
+.no_type.btn_type{
+  background-color: #ccc;
+}
+.btn_type.in_type{
+  background-color: rgba(0, 0, 0, 0);
+  color: #000;
+}
+.btn_type.get_type{
+   background-color: rgba(0, 0, 0, 0);
+  color: #999;
+}
+.masks{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.bank{
+  width: 600rpx;
+  height: 570rpx;
+  padding: 200rpx 30rpx 0rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/bankNum.png") center no-repeat/100% 100%;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  margin: 200rpx auto;
+  position: relative;
+}
+.btn_box{
+  height: 80rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.bank_form{
+  height: 100%;
+  width: 100%
+}
+.delect,.makeShure{
+  float: left;
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  text-align: center;
+  border: none;
+  background-color: #fff;
+}
+.btn_box .delect{
+  border-radius: 0 0 0 10rpx;
+  color: #999;
+  box-sizing: border-box;
+  border-right:1px solid #ccc;
+}
+.btn_box .makeShure{
+  border-radius: 0 0 10rpx 0;
+  color: #000000;
+}
+
+.top_msg{
+  font-size: 32rpx;
+  margin-bottom: 20rpx; 
+  text-align: center;
+}
+.bankName{
+  font-size: 32rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left:20rpx; 
+  border-bottom: 1px solid #ccc;
+}
+.img{
+  margin-top: 80rpx; 
+  width: 600rpx;
+  height: auto;
+  position: relative;
+}
+.closeBox{
+  position: absolute;
+  width: 50rpx ;
+  height: 50rpx;
+  top: 80rpx;
+  right: 75rpx;
+  z-index: 9999;
+}
+.closeBox.closed_box{
+  background: url("https://img.guoanfamily.com/miniProgram/closed.png") center no-repeat/80% 80%;
+}
+
+.img.img2{
+   margin-top:160rpx; 
+   width: 580rpx;
+   margin-right:20rpx;
+}
+.myCardHide{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.myCardHide>view{
+  width: 60%;
+  margin: 0 auto;
+}
+.myCardHide>view>image{
+  margin-top: 10%;
+  width: 100%;
+  height: 500rpx;
+}

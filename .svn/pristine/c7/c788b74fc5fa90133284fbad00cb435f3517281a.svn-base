@@ -1,0 +1,18 @@
+
+<view class="container {{hideOption}}"> 
+<view class="slider-item min" style="left:{{leftValue}}rpx;background-color:{{blockColor}};" catchtouchmove="_minMove">
+  <view class='minval'>
+    {{lowValue}}元
+  </view>
+</view>
+<view class="slider-item max" style="left:{{rightValue}}rpx;background-color:{{blockColor}};" catchtouchmove="_maxMove">
+  <view class='minval'>
+    {{heighValue}}元
+  </view>
+</view>
+
+<view class="slider-body left" style="left:{{sliderLength}}rpx; width:{{leftValue}}rpx;background-color:{{backgroundColor}};"></view>
+<view class="slider-body body" style="left:{{leftValue}}rpx; width:{{rightValue-leftValue}}rpx;background-color:{{selectedColor}};"></view>
+<view class="slider-body right" style="left:{{rightValue}}rpx; width:{{totalLength - rightValue}}rpx;background-color:{{backgroundColor}};"></view>
+<slot></slot>
+</view>

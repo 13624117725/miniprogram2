@@ -1,0 +1,67 @@
+/* pages/personalCenter/setUp/setUp.wxss */
+
+.setUp{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.myData{
+  color:#e34b3e;
+  font-size: 42rpx;
+  line-height: 100rpx;
+}
+.setUp>view{
+  border: 1rpx solid #dddddd;
+  border-left:none;
+  border-right:none; 
+  border-bottom: none;
+}
+.setUp>view:nth-child(1){
+  border:none;
+}
+.setUp>view{
+  display: flex;
+  font-size: 28rpx;
+  height: 100rpx;
+}
+.setUp>view:nth-child(1){
+}
+input{
+  font-size: 25rpx;
+  color:#999;
+
+  padding-left: 30rpx;
+}
+.setUp>view>view{
+flex: 2;
+line-height: 100rpx;
+}
+.setUp>view>input{
+flex: 8;
+height: 100%;
+
+}
+ picker{
+flex:8;
+height:100rpx;
+padding-left: 30rpx;
+
+}
+.picker{
+  line-height: 100rpx;
+} 
+.list{
+  position: fixed;
+  bottom:0;
+  height: 100rpx;
+  width: 100%;
+  text-align: center;
+  background: #e34b3e;
+  left: 0;
+  color: #fff;
+}
+.list>view{
+  flex:1;
+}
+.list>view:nth-child(2){
+  background: #999;
+}

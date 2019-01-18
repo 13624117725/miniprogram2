@@ -1,0 +1,70 @@
+/* pages/index/showCenter/showCenter.wxss */
+.showCenter{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  background: #312317;
+}
+.logo{
+  margin-top: 40rpx;
+  margin-left: 50rpx;
+  height:50rpx;
+
+}
+.logo_img{
+  width: 148rpx;
+  height:50rpx;
+}
+.title_text{
+  margin: 30rpx auto 50rpx;
+  width: 300rpx;
+  height: 122rpx;
+}
+.text_img{
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_box{
+  width: 100%;
+  height: 500rpx;
+  
+}
+.swipers{
+  position: relative;
+}
+
+.slide-image{
+  width: 100%;
+  height: 500rpx; 
+}
+.bottom{
+  padding: 50rpx;
+}
+.bottom .p{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #fff;
+}
+.tels_box{
+  margin-top: 30rpx;
+  height: 60rpx;
+}
+
+.tels{
+  font-size: 40rpx;
+  color: #fff;
+  line-height: 60rpx;
+  float: left;
+}
+.teluico{
+  margin-left: 20rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/phone.png") center no-repeat/100%;
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+
+}

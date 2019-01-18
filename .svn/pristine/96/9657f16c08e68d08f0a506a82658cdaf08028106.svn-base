@@ -1,0 +1,24 @@
+<view class="scroll">
+  <scroll-view  scroll-y="true"  class="list" bindscrolltolower="bindDownLoad" >
+      <view class='view_Ul'>
+        <view class='view_li' wx:for="{{showArr}}" wx:key="{{item.id}}">
+          <view class='num'>
+            {{item.id}}
+            <text class='type' wx:if='{{item.orderName}}'>{{item.orderName}}</text>
+          </view>
+          <view class='sugessInfo'>
+            {{item.questionDescription}}
+          </view>
+          <view class='cr_time'>
+            投诉时间: {{ item.createTime}}
+          </view>
+        </view>
+        <view class = "image" wx:if = "{{noData}}">
+              <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+        </view>
+      </view>
+  </scroll-view>
+    <view class = "loading" wx:if = "{{loading}}" catchtouchmove="move">
+            <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+      </view> 
+</view>

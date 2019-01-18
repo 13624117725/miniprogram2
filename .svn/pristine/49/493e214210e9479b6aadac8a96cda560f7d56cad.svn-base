@@ -1,0 +1,27 @@
+<!--pages/personalCenter/myCleaning/myCleaning.wxml-->
+<view class = "myCleaning">
+  <scroll-view scroll-y="true" class='sc_lower'  bindscrolltolower = "lower" bindscrolltoupper="refresh" wx:if = "{{scrollerShow}}">
+
+				<view class = "myCleaningContent" wx:for = "{{myCleaningContent}}" wx:key = "index">
+					<view>
+						<view>保洁单号</view>
+						<view>{{item.orderId}}</view>
+					</view>
+					<view>
+						<view>上门时间</view>
+						<view>{{item.appointStartAEndDDate}}</view>
+					</view>
+					<view>
+						<view>服务地址</view>
+						<view>{{item.address}}</view>
+					</view>
+					<view>
+						<view>订单状态</view>
+						<view>{{item.orderStatusContent}}</view>
+					</view>
+			 </view>
+</scroll-view>
+<view class="noData" wx:else>
+    <!--<img src="../../../../static/new/img/noData.png"/>-->
+  </view>
+</view>

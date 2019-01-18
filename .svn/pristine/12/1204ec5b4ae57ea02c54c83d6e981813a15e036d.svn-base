@@ -1,0 +1,122 @@
+.Myintegral{
+  padding: 0 30rpx;
+}
+.top_card{
+  padding-top: 30rpx; 
+  height: 320rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/jifenBG.png") center no-repeat/100% 100%;
+}
+.top_card .titles{
+  line-height: 60rpx;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+}
+.top_card .number{
+  margin-top: 10rpx;
+  text-align: center;
+  color: #fff;
+  font:400 90rpx/140rpx "微软雅黑"
+}
+.top_card .btn_box{
+  height: 80rpx;
+  margin-top: 10rpx;
+  text-align: center;
+}
+.top_card .btn_box .s_btn{
+  height: 60rpx;
+  margin: 0 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  font:400 32rpx/60rpx "微软雅黑";
+  width: 240rpx;
+  color: #E65D35;
+  background-color: #FFED00;
+  border-radius: 30rpx;
+}
+.m_text{
+  margin-top: 10rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+
+}
+.botton_box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  overflow: auto;
+  top:430rpx;
+}
+.integral_li{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  background-color:#eee; 
+  border-radius: 8rpx;
+}
+.integral_li .li_span1{
+  float: left;
+  box-sizing: border-box;
+  padding-left:30rpx; 
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.integral_li .li_span2{
+  box-sizing: border-box;
+  padding-right: 30rpx;
+  min-width: 134rpx;
+  float: right;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.integral_li .li_span2.xiaofei{
+  padding-right:0; 
+}
+.li_info_ul{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.info_li{
+  height: 80rpx;
+  border-bottom: 1px solid #ccc;
+}
+.info_li:last-child{
+  border:none;
+}
+.green{
+  color: #92D634;
+}
+.red{
+  color: #E73C60;
+  
+}
+.info_li .info_li_box{
+  width: 33%;
+  box-sizing: border-box;
+  height:  80rpx;
+  float: left;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.info_li .info_li_box:nth-child(1){
+  padding-left: 20rpx;
+}
+.info_li .info_li_box:nth-child(2){
+  text-align: center;
+}
+.info_li .info_li_box:nth-child(3){
+  padding-right: 20rpx;
+  
+  text-align: right;
+}
+.no_data{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  background:#fff url("https://img.guoanfamily.com/rentPC/indexPage/noData.png") center no-repeat/60%;
+}

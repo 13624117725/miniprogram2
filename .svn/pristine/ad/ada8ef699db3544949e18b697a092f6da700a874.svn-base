@@ -1,0 +1,2 @@
+<!-- <view class='index_view' style="background: url('../../img/bgimg.png') center no-repeat; background-size：contain"></view> -->
+<web-view class='container' src="{{web_src}}" bindtap='toShare' bindmessage="bindmessage"></web-view>

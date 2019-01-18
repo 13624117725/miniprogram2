@@ -1,0 +1,80 @@
+/* pages/contractPay/contractPay.wxss */
+.background {
+  background: #e8e8e8;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.content{
+  padding: 0;
+}
+.borderB{
+  border-bottom: 10px solid #eee;
+}
+.info-group{
+  background: #fff;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+}
+
+.info-group .info-line{
+  padding: 10rpx;
+  overflow: hidden;
+}
+.info-line  .label{
+  float: left;
+}
+.info-line .info{
+  float: right;
+  color: #999;
+  width: 66%;
+  max-width: 70%;
+}
+
+.info .number{
+  color: #e24e5a;
+}
+
+.info-line.center{
+  text-align: center;
+}
+
+.info-line .num-btn{
+  display: inline-block;
+  background: #fff;
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+  color: #ccc;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 40rpx;
+  text-align: center;
+  padding: 0;
+}
+
+.info-line .rant-number{
+  display: inline-block;
+  width: 200rpx;
+ 
+  margin: 0 40rpx;
+  color: #e24e5a;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.info-line .tips{
+  font-size: 24rpx;
+  color: #e24e5a;
+}
+
+.content .submit{
+  background: #e24e5a;
+  height: 100rpx;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  line-height: 100rpx;
+  color: #fff;
+}

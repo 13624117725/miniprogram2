@@ -1,0 +1,40 @@
+<view class='bg'>
+  <view class='swiper_box' >
+    <swiper class='swiper_box' current="{{current}}" interval="{{interval}}" display-multiple-items='7' duration="{{duration}}"  bindchange="schange">
+      <block wx:for="{{cityArr}}"  wx:key="{{index}}" >
+        <swiper-item class="swiper_item" bindtap='swiperClick' data-item="{{item}}">
+          {{item}}
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='red_line'></view>
+
+    <view class='buildList'>
+      <view class='cityName'>
+        {{cityTitle[current].city}}
+      </view>
+      <view class='english'>
+        {{cityTitle[current].Ename}}
+      </view>
+      <view class='chinese'>
+        {{cityTitle[current].desc}}
+      </view>
+      <view class='swiper2_box'>
+        <swiper class='swiper2' current="{{current2}}"  next-margin="200rpx" interval="{{interval}}"  duration="{{duration}}">
+          <block wx:for="{{showBuildList[current]}}"  wx:key="{{index}}" >
+            <swiper-item class="swiper_item2" bindtap='buildClick' data-id="{{item.id}}">
+              <view class='img_box'>
+                <image class='imgs' src="{{item.firstpicture}}" />
+              </view>
+              <view class='build_name'>
+                {{item.buildname}}
+              </view>
+              <view class='icons'></view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+    </view>
+  </view>
+</view>

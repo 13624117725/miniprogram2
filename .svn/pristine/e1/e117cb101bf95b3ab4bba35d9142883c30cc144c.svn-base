@@ -1,0 +1,25 @@
+<!--components/new_title/new_tltle.wxml-->
+<view class = "new_title">
+    <view class = "new_title_top">
+      <image src = "/img/locationOne.png" class = "image"></image>
+      <view class = "city" >{{city}}</view>
+    </view>
+     <view class = "new_title_bottom">
+          <view class = "loupan">{{loupan}}</view>
+          <view class = "price">{{price=="售价待定"?"售价待定":'均价'+price+'元/㎡'}}
+          </view>
+     </view>
+     <scroll-view class="new_house_lB" scroll-x='true'>
+      <view class = "new_house_list">
+        <view class = "new_house_list_li" wx:for = "{{new_house_list_li}}" wx:key="{{item.buildid}}">
+          <view  bindtap = "gethouselist" data-id = "{{item.buildid}}" class = "HouseList">
+              <view class = "house_list_li_img">
+                  <image src = "{{'http://img.guoanfamily.com/'+item.picturename}}" class = "image"></image>
+              </view>
+          </view>
+        </view>
+      </view>
+        
+      </scroll-view> 
+</view>
+

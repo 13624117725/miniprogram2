@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "房价",
+  "usingComponents": {
+    "myslider": "/components/mySlider/mySlider"
+  }
+
+}

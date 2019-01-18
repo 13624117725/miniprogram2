@@ -1,0 +1,133 @@
+/* pages/personalCenter/lesseeContractDetailsPay/lesseeContractDetailsPay.wxss */
+.lesseeContractDetailsPay{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.lesseeContractDetailsPayTop>view{
+  display: flex;
+  align-items:center;
+  height: 60rpx;
+  margin-top: 20rpx;
+  font-size:32rpx;
+
+}
+.lesseeContractDetailsPayTop>view>view:nth-child(1){
+    width: 200rpx; 
+}
+.lesseeContractDetailsPayTop>view>view:nth-child(2){
+     color: #999999;
+     margin-left:20rpx; 
+}
+.lesseeContractDetailsPayTop>view:nth-child(5)>view:nth-child(2){
+     color:#E45044
+}
+.lesseeContractDetailsPayTop>view:nth-child(6)>view:nth-child(2){
+     color:#E45044
+}
+.lesseeContractDetailsPayTop>view:nth-child(7)>view:nth-child(2){
+     color:#E45044
+}
+.lesseeContractDetailsPayTop>view:nth-child(8){
+ 
+    border-top:15rpx solid #eeeeee;
+    border-bottom:15rpx solid #eeeeee;
+    padding: 25rpx 0;
+}
+.lesseeContractDetailsPayTop>view:nth-child(8)>view:nth-child(2){
+     color:#E45044
+}
+.info-group{
+  background: #fff;
+  font-size: 32rpx;
+  padding: 10rpx 0rpx;
+}
+
+.info-group .info-line{
+  padding: 20rpx 0;
+  overflow: hidden;
+}
+
+.info-line .info{
+  float: right;
+  color: #999;
+  max-width: 70%;
+}
+
+.info .number{
+  color: #e24e5a;
+}
+
+.info-line.center{
+  text-align: center;
+}
+
+.info-line .num-btn{
+  display: inline-block;
+  background: #fff;
+  border: 1rpx solid #B7B7B7;
+  color: #B7B7B7;
+  width: 40rpx;
+  height: 36rpx;
+  line-height: 30rpx;
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.info-line .rant-number{
+  display: inline-block;
+  width: 200rpx;
+  height: 80rpx;
+  margin: 0 40rpx;
+  color: #e24e5a;
+  font-size: 50rpx;
+  font-weight: bold;
+  position: relative;
+  top: 32rpx;
+  left: 0;
+}
+
+.info-line .tips{
+  font-size: 28rpx;
+  color: #e24e5a;
+}
+
+.truePay{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color:#fff;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  background: #E34B3E;
+  width: 100%;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.title{
+  display: flex;
+  background: #E34B3E;
+  color:#fff;
+}
+.title>view{
+   flex:1;
+   text-align: center;
+   padding: 15rpx 0;
+   font-size: 30rpx;
+}
+.content_list{
+  display: flex;
+}
+.content_list>view{
+  flex:1;
+   text-align: center;
+   padding: 15rpx 0;
+   font-size: 26rpx;
+   color:#999999;
+}

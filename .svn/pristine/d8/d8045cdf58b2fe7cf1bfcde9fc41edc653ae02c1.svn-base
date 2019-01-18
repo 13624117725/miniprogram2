@@ -1,0 +1,605 @@
+/**index.wxss**/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index_page {
+  padding: 5px 0 100rpx;
+}
+
+.cards {
+  padding: 0 30rpx;
+}
+
+.bgi {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swipers {
+  position: relative;
+}
+
+/* 三个点 */
+
+.bigSlide {
+  width: auto;
+  margin: 0 auto;
+  height: 60rpx;
+  text-align: center;
+}
+
+.bigSlide .smallSlidePage {
+  width: 30rpx;
+  height: 10rpx;
+  display: inline-block;
+  background: #CCCCCC;
+  margin-top: 25rpx;
+  margin-left: 10rpx;
+  border-radius: 5rpx;
+}
+.bigSlide .slideActive{
+  background: #F43333;
+}
+
+.section {
+  width: 94%;
+  margin-left: 3%;
+  margin-top: 10rpx;
+  /* background-color:rgba(255,255,255,0.6); */
+  height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-radius: 5px;
+  box-shadow: #ccc 0px 0px 30rpx;
+  color: #ccc;
+}
+
+.section .left_box {
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+}
+
+.section .left_box .bgi {
+  width: 50%;
+  height: 50%;
+}
+
+.section .middle_box {
+  /* position: absolute; */
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  color: #ccc;
+}
+
+.section .right_box {
+  float: right;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  /* background: #000; */
+}
+
+.section .right_box .adress {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-left: 1px solid #fff;
+  height: 40rpx;
+}
+
+.section .right_box .adress .bgi {
+  width: 40%;
+  height: 90%;
+}
+
+.swiper_box {
+  height: 400rpx;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.bars {
+  width: 100%;
+  padding: 60rpx 0;
+}
+
+.bars .btn {
+  width: 20%;
+  float: left;
+  height: 160rpx;
+  text-align: center;
+}
+
+.bars .btn-img {
+  vertical-align: top;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.bars .btn_info {
+  width: 100%;
+  margin-top: 8rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.lines {
+  border-bottom: 20rpx solid #eee;
+}
+
+.titles {
+  margin-top: 36rpx;
+  font-size: 36rpx;
+}
+
+.postImg {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  height: 186rpx;
+}
+
+.postImg .images {
+  width: 100%;
+  height: 100%;
+}
+
+/* .line2 {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 2px solid #eee;
+} */
+.titles2 .borderimg{
+  width:8rpx;height:40rpx;margin-top:6rpx;float:left;margin-right:6rpx;
+}
+.titles2 .left_box {
+  float: left;
+  width: 30%;
+  font-size: 34rpx;
+}
+.titles2 .Tips {
+line-height: 60rpm;
+color: #999;
+width: 30%;
+float: left;
+font-size: 23rpx;
+text-align: left;
+margin-top: 15rpx;
+}
+
+.titles2  .ac_more {
+  float: right;
+  width: 18%;
+  height: 35rpx;
+  margin-top:5rpx;
+  position: relative;
+}
+
+.titles2  .ac_more .bgi {
+  width: 90%;
+  height: 90%;
+}
+
+.info_box {
+  margin-top: 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.left_box {
+  float: left;
+}
+
+.info_box .ac_imgbox {
+  width: 320rpx;
+  height: 240rpx;
+}
+
+.ac_imgbox .ac_img {
+  width: 100%;
+  height: 100%;
+}
+
+.right_box {
+  float: right;
+}
+
+.ac_infobox {
+  width: 50%;
+  padding-bottom: 20rpx;
+}
+
+.ac_infobox .titles3 {
+  font-size: 34rpx;
+  color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ac_infobox .tags {
+  width: 100rpx;
+  height: 36rpx;
+  background: #e34b3e;
+  text-align: center;
+  line-height: 36rpx;
+  font-size: 22rpx;
+  color: white;
+  padding: 0 8rpx;
+  margin: 24rpx 0;
+}
+
+.ac_infobox  .ac_infos {
+  width: 100%;
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  text-align: left;
+  height: 130rpx;
+}
+
+.houseCard {
+  /* padding-bottom: 40rpx; */
+}
+
+
+.buildList_box {
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+  /* height: 600rpx; */
+}
+
+.buildList_box .ul {
+  white-space: nowrap;
+}
+
+.ul {
+  display: inline-block;
+}
+
+.ul .li {
+  display: inline-block;
+  vertical-align: top;
+  width: 600rpx;
+  height: 550rpx;
+  box-shadow: #ccc 0px 0px 20rpx;  
+  /* margin-top:30rpx; */
+  margin:15rpx 20rpx 60rpx 10rpx;
+}
+
+.ul .li:last-child {
+  margin-right: 0;
+}
+
+.li .images {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 5px;
+ 
+}
+.li .rentBuidinfo{
+  width:100%;
+  height: 150rpx;
+}
+.li .rentBuidinfo .build_name{
+  width: 95%;
+  padding-top: 20rpx;
+  color: #333333;
+  margin-left: 5%;
+  font-size: 32rpx;
+}
+.li .rentBuidinfo .price{
+  width: 28%;
+  float: left;
+  margin-left: 5%;
+  color: #F43333;
+  padding-top: 5rpx;
+}
+.li .rentBuidinfo .tags{
+  width:65%;
+  float: right; 
+  padding-top: 5rpx;
+}
+.li .rentBuidinfo .tags .tagsText{
+  background: #F4F8FB;
+  font-size: 28rpx;
+  height: 50rpx;
+  display: inline-block;
+  line-height: 50rpx;
+  border-radius: 5rpx;
+  padding-left:8rpx;
+  padding-right: 8rpx;
+  margin-left:10rpx;
+}
+.li .buildInfo{
+  width:95%;
+  height: 150rpx;
+  position: relative;
+  margin-left:5%;
+}
+.li .buildInfo .buildAddress{
+  position: absolute;
+  font-size: 24rpx;
+  right:10rpx;
+  top: 20rpx;
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.li .buildInfo .build_name {
+  font-size: 32rpx;
+  padding-top: 20rpx;
+}
+
+.li .buildInfo .price {
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:#ccc;
+}
+
+.li .buildInfo .price .number {
+  font-size: 30rpx;
+  color: #F43333;
+}
+
+.yuekan {
+  /* padding-top: 50rpx; */
+  padding-bottom: 30rpx;
+  margin-top:40rpx;
+}
+
+/* .yuekan_img {
+  width: 100%;
+  height: 150rpx;
+} */
+
+.yuekan_img .images {
+  width: 100%;
+  height: 100%;
+}
+
+.y_btn_box {
+  /* margin-top: 27rpx; */
+  height: 280rpx;
+  display: flex;
+  flex-direction: row;
+}
+.y_btn_box .leftdiv{
+  flex: 1.1;
+  background: url("http://img.guoanfamily.com/xiaochengxu/001.png") no-repeat;
+  background-size: 97% 100%;
+}
+.y_btn_box .rightdiv{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.y_btn_box .rightdiv .topdiv{
+  flex: 1;
+  margin-bottom: 0.2rem;
+  background: url("http://img.guoanfamily.com/xiaochengxu/002.png") no-repeat;
+  background-size: cover;
+}
+.y_btn_box .rightdiv .bottomdiv{
+  flex: 1;
+  background: url("http://img.guoanfamily.com/xiaochengxu/003.png") no-repeat;
+  background-size: cover;
+}
+
+.y_btn_box .left_box {
+  width: 48%;
+  height: 100%;
+}
+
+.y_btn_box  .lines4 {
+  float: left;
+  width: 0;
+  margin-top: 30rpx;
+  height: 74rpx;
+  border-left: 1px solid #ccc;
+  /* background: red; */
+}
+
+.y_btn_box .right_box {
+  width: 48%;
+  height: 100%;
+}
+
+.y_btn_box .yuyueImg {
+  margin-left: 35rpx;
+  width: 30%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.y_btn_box .yuyueImg .bgi {
+  width: 78%;
+  height: 60%;
+}
+
+.y_btn_box .describe {
+  width: 58%;
+  height: 100%;
+  float: right;
+}
+
+.y_btn_box .describe .texts1 {
+  margin-top: 21rpx;
+  text-align: left;
+  font-size: 30rpx;
+  color: black;
+}
+
+.y_btn_box .describe .texts2 {
+  text-align: left;
+  font-size: 24rpx;
+  margin-top: 9rpx;
+  color: #666;
+}
+
+.rent_list {
+  padding-top: 36rpx;
+}
+
+.house_list {
+  margin-top: 40rpx;
+}
+
+.house_list .left_img {
+  width: 70%;
+  height: 320rpx;
+  float: left;
+  position: relative;
+}
+
+.left_img .images {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.left_img .prices {
+  position: absolute;
+  left: 20rpx;
+  top: 10%;
+  width: 180rpx;
+  height: 60rpx;
+  background: rgba(0, 0, 0, 0.5);
+  line-height: 50rpx;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  padding: 7rpx 5rpx 10rpx 25rpx;
+  font-size: 28rpx;
+}
+
+.left_img  .prices_number {
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+
+.house_list {
+  /* border-bottom: 1px solid #eee; */
+  box-shadow: #ccc 0px 0px 30rpx;  
+}
+
+.house_list .right_box {
+  width: 28%;
+  height: 320rpx;
+}
+
+.house_list .right_box .right_img {
+  width: 100%;
+  height: 47%;
+  border-radius: 5rpx;
+}
+
+.house_list .right_img .images {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.house_list  .right_box .right_img:nth-child(2) {
+  margin-top: 8%;
+}
+
+.house_list .build_info {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  padding-bottom: 36rpx;
+  height: 130rpx;
+}
+.build_info .list-right-price{
+  width:40%;
+  height: 45rpx;
+   font-size: 32rpx;
+  color: #F43333;
+  float: right;
+  text-align: right;
+  padding-right:20rpx;
+}
+.build_info .list-bottom-left {
+  width: 50%;
+  height: 45rpx;
+  float: left;
+  font-size: 32rpx;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  text-indent: 10rpx;
+  margin-left:5%;
+}
+
+.list-bottom-right {
+  width: 50%;
+  height: 40rpx;
+  float: left;
+  font-size: 28rpx;
+  color: #666;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.bottom_btn {
+  position: fixed;
+  border-top: 1px solid #ccc;
+  background: #f7f7fa;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+}
+
+.bottom_btn .btn {
+  width: 25%;
+  height: 110rpx;
+  float: left;
+}
+
+.btn .btn_img {
+  width: 26px;
+  height: 26px;
+  margin: 10rpx auto 4rpx;
+  position: relative;
+}
+
+.btn .btn_img .bgi {
+  width: 92%;
+  height: 92%;
+}
+
+.btn .btn_name {
+  font-size: 21rpx;
+  text-align: center;
+  color: #999;
+}
+
+.btn:nth-child(1) .btn_name {
+  color: black;
+}

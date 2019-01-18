@@ -1,0 +1,94 @@
+/* pages/personalCenter/myLease/myLease.wxss */
+.myLease{
+  
+}
+.myLeaseTop{
+  border-top: 2rpx solid #dddddd;
+  border-bottom: 15rpx solid #dddddd;
+  height: 450rpx;
+}
+.swiper{
+  height: 450rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+ 
+}
+.everySwiper>view{
+  display: flex;
+  padding: 15rpx 0;
+   
+}
+.everySwiper>view>view:nth-child(1){
+  font-size:30rpx;
+    color: #000;
+}
+.everySwiper>view>view:nth-child(2){
+    font-size: 28rpx;
+    color: #999;
+    margin-left:30rpx;
+}
+.goodsList{
+  width: 100%;
+  padding:20rpx 30rpx;
+  box-sizing: border-box;
+}
+.goodsList>view{
+  display: flex;
+  
+}
+.goodsList>view:nth-child(1)>view:nth-child(1){
+  background: #e45044;
+  color:#fff;
+  font-size: 24rpx;
+  padding: 0 15rpx;
+}
+.goodsList>view:nth-child(1)>view:nth-child(1)>view:nth-child(1){
+  background: #e45044;
+  color:#fff;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+}
+.goodsList>view:nth-child(1)>view:nth-child(1)>view:nth-child(2){
+    padding-bottom: 10rpx;
+}
+.goodsList>view:nth-child(1)>view:nth-child(2)>view{
+  display: flex;
+  font-size:30rpx;
+  color: #9b9b9b;
+  padding:10rpx 0 10rpx 10rpx;
+}
+.goodsList>view:nth-child(1)>view:nth-child(2)>view>view:nth-child(1){
+
+  font-size:30rpx;
+  color: #000;
+}
+.goodsList>view:nth-child(2){
+  display: flex;
+  font-size: 26rpx;
+  padding: 15rpx 0;
+  border: 1rpx solid #dddddd;
+  border-left: none;
+  border-right: none;
+  margin: 15rpx 0;
+  justify-content:space-between ;
+
+}
+.goodsList>view:nth-child(2)>view:nth-child(1){
+  display: flex;
+}
+.goodsList>view:nth-child(2)>view:nth-child(2){
+  display: flex;
+}
+.dzf{
+  background:#999;
+  color:#fff;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+.zf{
+  background:#e45044;
+  color:#fff;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  margin-left:10rpx;
+}

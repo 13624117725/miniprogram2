@@ -1,0 +1,218 @@
+// pages/personalCenter/Maintenancelist/Maintenancelist.js
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    maintenanceList: [],
+    currentPageNo: "1",
+    totalPageNo: "",//总页数
+    arr:[],
+    scrollerShow: true,
+    height:''
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let that = this;
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+        // 获取可使用窗口宽度
+        let clientHeight = res.windowHeight;
+        // 获取可使用窗口高度
+        let clientWidth = res.windowWidth;
+        // 算出比例
+        let ratio = 750 / clientWidth;
+        // 算出高度(单位rpx)
+        let height = clientHeight * ratio;
+        console.log(clientHeight)
+        that.setData({
+          height: height-100
+        })
+        console.log(that.data.height)
+        // // 获取可使用窗口高度
+        // let clientWidth = res.windowWidth;
+        // // 算出比例
+        // let ratio = 750 / clientWidth;
+        // // 算出高度(单位rpx)
+        // let height = clientHeight * ratio;
+        // // 设置高度
+        // that.setData({
+        //   height: height
+        // });
+      }
+    });
+    this.getMaintenanceList();
+   
+  },
+  
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+   
+  },
+  getMaintenanceList(){
+    app.globalData.$post("agenthouseCutomer/RepairOrderController/getRepairItemsList", {
+      "currentPageNo": this.data.currentPageNo,
+      "pageCount": "",
+    }, {
+        interfaceType: "integral"
+      }).then((res) => {
+        console.log(res)
+        if(res.code === 0){
+          if(res.data.content.length === 0){
+            this.setData({
+              scrollerShow: false
+            })
+          }
+          this.setData({
+            totalPageNo: res.data.totalPageNo
+          })
+          res.data.content.map((item,index)=>{
+            this.data.arr.push(item)
+          })
+          this.setData({
+            maintenanceList:this.data.arr
+          })
+          console.log(this.data.maintenanceList)
+        }
+      })
+  },
+  listClick(e){
+    console.log(e)
+    let orderId = e.currentTarget.dataset.orderid;
+    let orderstatuscontent = e.currentTarget.dataset.orderstatuscontent;
+    wx.navigateTo({
+      url: "/pages/personalCenter/RepairDetails/RepairDetails?orderId=" + orderId + "&orderstatuscontent=" + orderstatuscontent
+    })
+  },
+  quitClick(e){
+    console.log(e)
+    let orderId = e.currentTarget.dataset.orderid;
+    let index = e.currentTarget.dataset.index;
+    let that = this;
+    wx.showModal({
+      content: '您确定取消该订单？',
+      success(res) {
+        if (res.confirm) {
+          console.log("1")
+          app.globalData.$post("agenthouseCutomer/RepairOrderController/deleteRepairOrderById", {
+            orderId: orderId,
+          }, {
+              interfaceType: "integral"
+          }).then((res) => {
+            if (res.code == 0) {
+              let maintenanceList = that.data.maintenanceList;
+              maintenanceList.splice(index, 1);
+              that.setData({
+                maintenanceList: maintenanceList
+              })
+              if (that.data.maintenanceList.length===0){
+                this.setData({
+                  scrollerShow: false
+                })
+              }
+              wx.showToast({
+                title: '取消收藏',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+            })
+        } else if (res.cancel) {
+        }
+      }
+    })
+    // wx.navigateTo({
+    //   url: "/pages/personalCenter/RepairDetails/RepairDetails?orderId=" + orderId
+    // })
+  },
+  refresh(e){//下拉刷新
+    console.log(e)
+    this.setData({
+      arr:[],
+      currentPageNo:"1"
+    })
+    this.getMaintenanceList()
+  },
+  upper(e){
+      console.log(e)
+  },
+  lower(e) {
+    console.log(e)
+    if (this.data.currentPageNo < this.data.totalPageNo) {
+      this.data.currentPageNo++
+      app.globalData.$post("agenthouseCutomer/RepairOrderController/getRepairItemsList", {
+        "currentPageNo": this.data.currentPageNo,
+        "pageCount": "",
+      }, {
+          interfaceType: "integral"
+        }).then((res) => {
+          console.log(res)
+          if (res.code === 0) {
+            if (res.data.content.length === 0) {
+            } else {
+              res.data.content.map((item, index) => {
+                this.data.arr.push(item)
+              })
+              this.setData({
+                maintenanceList: this.data.arr
+              })
+            }
+
+          }
+        })
+    }
+  },
+  goRepair(){
+    wx.navigateTo({
+      url: "/pages/personalCenter/Repair/Repair"
+    })
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

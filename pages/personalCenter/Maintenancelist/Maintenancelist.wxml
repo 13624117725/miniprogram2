@@ -1,0 +1,38 @@
+<!--pages/personalCenter/Maintenancelist/Maintenancelist.wxml-->
+<view class="Maintenancelist">
+   <scroll-view scroll-y="true" class='sc_lower'  bindscrolltoupper="refresh"  bindscrolltolower = "lower"  wx:if = "{{scrollerShow}}" style= "height:{{height+'rpx'}}" bindscroll = "upper">
+   <view class="listContent">
+  
+		      <view class="listDiv" wx:key="index" wx:for="{{maintenanceList}}" catchtap="listClick" data-orderId = "{{item.orderId}}" data-orderStatusContent = "{{item.orderStatusContent}}" data-index = "{{index}}">
+		        <view class="list_top">
+		          <view>维修单号：{{item.orderId}}</view>
+		          <view>{{item.orderStatusContent}}</view>
+		        </view>
+		        <view class="list_content" wx:key="index" wx:for="{{item.list}}">
+		          <view class="list_content_Info">
+		          	<view class="list_content_info_img" wx:if = "{{item.itemImage!=null}}">
+                  <image src = "{{'https://img.guoanfamily.com/' + item.itemImage}}"></image>
+                </view>
+		          	<view class="list_content_info_img" wx:else style = "background:url('https://media.guoanfamily.com/rent/static/HomePage/noimgAPP.jpg')"></view>
+
+		            <view class="list_content_infomation">
+		              <view>{{item.categoryName}}  {{items.faultArea}}  {{item.itemName}}</view>
+		              <view>问题描述：{{item.remark}}</view>
+		            </view>
+		          </view>
+		        </view>
+		        <view class="list_bottom">
+		          <view wx:if="{{item.orderStatusContent !== '已维修'}}">预计上门时间:{{item.startAndEndDate}}</view>
+		          <view wx:if="{{item.orderStatusContent == '已维修'}}">已于{{item.finishDate}}完成订单</view>
+		          <view class="list_bottom_btn" wx:if="{{item.orderStatusContent == '已提交'}}" data-orderId = "{{item.orderId}}" data-index = "{{index}}" catchtap="quitClick">取消订单</view>
+		        </view>
+		      </view>
+ 
+		    </view>
+       </scroll-view>
+       <view class="noData" wx:else>
+        <!--<img src="../../../../static/new/img/noData.png"/>-->
+      </view>
+      <view class = "guarantee" bindtap='goRepair'>我要报修</view>
+      
+</view> 

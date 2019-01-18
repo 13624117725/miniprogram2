@@ -1,0 +1,91 @@
+<view class='houseType'>
+  <view class='swipers'>
+    <swiper class='swiper_box' 
+      autoplay="{{autoplay}}" bindchange="SwiperChange"  interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" >
+      <block wx:for="{{swiperArr}}">
+        <swiper-item>
+          <image src="{{item.src}}" class="slide-image"  height="240" catchtap='bigImage' data-img = "{{item.src}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='headBtn' bindtap='Toresave'>
+      <image src="{{hertImage}}" class="hertimage"/>
+    </view>
+    
+  </view>
+   <view class='nums'>{{swiperIndex}}/{{swiperArr.length}}</view>
+  <!-- 户型信息 -->
+  <view class='houseInfo_box'>  
+    <view class='houseInfo'>
+      <view class='titles'>
+        建筑面积
+      </view>
+      <view class='maohao'>
+        ：
+      </view>
+      <view class='type_info'>
+        <text class='number'>{{buildtypeData.salearea}}</text>
+        <text class='danwei'>㎡</text>
+      </view>
+    </view>
+    <view class='houseInfo' wx:if="{{buildtypeData.internalarea}}">
+      <view class='titles'>
+        套内面积
+      </view>
+      <view class='maohao'>
+        ：
+      </view>
+      <view class='type_info' >
+        {{buildtypeData.internalarea}}  ㎡
+      </view>
+    </view>
+    <view class='houseInfo'>
+      <view class='titles'>
+        户型
+      </view>
+      <view class='maohao'>
+        ：
+      </view>
+      <view class='type_info'>
+        {{buildtypeData.housetypecode}}
+      </view>
+    </view>
+    <view class='houseInfo'>
+      <view class='titles'>
+        厅室卫
+      </view>
+      <view class='maohao'>
+        ：
+      </view>
+      <view class='type_info'>
+        {{buildtypeData.housetypedescribe}}
+      </view>
+    </view>
+    <view class='houseInfo'>
+      <view class='titles'>
+        户型描述
+      </view>
+      <view class='maohao'>
+        ：
+      </view>
+      <view class='type_info'>
+        {{buildtypeData.housetypedetail}}
+      </view>
+    </view>
+    <view class='houseComput' bindtap='ToComputed'>  
+      <view class='btnBg'>
+        <image class='somImg' src="/img/suanjian.png"></image>
+      </view>
+      <view class='cumList'>
+        立即算价
+      </view>
+    </view>
+  </view>
+  <view class='btn_box'>
+    <view class='btn_sty red' bindtap = "Predetermine">预约看房</view>
+   
+  </view>
+</view>
+<view class = "bigImage" wx:if = "{{bigImageShowHide}}" catchtap='closeBigImage'>
+  <image src = "{{bigImage}}" catchtap='closeBig'></image>
+</view>

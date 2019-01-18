@@ -1,0 +1,36 @@
+<view class='titles'>
+  <text class="line"> </text>
+  入会信息 
+</view>
+<view class='infors'>
+  <text class="start">*</text>
+  姓　　名 
+  <input class='inp'  bindinput="userNameInput" placeholder='请输入姓名'></input>
+</view>
+
+<view class='infors'>
+  <text class="start">*</text>
+  身份证号码 
+  <input class='inp' bindinput="userIDInput"  placeholder='请输入身份证号码'></input>
+</view>
+<view class='infors'>
+  <text class="start">*</text>
+  手机号码 
+  <input class='inp' bindinput="userphoneInput" placeholder='请输入手机号码'></input>
+</view>
+<view class='infors'>
+  <text class="start">*</text>
+  通讯地址 
+  <input class='inp' bindinput='contactaddressInput' placeholder='请输入通讯地址'></input>
+</view>
+<view class='infors '>
+  <!-- <text class="start">*</text> -->
+  支付总额
+    {{subMoneys}}
+  （元）
+  
+  
+</view> 
+<button class='btn' bindtap='submit' disabled='{{buttonflag}}' style='background:url(/img/btnbj.png) center no-repeat;background-size:100% 100%;'>
+  提交
+</button>

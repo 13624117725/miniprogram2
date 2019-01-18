@@ -1,0 +1,89 @@
+/* pages/personalCenter/AboutUs/AboutUs.wxss */
+.AboutUsTop{
+  width: 100%;
+  height: 390rpx;
+  position: relative;
+  margin-top: 20rpx;
+}
+.AboutUs{
+  padding: 0 30rpx;
+}
+.video{
+  width: 100%;
+  height: 100%;
+
+}
+.about-image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.about-text{
+   margin-bottom: 100rpx;
+   margin-top: 40rpx;
+}
+  
+.about-text>view:nth-child(1){
+  font-size: 36rpx;
+  color:#e34b3e;
+  text-align: left;
+  font-weight: 700;
+}
+.about-text>view:nth-child(2){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(3){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(4){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(5){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(6){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(7){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(8){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text>view:nth-child(9){
+      margin-top: 36rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: left;
+}
+.about-text-span{
+    font-size: 32rpx;
+    font-weight: 500;
+    margin-left: 10rpx;
+    display: inline-block;
+}

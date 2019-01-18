@@ -1,0 +1,85 @@
+ <view class='topSearch'>
+  <view class='seach_btn' bindtap='changeIndex' data-index="1">
+    <text class='{{showCards==1?"rc":""}} {{searchResult.city?"rc":""}}'>区域</text>
+    <image class='smallimg' wx:if="{{showCards!=1}}" src='/img/stop1.png'></image>
+    <image class='smallimg' wx:if="{{showCards==1}}" src='/img/open1.png'></image>
+  </view>
+  <view class='seach_btn' bindtap='changeIndex' data-index="2">
+    <text class='{{showCards==2?"rc":""}} {{searchResult.price?"rc":""}}'>价格</text>
+    <image class='smallimg' wx:if="{{showCards!=2}}" src='/img/stop1.png'></image>
+    <image class='smallimg' wx:if="{{showCards==2}}" src='/img/open1.png'></image>
+  </view>
+  <view class='seach_btn' bindtap='changeIndex' data-index="3">
+    <text  class='{{showCards==3?"rc":""}} {{searchResult.houseType?"rc":""}}'>户型</text>
+    <image class='smallimg' wx:if="{{showCards!=3}}" src='/img/stop1.png'></image>
+    <image class='smallimg' wx:if="{{showCards==3}}" src='/img/open1.png'></image>
+    
+  </view>
+  <view class='seach_btn' bindtap='changeIndex' data-index="4">
+    <text class='{{showCards==4?"rc":""}} {{(searchResult.buildtagList||searchResult.areaList||searchResult.tenementtypeList)?"rc":""}}'>更多</text>
+   <image class='smallimg' wx:if="{{showCards!=4}}" src='/img/stop1.png'></image>
+    <image class='smallimg' wx:if="{{showCards==4}}" src='/img/open1.png'></image>
+  </view>
+  <view class='searchList' wx:if="{{showCards!=9999}}">
+    <scroll-view class='scroll_box' scroll-y="true">
+       <view class='ul' wx:if="{{showCards==1}}">
+        <view class='li {{item.ct==1?"actived":""}}' bindtap='chouseCity' data-city='{{item}}' data-index='{{index}}' wx:for="{{searchData.quyu}}" wx:key="{{index}}">{{item.k}}</view>
+      </view>
+      <view class='ul' wx:if="{{showCards==2}}">
+        <view class='li {{item.ct==1?"actived":""}}' bindtap='chousePrice' data-price='{{item}}' data-index='{{index}}' wx:for="{{searchData.jiage}}" wx:key="{{index}}">{{item.k}}</view>
+      </view>
+      <view class='ul' wx:if="{{showCards==3}}">
+        <view class='li {{item.ct==1?"actived":""}}'  bindtap='chouseHType' data-houseType='{{item}}' data-index='{{index}}' wx:for="{{searchData.huxing}}" wx:key="{{index}}">{{item.k}}</view>
+      </view>
+      <view  wx:if="{{showCards==4}}">  
+        <view class='titles'> 特色标签 </view>
+        <view class='ul'>
+          <view class='li {{item.ct==1?"actived":""}}' bindtap='chouseTag' data-Property='{{item}}' data-index='{{index}}' wx:for="{{searchData.more.Property}}" wx:key="{{index}}">{{item.k}}</view>
+        </view>
+        <view class='titles'> 面积 </view>
+        <view class='ul'>
+          <view class='li {{item.ct==1?"actived":""}}' bindtap='chouseArea' data-area='{{item}}' data-index='{{index}}' wx:for="{{searchData.more.area}}" wx:key="{{index}}">{{item.k}}</view>
+        </view>
+        <view class='titles'> 物业类型 </view>
+        <view class='ul'>
+          <view class='li {{item.ct==1?"actived":""}}' bindtap='chouseType' data-type='{{item}}' data-index='{{index}}' wx:for="{{searchData.more.Typearr}}" wx:key="{{index}}">{{item.k}}</view>
+        </view>   
+      </view>
+    </scroll-view>
+    <view class='btn_box'>
+      <view class='btn' bindtap='makeSure'>确定</view>
+      <view class='btn' bindtap='reSize' bindtap='ToreSize'>重置</view>
+    </view>
+  </view>
+</view>
+<scroll-view wx:if="{{showCards==9999}}" class='build_List' scroll-y="true">
+  <view>
+    <view class='build_li ' wx:for="{{buildList}}" wx:key="index" bindtap = "goHouseList" data-id="{{item.id}}">
+      <image class='list_img' src="{{item.firstpicture}}"></image>
+      <view class='right_box'>
+        <view class='build_name'>
+          [{{item.city}}]{{item.buildname}}
+        </view>
+        <view class='price'>
+          <text class='average'>均价：</text>
+          <text class='numbers'> {{item.averageprice}}</text>
+          <text class='danwei' wx-if="{{item.averageprice!='待定'}}"> 元 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+   
+  <view class = "loading" wx:if = "{{loading}}" catchtouchmove="move">
+      <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+  </view> 
+   <view class = "image" wx:if="{{noData}}">
+      <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+   </view>  
+  
+    
+
+</scroll-view>
+<view  class='myslider2_box'>
+  <myslider id="myslider2" minValue="0" maxValue="50000" min="0" max="50000" blockColor="#eee" backgroundColor="#ccc" selectedColor="#d6000f" bind:lowValueChange="lowValueChangeAction" bind:heighValueChange="heighValueChangeAction"></myslider>
+</view>
+ 

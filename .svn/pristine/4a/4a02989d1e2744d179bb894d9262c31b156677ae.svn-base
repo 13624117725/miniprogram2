@@ -1,0 +1,35 @@
+<view class='Myintegral'>
+  <view class='top_card'>
+    <view class='titles'>现有积分</view>
+    <view class='number'>{{showData.totalPoint}}</view>
+    <view class='btn_box' >
+      <button class='s_btn' bindtap='showMsg'>
+        积分说明
+      </button>
+      <button class='s_btn' bindtap='ToWithdrawals'>
+        我要提现
+      </button>
+    </view>
+  </view>
+  <view class='m_text'>
+    积分记录
+  </view>
+  <view class='botton_box'>
+    <view class='integral_ltem' wx:if="{{showData.pointDailyMonthModelList.length>0}}" wx:for="{{showData.pointDailyMonthModelList}}" wx:key="{{item.month}}">
+      <view class='integral_li'>
+        <text class='li_span1'>{{item.month}}</text>
+        <text class='li_span2 xiaofei'>消费{{item.payPoint}}</text>
+        <text class='li_span2'>获取{{item.getPoint}}</text>
+      </view>
+      <view class='li_info_ul'>
+        <view class='info_li' wx:for="{{item.lists}}" wx:for-item="its" wx:for-index="i" wx:key="{{i}}">
+          <text class='info_li_box'>{{its.createtime}}</text>
+          <text class='info_li_box'>{{its.pointtype}}</text>
+          <text class='info_li_box green' wx:if="{{its.point>=0}}">+{{its.point}}</text>
+          <text class='info_li_box red' wx:if="{{its.point<0}}">{{its.point}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{showData.pointDailyMonthModelList.length<=0}}" class='no_data'></view>
+  </view>
+</view>

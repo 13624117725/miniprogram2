@@ -1,0 +1,305 @@
+
+const app = getApp()
+Page({
+  data: {
+    imgUrls: [],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 400,
+    circular: true,
+    homeName:'国安家租房',
+    gaHouseTileName:'国安家公寓',
+    newArrivalTileName:'最新上架',
+    ownerEntrustmentTileName:'业主委托',
+    wonderfulActivityTileName:'精彩活动',
+    ownerEntrustmentShowHide:false,
+    wonderfulActivityShowHide:true,
+    quickSearch:[
+      {
+        url: "https://img.guoanfamily.com/guoanjiaapp/subway3x.png",
+        nameL:"地铁找房",
+        id:"0"
+      },
+      {
+        url: "https://img.guoanfamily.com/guoanjiaapp/mapHome.png",
+        nameL: "地图找房",
+        id: "1"
+      },
+      {
+        url: "https://img.guoanfamily.com/guoanjiaapp/gongyu.png",
+        nameL: "集中式公寓",
+        id: "2"
+      },
+      {
+        url: "https://img.guoanfamily.com/guoanjiaapp/VR3x.png",
+        nameL: "VR看房",
+        id: "3"
+      },
+      {
+        url: "https://img.guoanfamily.com/guoanjiaapp/weituo.png",
+        nameL: "业主委托",
+        id: "4"
+      },
+    ],
+    ownerEntrustment_list_img:[
+      {
+        url: "https://img.guoanfamily.com/miniProgram/weituo3.png",
+        nameL: "省时省心"
+      },
+      {
+        url: "https://img.guoanfamily.com/miniProgram/weituo1.png",
+        nameL: "丰厚收益"
+      },
+      {
+        url: "https://img.guoanfamily.com/miniProgram/weituo2.png",
+        nameL: "装修0投入"
+      },
+      {
+        url: "https://img.guoanfamily.com/miniProgram/weituo4.png",
+        nameL: "房产保值"
+      },
+    ],
+    houseNumItem:[],
+    gaHouseList:[],
+    newArrivalList:[],
+    contentList:[],
+    newArrivalContentList:[]
+    
+  },
+  onShow(){
+    this.imgUrls();
+    this.houseNumItem();
+    this.gaHouseList();
+  },
+  // 分享
+  onShareAppMessage(options) {
+    let path = `/pages/rent/rentIndex/rentIndex`
+    return {
+      title: this.data.homeName,
+      path: path,
+      imageUrl: this.data.imgUrls[0]['url'] + "?imageView2/0/w/370",
+      success: function (res) {
+        wx.showModal({
+          title: "温馨提示：",
+          content: '分享成功',
+        })
+      }
+    }
+  },
+  //下拉刷新
+  onPullDownRefresh() {
+      wx.startPullDownRefresh();
+      // this.imgUrls();
+      // this.houseNumItem();
+      // this.gaHouseList();
+      // wx.stopPullDownRefresh()
+  },
+  imgUrls(){
+    app.globalData.$get("palmsaleapp/api/v1/banner/appList?projectType=4").then(res=> {
+      if (res.status==200){
+        console.log(res)
+        let imgs = [];
+        let resArr = res.data;
+        for (let i = 0; i < resArr.length; i++) {
+          if (resArr[i].systemtypename =='租房首页'){
+            let item = {};
+            item.url = 'http://img.guoanfamily.com/' + resArr[i].multimefileName;
+            item.id = resArr[i].id;
+            item.src = resArr[i]. bannerValue
+            imgs.push(item)
+          }
+        }
+        this.setData({
+          imgUrls: imgs
+        })
+      }
+    });
+  },
+  // 区域搜索
+  findRentRoom(){
+    wx.navigateTo({
+      url: '/pages/rent/HouseList/HouseList'
+    })
+  },
+  //地图找房
+  findRentMap(){
+    this.turnRouter("#/MapSearch?title=地图找房&")
+  },
+  //轮播图
+  swiperClick(e){
+
+    let src = e.currentTarget.dataset.src;
+    if (src == "/newHouseIndex") {
+      wx.switchTab({
+        url: '/pages/new/newIndex/newIndex',
+      })
+    }
+    
+    if (src == "/Entrust") {
+      wx.navigateTo({
+        url: '/pages/personalCenter/Entrust/Entrust',
+      })
+    }
+    if (src == "/HouseList") {
+      wx.navigateTo({
+        url: '/pages/rent/HouseList/HouseList',
+      })
+    }
+    if (src.indexOf("https://www.guoanfamily.com") != -1) {
+      getApp().globalData.ctxPath = src;
+      wx.navigateTo({
+        url: '/pages/first/first',
+      })
+    }
+    // switch ($id) {
+    //   case "4028d18166c2880d0166c304f3ec0002":
+    //     this.turnRouter("#/HouseList?");
+    //     break;
+    //   case "2c915c5866be155b0166c38fd9ee1a20":
+    //    this.turnRouter("#/framePage?src=https%3A%2F%2Fwww.guoanfamily.com%2FstaticWeb%2Fguoanshequ%2Findex.html&title=一荐倾心&");
+    //     break;
+    //   case "2c915c5866be155b0166c3877ce21a1c":
+    //      this.turnRouter("#/Entrust?")
+    //     break;
+    // }
+  },
+  //国安家公寓
+  gaHouse(){
+    // this.turnRouter("#/HouseList?name=0019001&")
+    wx.navigateTo({
+      url: '/pages/rent/HouseList/HouseList',
+    })
+  },
+  //国安家房间列表点击
+  gaHouseListlis(e){
+    let $id = e.currentTarget.dataset.id;
+    this.turnRouter("#/HouseList/houseDetail?id="+$id+"&productType=0019001&");
+     
+  },
+  getHouseListli(e){
+    let $id = e.detail.id;
+    let $producttype = e.detail.producttype;
+    wx.navigateTo({
+      url: '/pages/rent/rentDetails/rentDetails?id=' + $id + '&productType=' + $producttype,
+    })
+
+   // this.turnRouter("#/HouseList/houseDetail?id=" + $id + "&productType=0019001&");
+  },
+  //最新上架
+  newArrival_list(e){
+    let $id = e.currentTarget.dataset.id;
+    this.turnRouter("#/HouseList/houseDetail?id=" + $id + "&productType=0019001&");
+  },
+  //业主委托
+  ownerEntrustment(){
+    wx.navigateTo({
+      url: '/pages/personalCenter/Entrust/Entrust',
+    })
+  },
+  //精彩活动
+  wonderfulActivity(){
+    this.turnRouter("#/ActiveList?")
+  },
+
+  quickSearch(e){
+    let $id = e.currentTarget.dataset.id;
+    // if ($id == "0"){
+    //   this.turnRouter("#/MapSearch?isSubway=true&title=地铁找房&")
+    // }
+    switch ($id){
+        case "0":
+          //  this.turnRouter("#/MapSearch?isSubway=true&title=地铁找房&");
+           wx.showToast({
+              title: '此功能需打开国安家APP',
+              icon: 'none',
+              duration: 2000
+            })
+          break;
+        case "1":
+          // this.turnRouter("#/MapSearch?isSubway=true&title=地铁找房&");
+        wx.showToast({
+          title: '此功能需打开国安家APP',
+          icon: 'none',
+          duration: 2000
+        })
+          break;
+        case "2":
+          wx.navigateTo({
+            url: "/pages/rent/Apartment/Apartment"
+          })
+          break;
+        case "3":
+          wx.navigateTo({
+            url: "/pages/rent/VrLook/VrLook"
+          })
+          break;
+        case "4":
+        wx.navigateTo({
+          url: '/pages/personalCenter/Entrust/Entrust',
+        })
+          break;
+    }
+  },
+
+  // 跳转页面
+  turnRouter(route) {
+    app.globalData.ctxPath = `https://www.guoanfamily.com/guoanjiaApp/${route}from=xiaochengxu`;
+    wx.navigateTo({
+      url: '/pages/first/first'
+    })
+  },
+  houseNumItem(){
+    app.globalData.$post("agenthouseCutomer/common/getHouseCountByNoSale", {
+    }).then((res) => {
+      let houseNum = [];
+      let resArr = res.data;
+      for (let i = 0; i < 3; i++) {
+        let items = {};
+        items.count = resArr[i].count + "+";
+        items.name = resArr[i].name + "区";
+        houseNum.push(items)
+      }
+      this.setData({
+        houseNumItem: houseNum
+      })
+    });
+  },
+  // 查看租房房源
+  showRentList(e){
+    let name = e.currentTarget.dataset.name.substring(0,2);
+    // this.turnRouter(`#/HouseList?search=${name}&`);
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/rent/HouseList/HouseList?quyu=' + name,
+    })
+  },
+  gaHouseList(){
+    app.globalData.$post("agenthouseCutomer/common/homePage", {
+      size:"10"
+    }).then((res) => {
+  
+      let gaHouseLists = [];
+      let newArrivalLists = [];
+      let resArr = res.data.roomList.map((item, index)=>{
+        if(!item.image){
+          item.image = 'https://img.guoanfamily.com/rent/static/HomePage/roomimg_03.png';
+        }else{
+          item.image = !item.image || 'http://img.guoanfamily.com/' + item.image;
+        }
+        //20180413111330_IMG_2908.JPG?imageView2/0/w/388/h/276
+          item.tagsArr = item.tags.split(",",2);
+          return item;
+      })
+      gaHouseLists = resArr.slice(5,10);
+      newArrivalLists = resArr.slice(0, 5);
+      this.setData({
+        gaHouseList: gaHouseLists.reverse(),
+        contentList: gaHouseLists.reverse(),
+        newArrivalContentList: newArrivalLists,
+        newArrivalList: newArrivalLists
+      })
+    });
+  }
+  
+})

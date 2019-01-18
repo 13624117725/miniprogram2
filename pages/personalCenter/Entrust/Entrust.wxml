@@ -1,0 +1,28 @@
+   <!--pages/personalCenter/Entrust/Entrust.wxml-->
+<view class= "Entrust">
+      <view class = "Entrust_top">
+          <view>
+            <image src = "https://media.guoanfamily.com/rent/static/HomePage/entrustImg.png"></image>
+          </view>
+          <view>
+                <view>
+                  <view bindtap='callPhone'>电话委托</view>
+                </view>
+                <view>
+                  <view bindtap='onLineEntrust'>在线委托</view>
+                </view>
+          </view>
+      </view>
+      <view class= "Entrust_content">
+          <view wx:for = "{{Entrust_content}}" wx:key = "{{index}}">
+              <view>
+                  <image src = "{{item.url}}"></image>
+              </view> 
+              <view>
+                    <view>{{item.contentOne}}</view>
+                    <view>{{item.contentTwo}}</view>
+                    <view>{{item.contentThree}}</view>
+              </view> 
+          </view>
+      </view>
+</view>

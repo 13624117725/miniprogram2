@@ -1,0 +1,52 @@
+var routerTable = {
+  
+  "/pages/index/index":"首页&com",
+  "/pages/new/newHouseList/newhouseList": "房价&new",
+  "/pages/new/newIndex/newIndex": "新房&new",
+  "/pages/rent/rentIndex/rentIndex": "租房&rent",
+  "/pages/personalCenter/Entrust/Entrust":"业主委托&com",
+  "/pages/index/showCenter/showCenter":"展示中心&com",
+  "/pages/rent/HouseList/HouseList":"房源列表&rent",
+  "/pages/rent/rentDetails/rentDetails":"房源详情&rent",
+  "/pages/new/newHouseDetail/newHouseDetail":"房源详情&new",
+
+  //租房
+  "/pages/rent/Apartment/Apartment":"集中式公寓&rent",
+  "/pages/rent/VrLook/VrLook":"VR看房&rent",
+  "/pages/depositReservation/depositReservation":"定金预定&rent",
+  "/pages/rent/Reservations/Reservations":"预约看房&rent",
+  //个人中心
+  "/pages/new/buildposter/buildpposter":"楼盘轮播&new",
+  "/pages/login/login":"登录&com",
+  "/pages/new/predetermine/predetermine":"预约看房&new",
+  "/pages/new/houseType/houseType":"户型详情&new",
+  "/pages/personalCenter/AboutUs/AboutUs":"关于我们&com",
+  "/pages/personalCenter/Myintegral/Myintegral":"我的积分&com",
+  "/pages/personalCenter/Mycard/Mycard":"我的卡券&com",
+  "/pages/personalCenter/suggestion/suggestion":"投诉建议&com",
+  "/pages/personalCenter/MyCollection/MyCollection":"我的收藏&com",
+  "/pages/personalCenter/Myorder/Myorder":"我的订单&new",
+  "/pages/personalCenter/InvitedBuild/InvitedBuild":"约看楼盘&new",
+  "/pages/personalCenter/Maintenancelist/Maintenancelist":"我的维修&rent",
+  "/pages/personalCenter/myCleaning/myCleaning":"我的保洁&rent",
+  "/pages/personalCenter/LookAtTheRoom/LookAtTheRoom": "约看房间&rent",
+  "/pages/personalCenter/contract/contract": "房租合同&rent",
+  "/pages/personalCenter/Entrust/Entrust": "业主委托&rent",
+  "/pages/personalCenter/myLease/myLease": "我的租约&rent",
+  "/pages/personalCenter/setUp/setUp": "设置个人信息&new",
+  "/pages/personalCenter/onLineEntrust/onLineEntrust":"在线委托&com",
+  "/pages/personalCenter/RepairDetails/RepairDetails":"维修订单详情&rent",
+  "/pages/personalCenter/Repair/Repair":"我要报修&rent",
+  "/pages/personalCenter/Withdrawals/Withdrawals":"积分提现&com",
+  "/pages/personalCenter/RepairMyList/RepairMyList":"提交订单&rent",
+  "/pages/personalCenter/contractDetails/contractDetails":"定金合同详情&rent",
+  "/pages/personalCenter/lesseeContractDetails/lesseeContractDetails":"承租合同详情&rent",
+  "/pages/personalCenter/lesseeContractDetailsPay/lesseeContractDetailsPay":"租金支付&rent",
+  "/pages/contractPay/contractPay":"定金支付&rent",
+  "/pages/personalCenter/personalCenterIndex/personalCenterIndex":"个人中心首页&com"
+
+
+
+
+  }
+  export default　routerTable

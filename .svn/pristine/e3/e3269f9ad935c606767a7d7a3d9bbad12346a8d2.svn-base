@@ -1,0 +1,45 @@
+  <!--pages/personalCenter/contractDetails/contractDetails.wxml-->
+<view class = "contractDetails">
+    <view class = "contractDetailsList">
+        <view class= "contractDetailsList_details">
+          <image src = "{{imgSrc}}"></image>
+          <view class = "contractDetailsList_details_li">
+                <view>{{houseName+roomName+'房间'}}</view>
+                <view>{{buildNo+'号楼'+buildUnitNo+'单元'+buildFloor+'层/'+area+'㎡'}}</view>
+                <view>{{rentPrice+'元/月'}}</view>
+                <view>
+                  <view wx:for = "{{advantageTagsArr}}">{{item}}</view>
+                </view>
+               
+          </view>
+        </view>
+        <view class = "contractDetailsList_li">
+            <view>
+                <view>租期</view>
+                <view>{{validDate-endDate}}</view>
+            </view>
+            <view>
+                <view>付款方式</view>
+                <view>{{signDateTime}}</view>
+            </view>
+            <view>
+                <view>定金</view>
+                 <view>
+                    <view>{{'¥'+amount}}</view>
+                    <view>支付成功</view>
+                </view>
+            </view>
+            <view>
+                <view>合同信息</view>
+                <view>
+                    <view>{{depositId}}</view>
+                    <view>{{dealCodeName}}</view>
+                </view>
+            </view>
+            <view>
+                <view>留言</view>
+                <view>{{remark}}</view>
+            </view>
+        </view>
+    </view>
+</view>

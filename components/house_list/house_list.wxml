@@ -1,0 +1,20 @@
+<!--components/house_list/house_list.wxml-->
+<scroll-view class='ul' scroll-x='true'>
+  <view class = "house_list">
+      <view class = "house_list_li" wx:for = "{{content}}" wx:key="{{item.id}}">
+        <view  bindtap = "gaHouseListlis" data-id="{{item.id}}" data-productType = "{{item.productType}}" class="HouseList">
+            <view class = "house_list_li_img">
+                <image src = "{{item.image}}" class = "imgs"></image>
+                <!-- <image src = "https://img.guoanfamily.com/rent/pinzhijie/pinzhiLogo.png" class = "imgOne"></image> -->
+            </view>
+            <view class = "house_list_li_content">
+              <view class = "one">{{item.houseName+item.roomName}}</view>
+              <view class = "two">
+                  <view class = "price">{{item.price}}</view>
+                  <view class = "month">元/月</view></view>
+              </view>
+        </view>
+      </view>
+  </view>
+</scroll-view>
+  

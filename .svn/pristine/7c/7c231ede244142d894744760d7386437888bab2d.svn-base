@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "热门搜索",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "searchpage":"/components/searchpage/searchpage",
+    "myslider":"/components/mySlider/mySlider"
+  }
+}

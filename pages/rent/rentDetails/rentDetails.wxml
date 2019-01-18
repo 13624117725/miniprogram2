@@ -1,0 +1,288 @@
+<!--pages/rent/rentDetails/rentDetails.wxml-->
+
+<view class = "rentDetails">
+<!-- style = "height:{{height}}" -->
+  <!-- <scroll-view  class='sc_view' scroll-y="true" > -->
+    <view style = "padding:0 30rpx 115rpx 30rpx;box-sizing:border-box" >
+    
+   
+      <view class = "rentDetailsSwiper">
+        <!-- swiper -->
+        <view class = "swipers">
+          <swiper class='swiper_box' indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{current}}" bindchange = "bindchangeOne">
+            <block wx:for="{{imgUrls}}" wx:key="index">
+              <swiper-item catchtap = "swiperClick" data-id="{{item.id}}">
+                <image src="{{item.img}}" class="slide-image"  height="500"/>
+              </swiper-item>
+            </block>
+          </swiper>
+          <!-- 弹幕 -->
+          <view class='Danmu'>
+            <view
+              wx:for="{{barList}}"
+              wx:key = "index"
+              class='danmu_bg'
+              wx:key="{{item.text}}" wx:for-index="index" style="animation: danmu {{item.settime}}s linear 0s infinite;top:{{index*60}}rpx" 
+            >
+              
+              <view class="absitemp">
+              <image class='absitemp_img' src="/img/whiteren.png" alt=""></image>
+              {{item.text}}
+              </view>
+            </view>
+          </view>
+          <!-- 收藏 -->
+          <view class='headBtn' bindtap='collectFunc'>
+            <image wx:if = "{{!isCollect}}" src="{{hertImage}}" class="hertimage"/>
+            <image wx:if = "{{isCollect}}" src="{{hertImageChecked}}" class="hertimage"/>
+          </view>
+          <!-- 下定 -->
+          <view class="downPay {{isDownPay?'downPayShow':'downPayHide'}}">
+            {{downPayTitle}}
+          </view>
+        </view>
+        
+      
+      </view>
+      
+      <!-- rentName  and rentPrice -->
+      <view class="collect">
+          <view style="font-size:42rpx;display:flex">{{areaName}} <view v-if="isRoomOrHouse">{{houseName}}</view> {{houseName == '东大桥店'?roomFloor:colledtName}}{{roomNumber}}</view>
+
+          <view class="collect-title">
+            <view class="priceShow">{{Price == null?0:Price}}</view>
+            <view class="505050505050cdsaffsdafsda50505" style = "height:40rpx;line-height:40rpx;font-size:24rpx;padding-top:10rpx;">元/月</view>
+          </view>
+          <view class="collect-message">
+            <view wx:for="{{advantageTagsArr}}" class="recommend1" wx:key = "index">{{item}}</view>
+            <view style="clear: both;"></view>
+          </view>
+        </view>
+        <!--户型 层数 面积-->
+        <view class="houseType">
+          <view class="houseType-row">
+            <view class="row-col">
+              <view >{{afterRoom}}室{{afterLiving}}厅</view>
+            </view>
+            <view class="row-col">
+              <view >{{houseName == '东大桥店'?roomFloor+'层':buildFloor+'层'}}</view>
+            </view>
+            <view class="row-col">
+              <view>{{Area}}㎡</view>
+            </view>
+            <view class="row-col" style="border-right: 0;">
+              <view >{{'朝'+Orientation}}</view>
+            </view>
+          </view>
+          <!-- 活动规则 -->
+          <!-- <view class= "activityRules">
+              <view class = "houseRoomDetail-title">活动规则</view>
+              <view class="house-content-pinzhi" wx:if="{{houseName == '呼家楼店' || houseName == '东大桥店'}}">
+                <view>2018.10.26日至2018.11.30日，此房源参加国安家品质租住节活动：</view>
+                <view>新租客首次签约立减1000元</view>
+                <view>说明：1、若中途违约退租，需按月折算满减后，再按照违约责任退回剩余租金。</view>
+              </view>
+              <view class="house-content-pinzhi" wx:else>
+                <view>2018.10.26日至2018.11.30日，此房源参加国安家品质租住节活动：</view>
+                <view>新租客首次签约，支付满3000元减300元、满5000元减500元、满8000元减800元</view>
+                <view>说明：1、若中途违约退租，需按月折算满减后，再按照违约责任退回剩余租金。</view>
+              </view>
+          </view> -->
+          <!--  houseIntroduce-->
+          <view class= "houseIntroduce">
+              <view class = "houseRoomDetail-title">房源介绍</view>
+              <view class = "house-content">{{advantageEnvironment}}</view>
+          </view>
+          <view style="height:20rpx; background: #f2f2f2;margin:30rpx 0"></view>
+        </view>
+        <!-- 房屋配套 -->
+        <view class= "houseMatching">
+            <view class = "houseRoomDetail-title">房屋配套</view>
+              <view class="facility-title-slide">
+              <view class = "facility-title-slide_item">
+                <view class="facility-item {{index==borderBottom?'border_bottom':''}}" 	wx:for="{{roomItems}}" wx:if="{{!(item.typeCode == '0014006' || item.typeCode == '0014007')}}" bindtap="clickFacility" data-index="{{index}}" data-roomItemName= "{{item.roomItemName}}"  wx:key = "index">
+                      <view wx:if="{{item.typeCode == '0014001'}}">{{item.roomItemName+roomNumber+'房间'}}</view>
+                      <view wx:else>{{productType == '0019003' && item.typeCode == '0014004' ? '公共卫生间' : item.roomItemName}}</view>
+                </view>
+              </view>
+            </view>
+            <view class = "facility-item_list">
+                <view wx:for = "{{item_list}}" class = "facility-item_list_li" wx:key = "index">
+                    <image src = "{{item.url}}" class = "facilityImage"></image>
+                    <view class = "facilityName">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- 室友信息 -->
+      <view wx:if="{{isHaveroomList}}">
+					<view class="houseRoomDetail-title" style="padding-bottom: 0.05rpx;">
+						<view>室友信息</view>
+					</view>
+					<view class="roommate">
+						<view wx:for="{{roomList}}" class = "roomList" wx:key = "index">
+							<view style="width: 15%;"><view class="roommate-col1">{{houseName == '东大桥店'?item.roomFloor:item.roomName}}{{item.roomNumber}}</view></view>
+							<view style="width: 30%;" class="{{!item.isIntakeState ? 'yesCheck' : 'noCheck'}} ">
+								<view style="width: 100%; text-align: center;">{{item.intakeState}}</view>
+							</view>
+							<view style="width: 30%;" class="roomrent">
+								<view class = "roomrentPrice" wx:if="{{!item.isIntakeState}}"><view style="font-weight: 700;">{{item.price}}</view><view>元/月</view></view>
+								<view style="color: #535353;font-size: 28rpx;" wx:if="{{item.isIntakeState}}">
+									<!--<img :src="item.icon"/>-->
+									{{item.constellation}}
+									{{item.sexChinese}}
+								</view>
+							</view>
+							<view style="text-align: center; width: 25%;" class="content-li-last">
+								<view class="thisHouse" wx:if="{{!item.isIntakeState && item.isthisHouse}}" wx:key = "index">当前房源</view>
+								<view class="lookroom" bindtap="toOthersRoom" data-id="{{item.roomId}}" data-productType = "{{productType}}" wx:if="{{!item.isIntakeState && !item.isthisHouse}}">
+									查看房间
+								</view>
+								<view wx:if="{{item.isIntakeState}}" style="font-size: 28rpx;">{{item.job || "保密"}}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+    <!--服务介绍-->
+				<view>
+					<view class="houseRoomDetail-title">
+						<view>服务介绍</view>
+					</view>
+					<view class="serve">
+						<view>
+							<view class = "servelist"><view class="serve-img"><image src="/img/icon/pinzhi.png" class = "serveList_img"/></view><view class = "severListOne">品质</view><view class = "severListTwo">真实房源、环保家具、智能门锁</view></view>
+							<view  class = "servelist"><view class="serve-img"><image src="/img/icon/serve.png" class = "serveList_img"/></view><view class = "severListOne">服务</view><view class = "severListTwo">月度保洁、及时维修</view></view>
+							<view  class = "servelist"><view class="serve-img"><image src="/img/icon/pay.png" class = "serveList_img"/></view><view class = "severListOne">支付</view><view class = "severListTwo">多种支付方式灵活选择</view></view>
+						</view>
+					</view>
+				</view>
+			<!-- 付款方式 -->
+				<view>
+					<view class="houseRoomDetail-title">
+						<view>付款方式</view>
+					</view>
+					<view class="payway">
+						<!--表头-->
+		    			<view class="payway-title">
+		    				<view class = "payway-title_li">方式</view>
+		    				<view class = "payway-title_li">租金</view>
+		    				<view class = "payway-title_li">押金</view>
+		    				<view class = "payway-title_li">服务费</view>
+		    			</view>
+		    			<!-- <view style="height: 20rpx; background: #f2f2f2;"></view> -->
+		    			<view class="payway-content">
+		    				<view  class="payway-content-li"><view>季付</view></view>
+		    				<view class="payway-content-li"><view></view>{{Price}}/月</view>
+		    				<view class="payway-content-li">{{Price}}/月</view>
+		    				<view class="payway-content-li">{{quarterlyPay}}/年</view>
+		    			</view>
+		    			<view class="payway-content">
+		    				<view class="payway-content-li"><view >半年付</view></view>
+		    				<view class="payway-content-li">{{Price}}/月</view>
+		    				<view class="payway-content-li">{{Price}}/月</view>
+		    				<view class="payway-content-li">{{halfAYearPay}}/年</view>
+		    			</view>
+		    			<view class="payway-content">
+		    				<view class="payway-content-li"><view>年付</view></view>
+		    				<view class="payway-content-li">{{Price}}/月</view>
+		    				<view class="payway-content-li">{{Price}}/月</view>
+		    				<view class="payway-content-li">{{yearPay}}/年</view>
+		    			</view>
+					</view>
+				</view>
+
+				<view>
+					<view class="houseRoomDetail-title" style="padding-top:20rpx;">
+						<view>周边</view>
+					</view>
+					<view style="color: #666666;font-size: 28rpx;line-height:50rpx; text-align: left;box-sizing: border-box;padding-left: 10rpx;">
+						{{surrounding}}
+					</view>
+				</view>
+				<view>
+					<view class="houseRoomDetail-title">
+						<view>交通</view>
+					</view>
+					<view style="color: #666666;font-size: 28rpx;line-height:50rpx;text-align: left;box-sizing: border-box;padding-left:10rpx;">
+						{{circumjacentTraffic}}
+					</view>
+          <!-- <map class = "map" id = "map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location>
+            </map> -->
+				</view>
+        <!-- MAP -->
+           
+   
+        
+        <map class = "map" id = "map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location>
+            
+        </map>
+            
+        
+        <!--小区-->
+				<view v-if="isHaveRecommend">
+					<view class="houseRoomDetail-title">
+						<view>小区</view>
+					</view>
+					<scroll-view class="community-img" wx:if="{{communityList.length>0}}" scroll-x="true">
+            <view class="community-ul">
+              <view class="community-li" wx:for="{{communityList}}" wx:key="{{index}}">
+                <image src="{{item.url}}" class = "imgs"></image>
+              </view>
+            </view>
+			    </scroll-view>
+					<view class="community">
+						<view wx:if="isHaveCommunityImages" style="height:12rpx; border-top: 1rpx solid #f2f2f2;width: 98%;"></view>
+						<view style="padding:0 20rpx 0 10rpx;text-align: left;line-height:50rpx;font-size:28rpx" wx:if="{{isHaveRecommend}}"><view style="color: #666666;">{{recommend}}</view></view>
+
+					</view>
+				</view>
+        <view style="height: 20rpx;background: #EEEEEE;margin:20rpx 0"></view>
+        <!-- 国安家推荐 -->
+        <view class="recommend" wx:if="{{isHaveGaj}}">
+				<view class="houseRoomDetail-title" style="text-align: left;padding-left: 40rpx;margin-top: 30rpx;">
+					<view>国安家推荐</view>
+				</view>
+				<scroll-view class="ga-recommend" scroll-x="true">
+					<view class="tuijian-box">
+						<view class="tuijian-slide">
+							<view class="tuijian-li" wx:for="{{recommendList}}" wx:key="{{item.id}}">
+								<view class="tuijian-li-img"  bindtap="recommendDetali" data-id = "{{item.id}}" data-productType = "{{item.productType}}">
+									<image src="{{item.image}}" class = "tuijian-li-img-imgOne"></image>
+									<!--品质节logo-->
+		            				<!-- <image style="width: 130rpx;height: 50rpx; position: absolute;bottom: 10rpx;right: 10rpx;z-index: 2;" src="https://img.guoanfamily.com/rent/pinzhijie/pinzhiLogo.png"></image> -->
+                  <view class="tuijian-li-money"><view style="font-weight: 700;font-size:24rpx;">{{item.price}}</view><view style="font-size:24rpx;">/月</view></view>
+								</view>
+								<view class="tuijian-li-p">{{item.houseName}} {{item.houseName == '东大桥店'?item.roomFloor:item.roomName}}{{item.roomNumber}}</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			
+			</view>
+      
+      <!-- 底部 -->
+     	
+      <!-- 收藏showHide -->
+      <!-- <view class = "CollectionShowHide {{Collection?'CollectionShow':'CollectionHide'}}">{{CollectionShowHide}}</view> -->
+     </view>
+  <!-- </scroll-view> -->
+     <view class = "bottom" >
+        <view class = "bottomOne bottom_one" bindtap = "reservations">预约看房</view>
+        <view class = "bottomOne" bindtap = "downPay">立即下定</view>
+      </view>   
+</view>
+
+ 
+  <view class = "loading" wx:if = "{{loading}}" catchtouchmove="move">
+            <image src = "https://media.guoanfamily.com//miniProgram/loading.gif"></image>
+      </view> 
+    <view class = "bigPicture" wx:if = "{{bigPicture}}" catchtap = "bigPicture">
+          <swiper class='swiper_box' indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{tmpCurent}}" bindchange="bindchange2">
+            <block wx:for="{{imgUrls}}" wx:key="index">
+              <swiper-item catchtap = "swiperClick" data-id = "{{item.id}}">
+                <image src="{{item.img}}" class="slide-image"  height="500" mode = "scaleToFill"/>
+              </swiper-item>
+            </block>
+          </swiper>
+      </view> 

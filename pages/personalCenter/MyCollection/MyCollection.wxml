@@ -1,0 +1,73 @@
+<view class='MyCollection'>
+  <view class='topBar'>
+    <view class='tab_name {{ CheckIndex==1? "actived":""}}' bindtap='chouse' data-idex="1">收藏的楼盘</view>
+    <view class='tab_name {{ CheckIndex==2? "actived":""}}' bindtap='chouse' data-idex="2">收藏的户型</view>
+    <view class='tab_name {{ CheckIndex==3? "actived":""}}' bindtap='chouse' data-idex="3">收藏的租房</view>
+  </view>  
+  <view class='Binfo' wx:if="{{CheckIndex==1}}">
+
+      <view class='cards' wx:for="{{showData}}" wx:for-index="index" wx:key="{{item.id}}" >
+        <view catchtap = "goNewHouseDetail" data-buildid = "{{item.collectUrl}}">
+            <view class='left'>
+              <image class='img' src="{{item.imageName}}"></image>
+              <view class='heart' catchtap='editHear' data-type="1" data-collectUrl="{{item.collectUrl}}"></view>
+            </view>
+            <view class='build_info'>
+              <view class='build_name'>{{item.collectTitle}}</view>
+              <view class='build_price'>{{item.collectResume}}元/㎡</view>
+              <view class='build_area'>建筑面积：{{item.adjunctContent}}</view>
+              <view class='build_adress'>{{item.collectContent}}</view>
+            </view>
+        </view>
+      </view>
+
+    <view wx:if = "{{noData}}" class = "image">
+          <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+    </view>
+  </view>
+  <view class='Binfo' wx:if="{{CheckIndex==2}}">
+
+      <view class='cards' wx:for="{{showData}}" wx:key="{{item.id}}" >
+        <view catchtap = "showType"  data-collectUrl="{{item.collectUrl}}">
+            <view class='left'>
+              <image class='img' src="{{item.imageName}}"></image>
+              <view class='heart' catchtap='editHear' data-type="2" data-collectUrl="{{item.collectUrl}}"></view>
+            </view>
+            <view class='build_info'>
+              <view class='build_name'>{{item.collectTitle}}</view>
+              <view class='build_price'>{{item.collectResume}}㎡</view>
+              <view class='build_adress'>{{item.collectContent}}</view>
+              <view class='build_area'>朝向：{{item.adjunctContent}}</view>
+            </view>
+        </view>
+      </view>
+
+
+    <view wx:if = "{{noData}}" class = "image">
+        <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+    </view>
+  </view>
+  <view class='Binfo' wx:if="{{CheckIndex==3}}">
+
+      <view class='cards' wx:for="{{showData}}" wx:key="{{item.id}}">
+        <view catchtap = "gaHouseListlis" data-id = "{{item.id}}" data-productType = "{{item.collectUrl}}">
+            <view class='left'>
+              <image class='img' src="{{item.imageName}}"></image>
+              <view class='heart' catchtap='editHear' data-type="3" data-collectUrl="{{item.collectUrl}}"></view>
+            </view>
+            <view class='build_info'>
+              <view class='build_name'>{{item.collectTitle}}</view>
+              <view class='build_price'>{{item.collectResume}}元/月</view>
+              <!-- <view class='build_area'>建筑面积：{{item.adjunctContent}}</view> -->
+              <view class='build_adress'>{{item.buildFloor}} {{item.afterRoom}} {{item.afterLiving}}</view>
+            </view>
+        </view>
+      </view>
+
+    <view wx:if = "{{noData}}" class = "image">
+        <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+    </view>
+
+  </view>
+
+</view>

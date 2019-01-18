@@ -1,0 +1,251 @@
+//index.js
+//获取应用实例
+const app = getApp()
+Page({
+  data: {
+    share_src:"",
+    imgUrls: [],
+    // indicatorDots: true,
+    autoplay: true,
+    interval:5000,
+    duration: 400,
+    circular:true,
+    rentHouseArr:[],
+    newHouseArr:[],
+    rentHouseArrB:[],
+    current:0,
+  },
+  // swiper切换是的监听事件
+  onSlideChange(e) {
+    this.setData({
+      current: e.detail.current,
+    })
+  },
+  onShareAppMessage(options) {
+    let path = `/pages/index/index`
+    return {
+      title: "【国安家】为每个家的梦想全力以赴",
+      path: path,
+      imageUrl: "https://img.guoanfamily.com/311324861370865436.jpg",
+      success: function (res) {
+        wx.showModal({
+          title: "温馨提示：",
+          content: '分享成功',
+        })
+      }
+    }      
+  },
+  onShow() {
+    getApp().globalData.$get(`palmsaleapp/api/v1/banner/appList?projectType=4`).then(res => {
+      let Arr = [];
+      let slideArr = [];
+      if (res.status == 200) {
+        res.data.forEach(item => {
+          if (item.systemtypename === "APP首页") {
+            let obg = {
+              url: `https://img.guoanfamily.com/${item.multimefileName}`,
+              src: item.bannerValue,
+              title: item.linkTitle
+            }
+            Arr.push(obg)
+          }
+        })
+      }
+      this.setData({
+        imgUrls: Arr,
+      })
+   
+    })
+  },
+  onLoad(options) {
+    let stadyToken = wx.getStorageSync("standbyToken")
+    getApp().globalData.$get(`user/userLoginController/unionloginByToken?standbyToken=${stadyToken}`).then(res=>{
+      if (res.code == 200) {
+        for (let key in res.data) {
+          wx.setStorageSync(key, res.data[key]);
+        }
+      }
+    })
+    //如果已经显示过web-view页了，则执行后退操作，否则就跳到web-view页
+    if (options.Hashs) {
+      app.globalData.ctxPath = "https://www.guoanfamily.com/guoanjiaApp/"+ decodeURIComponent(options.Hashs);
+      wx.navigateTo({
+        url: '/pages/first/first'
+      })
+    }else{
+      this.getRent().then(()=>{
+        this.getNewHouse()
+      })
+    }
+  },
+  
+  getUserInfo: function(e) {
+  
+  },
+  // 请求
+  // 租房
+  getRent(){
+    return getApp().globalData.$post("agenthouseCutomer/common/homePage", { "size": '10'}).then(res=>{
+      var Arr = []
+      let rentHouseArrB = []
+      if (res.code===0){
+        res.data.roomList.forEach((item,index)=>{
+          if (index<5){
+            item.roomFirstImage = `https://img.guoanfamily.com/${item.roomFirstImage}?imageView2/0/w/240/h/240`;
+            item.roomSecondImage2 = `https://img.guoanfamily.com/${item.roomSecondImage}?imageView2/0/w/160/h/160`;
+            item.roomThirdImage2 = `https://img.guoanfamily.com/${item.roomThirdImage}?imageView2/0/w/160/h/160`;
+            rentHouseArrB.push(item)
+          }else{
+            return false; 
+          }
+        })
+        res.data.roomList = res.data.roomList;
+        res.data.roomList.forEach((item,index)=>{
+          if (index<5){
+            item.tagsArr = item.tags.split(",", 2);
+            if (item.image) {
+              item.image = `https://img.guoanfamily.com/${item.image}?imageView2/0/w/240/h/240`
+            } else {
+              item.image = "https://img.guoanfamily.com/rent/static/HomePage/roomimg_03.png?imageView2/0/w/240/h/240"
+            }
+            Arr.push(item)
+          } else {
+            return false;
+          }
+        })
+        
+        this.setData({
+          rentHouseArr: Arr,
+          rentHouseArrB: rentHouseArrB
+        })
+      }
+    })
+  },
+  // 新房
+  getNewHouse(){
+    getApp().globalData.$get('palmsaleapp/api/v1/build/buildLitsAppm?averagepriceList=&typeList=&areaList=&tenementtypeList=&buildtagList=&hardcoverstandardList').then(res=>{
+      if (res.status==200){
+        res.data.forEach(item=>{
+          item.firstpicture = `https://img.guoanfamily.com/${item.firstpicture}?imageView2/0/w/240/h/240`
+        })
+        this.setData({
+          newHouseArr: res.data
+        })
+      }
+       
+    })
+  },
+
+  // 跳转页面
+  turnRouter(route){
+    app.globalData.ctxPath = `https://www.guoanfamily.com/guoanjiaApp/${route}from=xiaochengxu`
+    wx.navigateTo({
+      url: '/pages/first/first'
+    })
+  },
+  findRentRoom(){
+    wx.navigateTo2({
+      url: '/pages/rent/HouseList/HouseList'
+    })
+  },
+  findRentMap(){
+    this.turnRouter("#/MapSearch?title=地图找房&");
+  },
+  findNewHouse(){
+    wx.switchTab2({
+       url: '/pages/new/newIndex/newIndex',
+    })
+  },
+  findRentHouse(){
+    wx.switchTab2({
+      url: '/pages/rent/rentIndex/rentIndex',
+    })
+  },
+  findHousePrice(){
+    wx.navigateTo2({
+      url: '/pages/new/newHouseList/newhouseList',
+    })
+  },
+  // 业主委托
+  Entrust(){
+    wx.navigateTo2({
+      url: '/pages/personalCenter/Entrust/Entrust',
+    })
+  },
+  lookCenter(){
+    wx.navigateTo2({
+      url: '/pages/index/showCenter/showCenter',
+    })
+    // this.turnRouter("#/ExhibitionCenter?");
+  },
+  VrLook(){
+    this.turnRouter("#/VrLook?");
+  },
+  ActiveList(){
+    this.turnRouter("#/ActiveList?");
+  },
+  RontHouses(){
+    // this.turnRouter("#/HouseList?name=0019001&");
+    wx.navigateTo2({
+      url: '/pages/rent/HouseList/HouseList'
+    })
+  },
+  newHouses(){
+    wx.switchTab2({
+      url: '/pages/new/newIndex/newIndex'
+    })
+  },
+  RentHousesDetail(e){
+    let $id = e.currentTarget.dataset.id;
+    let $productType = e.currentTarget.dataset.producttype;
+    wx.navigateTo2({
+      url: '/pages/rent/rentDetails/rentDetails?id=' + $id + '&productType=' + $productType,
+    })
+  },
+  newHouseIndex(){
+    // this.turnRouter("#/newHouseIndex?");
+    wx.navigateTo2({
+      url:'/pages/new/newIndex/newIndex'
+    })
+  },
+  newHouseInfo(e){
+    // let str = `#/building_detial?buildID=${e.currentTarget.dataset['id']}&productType=${e.currentTarget.dataset['producttype']}&`
+    // this.turnRouter(str);
+    let $id = e.currentTarget.dataset.id;
+    wx.navigateTo2({
+      url: `/pages/new/newHouseDetail/newHouseDetail?buildId=${$id}`,
+    })
+  },
+  yuekanHouse(){
+    this.turnRouter("#/HouseList?");
+  },
+  rentHouseList(){
+    // this.turnRouter("#/HouseList?name=0019001&");
+    wx.navigateTo2({
+      url: '/pages/rent/HouseList/HouseList'
+    })
+  },
+  myCenter(){
+    this.turnRouter("#/personalCenter?");
+  },
+  imgClick(e){
+    let src = e.currentTarget.dataset.item.src
+    console.log(src)
+    if (src =="/newHouseIndex"){
+      wx.switchTab2({
+        url: '/pages/new/newIndex/newIndex',
+      })
+    }
+    if (src == "/HomePage"){
+      wx.switchTab2({
+        url: '/pages/rent/rentIndex/rentIndex',
+      })
+    }
+    if (src.indexOf("https://www.guoanfamily.com")!=-1){
+      getApp().globalData.ctxPath = src;
+      wx.navigateTo({
+        url: '/pages/first/first',
+      })
+    }
+  }
+})

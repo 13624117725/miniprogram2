@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的租约",
+  "enablePullDownRefresh": false,
+  "onPullDownRefresh": true,
+  "onReachBottom": true
+}

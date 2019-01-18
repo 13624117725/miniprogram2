@@ -1,0 +1,91 @@
+/* pages/new/buildposter/buildpposter.wxss */
+.bg{
+  position:fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color:#313758; 
+}
+.swiper_box{
+  margin-top: 120rpx;
+  width: 100%;
+  height:  80rpx;
+}
+.swiper_item{
+  color: #fff;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.red_line{
+
+  width: 60rpx;
+  height: 0;
+  border-top: 1px solid red;
+  margin: 0 auto;
+}
+.buildList{
+  margin-top: 180rpx;
+  width: 100%;
+  box-sizing:border-box;
+  padding-left:30rpx; 
+}
+.cityName{
+  line-height: 120rpx;
+  font-size: 80rpx;
+  color: #fff;
+}
+.english{
+  line-height: 70rpx;
+  font-size: 50rpx;
+  color: #fff;
+}
+.chinese{
+  line-height: 50rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.swiper2_box{
+  margin-top: 70rpx;
+  height: 400rpx;
+  width: 100%;
+  
+}
+.swiper2{
+  height: 380rpx;
+}
+.swiper_item2{
+  height: 380rpx;
+}
+
+.img_box{
+  width:90%;
+  height: 300rpx;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius:8rpx; 
+  
+}
+.imgs{
+  width: 100%;
+  height: 100%;
+}
+.build_name{
+  height: 45rpx;
+  margin-left: 20rpx;
+  line-height:  45rpx;
+  font-size: 30rpx;
+  color: #fff;
+  float: left;
+  margin-top: 10rpx;
+}
+.icons{
+  margin-top: 10rpx;
+  height: 45rpx;
+  width: 45rpx;
+  margin-left: 25rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/areaAdd.png") center no-repeat/60%;
+  float: left;
+}

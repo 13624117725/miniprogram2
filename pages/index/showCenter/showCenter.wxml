@@ -1,0 +1,41 @@
+<view class="showCenter">
+  <view class='topBox'>
+    <view class='logo'>
+      <image class='logo_img' src='https://img.guoanfamily.com/miniProgram/logo.png'></image>
+    </view>
+    <view class='title_text'>
+      <image class='text_img' src='https://img.guoanfamily.com/miniProgram/text.png'></image>
+    </view>
+    <view class='swipers'>
+      <swiper class='swiper_box' indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" indicator-color="rgba(255, 255, 255, .6)" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}"  wx:key="{{item.url}}">
+          <swiper-item >
+            <image src="{{item.url}}" class="slide-image"  height="240"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='bottom'>
+      <view class='p'>
+        为商务会议、团建而生
+      </view>
+      <view class='p'>
+        更是私人会客的绝佳场所
+      </view>
+      <view class='p'>
+        在此展开有关生意与生活的对话
+      </view>
+      <view class='p'>
+        在繁华中心,入席一场盛宴
+      </view>
+      <view class='tels_box'>
+        <view class='tels'>
+          预约咨询电话:  010-5907 0532
+
+        </view>
+        <view class='teluico' bindtap='callPhone'></view>
+      </view>
+    </view>
+  </view>
+</view>

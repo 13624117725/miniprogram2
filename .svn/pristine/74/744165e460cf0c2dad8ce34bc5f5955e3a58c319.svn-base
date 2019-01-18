@@ -1,0 +1,48 @@
+<!--pages/rent/VrLook/VrLook.wxml-->
+<view style="width: 100%;height: 100%;">
+		<view class="background-banner">
+			<view class="background-banner-hosue">
+				<view class="banner-item" bindtap="goToShow">
+					<view class="banner-item-shadow">
+						<view class="banner-item-shadow-name1">
+							四惠东 惠生园四居室 D房间 
+						</view>
+						<view class="banner-item-shadow-name2">
+							2层/22㎡
+						</view>
+					</view>
+				</view>
+				<view class="banner-item banner-item1" bindtap="goToShow2">
+					<view class="banner-item-shadow">
+						<view class="banner-item-shadow-name1">
+							团结湖  呼家楼店 A04 
+						</view>
+						<view class="banner-item-shadow-name2">
+							2层/22㎡
+						</view>
+					</view>
+				</view>
+				<view class="banner-item banner-item2" bindtap="goToShow3">
+					<view class="banner-item-shadow">
+						<view class="banner-item-shadow-name1">
+							团结湖  呼家楼店 B06 
+						</view>
+						<view class="banner-item-shadow-name2">
+							2层/27㎡
+						</view>
+					</view>
+				</view>
+				<view class="banner-item banner-item3" bindtap="goToShow4">
+					<view class="banner-item-shadow">
+						<view class="banner-item-shadow-name1">
+							团结湖  呼家楼店 D02
+						</view>
+						<view class="banner-item-shadow-name2">
+							2层/20㎡
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="back-vr" bindtap="goback"></view>
+	</view>

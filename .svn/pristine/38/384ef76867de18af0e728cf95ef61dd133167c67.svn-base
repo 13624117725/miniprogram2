@@ -1,0 +1,80 @@
+<view class="RepairMyList" >
+  <view class="pages">
+      <!-- 报修列表 -->
+      <ul>
+          <li wx:for="{{resolute}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+              <view class="topTitle">
+                  <view class="icon">
+                    <image class='icon_img' src="{{'https://img.guoanfamily.com/' + item.itemCategory.itemImage}}" alt=""></image>
+                  </view>
+                  <view class="name">
+                      <span>{{item.oneLevleItem.oneLevleItemName}}类</span>
+                      <span>{{item.AreaData.repairArea}}</span>
+                      <span>{{item.itemCategory.twoLevleItemName}}</span>
+                  </view>
+                  <view class="closed" >
+                  <image class='closedimg' id='{{index}}' bindtap="delItem" src="../../../img/clear1.png" alt=""></image>
+                  </view>
+              </view>
+              <view class="m_img clearfix">
+                  <image class="my_img"
+                   data-idx="{{index}}" 
+                   data-src='{{its}}' 
+                   bindtap="showImg" 
+                   wx:for="{{item.imgArr}}" 
+                   wx:for-index="i" 
+                   wx:for-item="its" 
+                   wx:key="i" src="{{its + '?imageView2/0/w/100/h/100'}}" alt="">
+                  </image>
+              </view>
+              <view class="marks">
+                  {{item.ErrText}}
+              </view>
+          </li>
+      </ul>
+      <!-- 住户信息 -->
+
+          <!-- 住址 -->
+      <view class="adressInfo">
+          <view class="titles">
+              服务地址
+          </view>
+          <view class="adreess" v-if="houseAddress">
+              {{houseAddress}}
+          </view>
+      </view>
+
+      <view class="adressInfo2">
+          <view class="titles">
+              上门时间
+          </view>
+          <view class="repTime">
+          <picker
+            mode="multiSelector"
+            bindchange="bindMultiPickerChange"
+            value="{{repTime}}"
+            range="{{titmeArr}}"
+          >
+            <view class="picker">
+              当前选择：{{titmeArr[0][multiIndex[0]]}} {{titmeArr[1][multiIndex[1]]}}
+            </view>
+          </picker>
+              <!-- <popup-picker placeholder="选择上门时间" v-model="repTime" :data="titmeArr"></popup-picker> -->
+          </view>
+      </view>
+      <view class="adressInfo2">
+          <view class="titles">
+              联系电话
+          </view>
+          <view class="repTime">
+          <input class='input' type='number' value='{{telNum}}' bindinput="getTelNum" maxlength="11" placeholder='请输入电话号' ></input>
+          </view>
+      </view>
+  </view>
+  <view class="datasave" bindtap="submit">
+      确认提交订单
+  </view>
+  <!-- <view v-transfer-dom>
+      <previewer :list="preImg" ref="previewer2" ></previewer>
+  </view> -->
+</view>

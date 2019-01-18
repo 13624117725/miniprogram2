@@ -1,0 +1,26 @@
+<view class="searchPage">
+  <view class = "searchHistory" wx:if = "{{search}}">
+      <view class= "top_title searchHistory_title">搜索历史</view>
+      <view class= "searchHistory_content">
+          <view wx:for = "{{searchHistory}}" bindtap='textClick' data-item="{{item}}"  wx:key="{{index}}">{{item}}</view>
+      </view>
+
+  </view>
+  <view class='top_title'>
+    热门搜索
+  </view>
+  <view class='ul'>
+
+     <view class='c_list' bindtap='textClick' data-item="{{item}}" wx:for="{{hotWord}}" wx:key="{{index}}">
+      {{item}}
+     </view>
+  </view>
+   <view class='top_title allCity'>
+    全城热搜
+  </view>
+  <view class='all_ul'>
+    <view class='all_li' bindtap='textClick' data-item="{{item}}" wx:for="{{allHotW}}" wx:key="{{index}}">
+      {{item}}
+    </view>
+  </view>
+</view>

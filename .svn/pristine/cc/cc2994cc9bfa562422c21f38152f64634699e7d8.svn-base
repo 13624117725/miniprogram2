@@ -1,0 +1,34 @@
+<view class='Withdrawals'>
+  <view class='top_card'>
+    <view class='topBox'>
+      <view class='TBox'>
+        <view class='Thead'>
+          目前共有积分
+        </view>
+        <view class='TNum'>
+          {{myPoints}}
+        </view>
+      </view>
+      <view class='TBox'>
+        <view class='Thead'>
+          可提现积分
+        </view>
+        <view class='TNum'>
+          {{depositpoint}}
+        </view>
+      </view>
+    </view>   
+    <view class='bottom'>
+      一次提现最多{{maxMoney}}元
+    </view>
+  </view>
+  <view class='Numinput'>
+    <input class='ipt' type="number"></input>
+    <view class='left_box'>￥</view>
+  </view>
+  <view class='btn_bottom'>
+    <button class='btn' disabled="{{iscanwithdraw=='不可提'}}">
+      提取现金
+    </button>
+  </view>
+</view>

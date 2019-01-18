@@ -1,0 +1,45 @@
+<!--pages/personalCenter/RepairDetails/RepairDetails.wxml-->
+<view class="RepairDetails">
+  <view class="pages" :class="[AndroidOrIos() ? 'isAoI' : 'isBorwer']"> 
+    <view class="orderitem" wx:for="{{itemList}}" wx:for-index="i" wx:for-item="item" wx:key="i">
+      <view class="itemtop clearfix">
+          <image class="timg" src="{{'https://img.guoanfamily.com/' + item.itemImage}}" alt=""></image>
+          <view class="ptitle">
+              <span>{{item.categoryName}}</span>
+              <span>{{item.faultArea}}</span>
+              <span>{{item.itemName}}</span>
+          </view>
+      </view>
+      <view class="itemcenter clearfix">
+          <view class="cli" wx:for="{{item.itemImagePath}}" wx:for-index="I" wx:key="I" wx:for-item="ItemUrl">
+              <image class="timg" style="margin-bottom:20rpx" src="{{ItemUrl}}" alt=""></image>
+              <!-- <view>{{ItemUrl}}</view> -->
+          </view>
+      </view>
+      <view class="itembtm">
+          问题描述: {{item.remark}}
+      </view>
+    </view>
+    <view class="detailinfo">
+        <view class="infop">
+            <span>服务地址 </span>
+            {{houseAddress}}
+        </view>
+          <view class="infop">
+            <span>上门时间 </span>
+            {{startAEndDDate}}
+        </view>
+          <view class="infop">
+            <span>联系电话 </span>
+            {{customerPhone}}
+        </view>
+          <view class="infop">
+            <span>维修订单 </span>
+            {{orderId}}
+        </view>
+    </view>
+    <view class="btn_box">
+        <view class="btn" bindtap="handleCancel">取消订单</view>
+    </view>              
+  </view>
+</view>

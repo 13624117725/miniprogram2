@@ -1,0 +1,68 @@
+ /* pages/personalCenter/contractDetails/contractDetails.wxss */
+.contractDetails{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.contractDetailsList_details{
+  display: flex;
+}
+.contractDetailsList_details>image{
+  width: 280rpx;
+  height:210rpx;
+  border-radius: 10rpx;
+}
+.contractDetailsList_details_li{
+  margin-left: 20rpx; 
+}
+.contractDetailsList_details_li>view:nth-child(1){
+  font-size:32rpx;
+  white-space: nowrap;
+  color:#000;
+}
+.contractDetailsList_details_li>view:nth-child(2){
+  font-size: 26rpx;
+  white-space: nowrap;
+  color: #666;
+  margin: 15rpx 0;
+}
+.contractDetailsList_details_li>view:nth-child(3){
+  font-size: 28rpx;
+  white-space: nowrap;
+  color: #000;
+}
+.contractDetailsList_details_li>view:nth-child(4){
+ display: flex;
+ margin-top: 10rpx;
+}
+.contractDetailsList_details_li>view:nth-child(4)>view{
+    font-size: 28rpx;
+    background:#999;
+    padding: 5rpx 10rpx;
+    color:#fff;
+}
+.contractDetailsList_li>view{
+  display: flex;
+  justify-content:space-between ;
+  align-items:center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #DDDDDD;
+}
+.contractDetailsList_li>view:nth-child(3)>view:nth-child(2){
+  display: flex;
+}
+.contractDetailsList_li>view:nth-child(4)>view:nth-child(2){
+  display: flex;
+}
+.contractDetailsList_li>view>view:nth-child(1){
+  color:#000;
+  font-size: 32rpx;
+
+}
+.contractDetailsList_li>view>view:nth-child(2){
+  color:#999;
+  font-size: 28rpx;
+  
+}
+.contractDetailsList_li>view:nth-child(4){
+  border-bottom:20rpx solid #ddd;
+}

@@ -1,0 +1,99 @@
+/* pages/personalCenter/RepairDetails/RepairDetails.wxss */
+clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "\00A0";
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.RepairDetails {
+  height: 100%;
+}
+.pages{
+  font-size: 28rpx;
+  padding: 40rpx;
+  padding-bottom:100rpx; 
+}
+.isBorwer{
+    padding-top:160rpx;
+}
+.orderitem{
+  padding-top: 40rpx;
+  padding-bottom: 20rpx;
+}
+.itemtop{
+  height: 90rpx;
+}
+.ptitle{
+  float: left;
+}
+.ptitle span{
+  display: inline-block;
+  margin-right: 30rpx;
+  line-height: 48rpx;
+  font-size: 32rpx;
+  color: #000
+}
+.itemcenter{
+  width: 90%;
+  padding-top: 20rpx;
+}
+.itembtm{
+  padding-top: 2rpx;
+  line-height: 40rpx;
+  color: #999;
+  text-align: left;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.timg{
+  float: left;
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 24rpx;
+}
+.detailinfo{
+  border-top: 1px solid #ccc;
+  padding-top: 18rpx;
+  font-size: 28rpx;
+  padding-bottom: 60rpx;
+  margin-top: 40rpx;
+}
+.infop{
+  line-height: 68rpx;
+  color: #333;
+  text-align: left;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.infop span{
+  color: #999;
+  padding-right: 25rpx;
+}
+
+.btn_box {
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  }
+.btn_box .btn {
+  width: 100%;
+  height: 100rpx;
+  float: left;
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: #666666;
+}

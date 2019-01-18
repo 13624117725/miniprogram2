@@ -1,0 +1,46 @@
+<view class='topbar'>
+  <view class='ul'>
+    <view class='{{keyNum==index?"list active":"list"}}' wx:for="{{tabList}}" wx:key="{{item}}" for-index="index" bindtap='tabChouse' data-index='{{index}}'>{{item}}</view>
+    
+  </view>
+</view>
+<scroll-view class='Myorder' scroll-y='true'>
+  <view class='card' wx:for='{{showList}}' wx:key='{{item.id}}'>
+    <view class='top'>
+      <view class='titles'>
+        {{item.laber01}}
+      </view>
+      <view class='titles_msg' wx:if="{{item.orderstate==10||item.orderstate==11}}">
+        倒计时：{{item.countDown}}内完成支付
+      </view>
+      <view class='titles_msg'  wx:if="{{item.orderstate==2||item.orderstate==3}}">
+        待后台提交购房资格审核，请耐心等待
+      </view>
+    </view>
+    <view class='middle'>
+      <image class='leftImg'
+      src="{{item.buildpic}}"></image>
+      <view class='build_info'>
+        <view class='list'>{{item.houseinfo}}</view>
+        <view class='list'>{{item.housetype}}</view>
+        <view class='list'>优惠信息：{{item.discountscheme}}</view>
+      </view>
+
+
+    </view>
+    <view class='bottom'>
+      <view class='price'>总价：{{item.submoney}}元</view>
+      <view class='pay_bxo' wx:if="{{item.orderstate==11}}">需要支付登岛费： <text class='moneys'>{{item.signtotalmoney}}</text> 元</view>
+      <view class='pay_bxo' wx:if="{{item.orderstate==2}}">已支付的入会金额： <text class='moneys'>{{item.signtotalmoney}}</text> 元</view>
+      <view class='pay_bxo' wx:if="{{item.orderstate==10}}">需支付定金： <text class='moneys'>{{item.signtotalmoney}}</text> 元</view>
+      <view class='pay_bxo' wx:if="{{item.orderstate==3}}">已支付定金： <text class='moneys'>{{item.signtotalmoney}}</text> 元</view>
+
+ <!-- data-payMonet="{{JSON.stringify(item)}}" -->
+      <view class='smbtn1' wx:if="{{item.orderstate==1||item.orderstate==2}}" bindtap='ToPay' data-payMonet="{{item}}">付款</view>
+      <!-- <view class='smbtn2'>取消订单</view> -->
+    </view>
+    
+  </view>
+  <view class='line'>－　已经到最后了　－</view>
+  <view class='no-Data' wx:if="{{showList.length<1}}"></view>
+</scroll-view>

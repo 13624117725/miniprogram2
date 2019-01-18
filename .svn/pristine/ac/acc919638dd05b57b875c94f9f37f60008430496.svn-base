@@ -1,0 +1,234 @@
+<view class='index_page'>
+  <view class='cards'>
+    <!-- 轮播 -->
+    <view class="swipers">
+      <swiper class='swiper_box' indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color= "rgba(255, 255, 255, .9)" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}"  wx:key="{{item.url}}">
+          <swiper-item bindtap="imgClick" data-item="{{item}}">
+            <image src="{{item.url}}" lazy-load = "true" class="slide-image"  height="240"/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="section" >
+        <view class='left_box' > 
+           <image src="/img/search.png" class='bgi'/>
+        </view>
+        <view class='middle_box' bindtap="findRentRoom">输入您想居住的小区或区域</view>
+        <!-- <view class='right_box' bindtap="findRentMap">
+          <view class='adress' >
+            <image src="/img/location.png" class='bgi'/>
+          </view>
+        </view> -->
+      </view>
+    </view>
+    <!-- 导航按钮 -->
+    <view class='bars clearfix'>
+      <view class='btn' bindtap="findNewHouse">
+        <image class='btn-img'  src="/img/newHouse.png"/>
+        <view class='btn_info'>
+          新房
+        </view>
+      </view>
+      
+      <view class='btn' bindtap="findRentHouse">
+        <image class='btn-img'  src="/img/rentHouse.png"/>
+        <view class='btn_info'>
+          租房
+        </view>
+      </view>
+     
+      <view class='btn' bindtap="findHousePrice">
+        <image class='btn-img'  src="/img/housePictuere.png"/>
+        <view class='btn_info'>
+          房价
+        </view>
+      </view>
+      <view class='btn' bindtap="Entrust" >
+        <image class='btn-img'  src="/img/Entrust.png"/>
+        <view class='btn_info'>
+          业主委托
+        </view>
+      </view>
+      <view class='btn'>
+        <image class='btn-img' bindtap="lookCenter"  src="/img/lookCenter.png"/>
+        <view class='btn_info'>
+          展示中心
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 分割线 -->
+  <!-- <view class='lines'></view>
+  <view class='cards'>
+    <view class='titles'>
+      <text class='font01'>VR</text>看房
+    </view>
+    <view class='postImg' bindtap="VrLook">
+      <image class='images' src="/img/panoramaImg.png"/>
+    </view>   
+  </view> -->
+  <!-- 分割线 -->
+  <view class='lines'></view>
+  
+  <view class='cards houseCard'>
+    <view class='Tips'>
+      高品质服务公寓
+    </view>
+    <view class='titles2 clearfix'>
+      <view class='left_box'>
+        国安家公寓
+      </view>
+      <view class='ac_more'  bindtap="RontHouses">
+        <image class='bgi' src="/img/more.png"/>
+      </view>
+    </view>
+
+    <!-- 租房房源列表 -->
+    <scroll-view class='buildList_box' scroll-x='true'>
+    
+      <view class='ul clearfix' >
+        <view class='li' wx:for="{{rentHouseArr}}" wx:key="item.id"  bindtap="RentHousesDetail" data-id="{{item.id}}" data-productType="{{item.productType}}" >
+          <image class='images'  src="{{item.image}}"/>
+          <view>
+            <view class='build_name'>{{item.houseName}} <text>{{item.roomName}}</text></view>
+            <view class='price'><text class='number'>{{item.price}}</text>元/月</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='line2'></view>
+    <view class='Tips'>
+      超低价优选房源
+    </view>
+    <view class='titles2 clearfix'>
+      <view class='left_box'>
+        热门楼盘
+      </view>
+      <view class='ac_more' bindtap="newHouses">
+        <image class='bgi' src="/img/more.png"/>
+      </view>
+      
+    </view>
+    <!-- 热门楼盘列表 -->
+    <scroll-view class='buildList_box' scroll-x='true'>
+      <view class='ul clearfix'>
+        <view class='li' wx:for="{{newHouseArr}}" wx:key="item.id" bindtap="newHouseInfo" data-id="{{item.id}}">
+          <image class='images' lazy-load src="{{item.firstpicture}}"/>
+          <view>
+            <view class='build_name'>{{item.buildname}}</view>
+            <view class='price' wx:if="{{item.averageprice!='售价待定'}}">均价 <text class='number'>{{item.averageprice}}</text> 元/㎡</view>
+            <view class='price' wx:if="{{item.averageprice=='售价待定'}}"><text class='number'>{{item.averageprice}}</text></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+   <!-- 分割线 -->
+  <view class='lines'></view>
+  <view class='cards yuekan'>
+    <view class='yuekan_img'> 
+       <image class='images'lazy-load src="/img/poster.png"/>
+    </view>
+    <view class='y_btn_box'>
+    <!--  bindtap="yuekanHouse" -->
+      <view class='left_box' bindtap="findRentRoom" >
+        <view class='yuyueImg'>
+          <image class='bgi' lazy-load src="/img/yuyue.png"/>
+        </view>
+        <view class='describe'>
+          <view class='texts1'>预约看房</view>
+          <view class='texts2'>看好看准再住</view>
+        </view>
+      </view>
+      <view class='lines4'></view>
+      <view class='right_box'  bindtap="findRentRoom">
+        <view class='yuyueImg'>
+          <image class='bgi' lazy-load src="/img/redSearch.png"/>
+        </view>
+
+        <view class='describe'>
+          <view class='texts1'>搜索房源</view>
+          <view class='texts2'>省时省心放心</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!-- 分割线 -->
+  <view class='lines'></view>
+  <view class='cards rent_list'>
+    <view class='titles2 clearfix'>
+      <view class='left_box'>
+        最新上架
+      </view>
+      <view class='ac_more'  bindtap="rentHouseList">
+        <image class='bgi' src="/img/more.png"/>
+      </view>
+      
+    </view>
+    <!-- 租房列表 -->
+    <view class='house_list ' wx:for="{{rentHouseArrB}}" wx:key="item.id" bindtap="RentHousesDetail" data-id="{{item.id}}" data-productType="{{item.productType}}" >
+      <view class='clearfix'>
+        <view class='left_img'>
+          <image class='images' src="{{item.roomFirstImage}}"/>
+          <view class='prices'> <text class='prices_number'>{{item.price}}</text>元/月</view>
+        </view>
+        <view class='right_box'>
+         <view class='right_img' wx:if="{{item.roomSecondImage}}">
+            <image class='images' src="{{item.roomSecondImage2}}"/>
+          </view>
+          <view class='right_img'  wx:if="{{item.roomThirdImage}}">
+            <image class='images' src="{{item.roomThirdImage2}}"/>
+          </view>
+        </view>
+      </view>
+      <view class='build_info clearfix'>
+        <view class='list-bottom-left'>
+          <text> {{item.houseName}} </text> 
+          <text> {{item.roomName}}</text>
+          <text>{{item.roomNumber}}</text>
+          
+        </view>
+        <view class='list-bottom-right'>
+         <text>{{item.buildNo}}</text>号楼<text>{{item.roomName}}</text>
+            <text>{{item.buildFloor}}</text>层/<text>{{item.userArea}}</text>㎡
+        </view>
+      </view>     
+    </view>
+  </view>
+  <!-- <view class='bottom_btn'>
+    <view class='btn' >
+      <view class='btn_img' >
+        <image class='bgi' src="/img/index1.png"/>
+      </view>
+      <view class='btn_name'>
+        首页
+      </view>
+    </view>
+    <view class='btn' bindtap="newHouseIndex">
+      <view class='btn_img'>
+        <image class='bgi' src="/img/onlinerent.png"/>
+      </view>
+      <view class='btn_name'>
+        新房
+      </view>
+    </view>
+    <view class='btn' bindtap="findRentHouse">
+      <view class='btn_img'>
+        <image class='bgi' src="/img/onlineSroom.png"/>
+      </view>
+      <view class='btn_name'>
+        租房
+      </view>
+    </view>
+    <view class='btn' bindtap="myCenter">
+      <view class='btn_img'>
+        <image class='bgi' src="/img/personCenter.png"/>
+      </view>
+      <view class='btn_name'  >
+        我的
+      </view>
+    </view>
+
+  </view> -->
+</view>

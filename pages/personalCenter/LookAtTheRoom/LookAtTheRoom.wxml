@@ -1,0 +1,65 @@
+   <!--pages/personalCenter/LookAtTheRoom/LookAtTheRoom.wxml-->
+<view class = "LookAtTheRoom">
+  <view class="LookAtTheRoom_title">
+      <view wx:for = "{{lookAtTheRoom_title}}"  wx:key="index" class = "none {{selet==index?'show':''}}">
+          <view bindtap = "lookAtTheRoom_title" data-id= "{{item.id}}">
+              {{item.name}}
+          </view>
+      </view>
+	</view>
+  <view class = "LookAtTheRoom_content" wx:if = "{{LookAtTheRoomShowHide}}">
+      <view class="LookAtTheRoom_content_list" wx:for="{{LookAtTheRoom_content_lists}}" wx:key="index">
+        <view bindtap = "LookAtTheRoom_content_list" data-id = "{{item.roomId}}" data-productType="{{item.productType}}">
+            <view class = "content_title">
+                <view class = "LookAtTheTime">
+                    <view>约看时间</view>
+                    <view>{{item.appointTime}}</view>
+                </view>
+                <view>{{item.appointName}}</view>
+            </view>
+            <view class = "content_defailt">
+                <view class = "content_defailt_left">
+                  <image src = "{{'https://img.guoanfamily.com/'+item.roomFirst}}"></image>
+                </view>
+                <view class = "content_defailt_right">
+                    <view>{{item.houseName+item.roomName}}</view>
+                    <view>{{item.buildNo+'号楼'+item.unitNo+'单元'+item.buildFloor+'层'+'/'+item.usedArea+'/㎡'}}</view>
+                    <view>{{item.price+'元/月'}}</view>
+                </view>
+                
+            </view>
+            <view class = "content_bottom" wx:if = "{{}}">
+                <view>取消约看</view>
+            </view>
+          </view>
+      </view>
+      <!-- <view class="LookAtTheRoom_content_list">
+        <view bindtap = "LookAtTheRoom_content_list">
+            <view class = "content_title">
+                <view class = "LookAtTheTime">
+                    <view>约看时间</view>
+                    <view>2018-11-02 00:00</view>
+                </view>
+                <view>已分配</view>
+            </view>
+            <view class = "content_defailt">
+                <view class = "content_defailt_left">
+                  <image src = "https://img.guoanfamily.com/20180528174916_卧室A1.jpg"></image>
+                </view>
+                <view class = "content_defailt_right">
+                    <view>安慧北里逸园 三居室A</view>
+                    <view>26号楼 1单元 24层/76㎡</view>
+                    <view>3730元/月</view>
+                </view>
+                
+            </view>
+            <view class = "content_bottom">
+                <view>取消约看</view>
+            </view>
+          </view>
+      </view>  -->
+  </view>
+  <view wx:if = "{{!LookAtTheRoomShowHide}}" class = "noNumImage" >
+      <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png"></image>
+  </view>
+</view>

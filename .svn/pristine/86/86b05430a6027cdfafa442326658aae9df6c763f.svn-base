@@ -1,0 +1,55 @@
+/* components/searchpage/searchpage.wxss */
+.searchPage{
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-top: 1px solid #ccc;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 100005;
+}
+.top_title{
+  font-size: 36rpx;
+  line-height: 60rpx;
+  margin-bottom: 10rpx;
+}
+.top_title.allCity{
+  margin-top: 50rpx;
+}
+.ul{
+  overflow: hidden;
+}
+.c_list{
+  float: left;
+  padding: 15rpx 25rpx;
+  margin-top: 25rpx;
+  margin-right:20rpx; 
+  font-size: 30rpx;
+  color: #666;
+  background-color: #eee;
+}
+.all_ul{
+  margin-top: 10rpx;
+}
+.all_li{
+  line-height: 74rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  padding-left:10rpx; 
+  border-bottom: 1px solid #ccc;
+
+} 
+.searchHistory_content{
+   overflow: hidden;
+   margin-bottom: 20rpx;
+}
+.searchHistory_content>view{
+    float:left;
+    padding:15rpx 25rpx;
+    margin-top:25rpx;
+    margin-right:20rpx;
+    font-size:30rpx;
+    color:#666;
+    background-color:#eee;
+
+}

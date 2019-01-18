@@ -1,0 +1,64 @@
+   <!--pages/personalCenter/LookAtTheRoom/LookAtTheRoom.wxml-->
+<view class = "LookAtTheRoom">
+  <view class="LookAtTheRoom_title">
+      <view wx:for = "{{lookAtTheRoom_title}}" class = "none {{selet==index?'show':''}}" wx:key = "index">
+          <view bindtap = "lookAtTheRoom_title" data-id= "{{item.id}}">
+              {{item.name}}
+          </view>
+      </view>
+	</view>
+  <view class = "LookAtTheRoom_content">
+      <view wx:if='{{showHide}}' style = "width:480rpx;height:480rpx;margin:0 auto;">
+          <image src = "https://img.guoanfamily.com/rentPC/indexPage/noData.png" style =" display:block;width:100%;height:100%"></image>
+      </view>
+      <view wx:if = "{{!showHide}}" class="LookAtTheRoom_content_list" wx:for="{{LookAtTheRoom_content_list}}" wx:key="index">
+        <view bindtap = "LookAtTheRoom_content_list" data-id = "{{item.id}}">
+            <view class = "content_title">
+                <view class = "LookAtTheTime">
+                    <view>合同编号:</view>
+                    <view>{{item.id}}</view>
+                </view>
+                <view>{{}}</view>
+            </view>
+            <view class = "content_defailt">
+                <view class = "content_defailt_left">
+                  <image src = "{{'http://img.guoanfamily.com/'+item.picImage}}"></image>
+                </view>
+                <view class = "content_defailt_right">
+                    <view>{{item.houseName+item.roomName+'房间'}}</view>
+                    <view>{{signDateTime}}</view>
+                    <view>
+                          <view>{{'租金:'+item.rentPrice+'元月'+' '}}</view>
+                          <view wx:if = "{{contractType==1}}">{{'定金:'+item.amount+'元'}}</view>
+                    </view>
+                    <view>{{item.statusName}}</view>
+                </view>
+                
+            </view>
+          </view>
+      </view>
+      <!-- <view class="LookAtTheRoom_content_list">
+        <view bindtap = "LookAtTheRoom_content_list" data-id = "BJGAJDJ1541385765991">
+            <view class = "content_title">
+                <view class = "LookAtTheTime">
+                    <view>合同编号:</view>
+                    <view>BJGAJDJ1541385765991</view>
+                </view>
+                <view></view>
+            </view>
+            <view class = "content_defailt">
+                <view class = "content_defailt_left">
+                  <image src = "https://img.guoanfamily.com/20180528174916_卧室A1.jpg"></image>
+                </view>
+                <view class = "content_defailt_right">
+                    <view>柏林爱乐  2居 B房间</view>
+                    <view>2018-11-06</view>
+                    <view>租金:2760元月 |定金:500元</view>
+                    <view>履行中</view>
+                </view>
+                
+            </view>
+          </view>
+      </view>  -->
+  </view>
+</view>

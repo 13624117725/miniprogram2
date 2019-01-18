@@ -1,0 +1,54 @@
+ <!--pages/personalCenter/contractDetails/contractDetails.wxml-->
+<view class = "contractDetails">
+    <view class = "contractDetailsList">
+        <view class= "contractDetailsList_details">
+          <image src = "{{imgSrc}}"></image>
+          <view class = "contractDetailsList_details_li">
+                <view>{{houseRoom+roomName+'房间'}}</view>
+                <view>{{buildNo+'号楼'+buildUnitNo+'单元'+houseBuildNo+'层/'+coveredArea+'㎡'}}</view>
+                <view>{{realRentMoney+'元/月'}}</view>
+                <view wx:if = "{{advantageTagsArr.length==0}}">
+                    <view wx:for = "{{advantageTagsArr}}">{{item}}</view>
+                </view>
+                
+          </view>
+        </view>
+        <view class = "contractDetailsList_li">
+            <view>
+                <view>租期</view>
+                <view>{{validDate+'-'+endDate}}</view>
+            </view>
+            <view>
+                <view>付款方式</view>
+                <view>{{receiptCycleName}}</view>
+            </view>
+            <view>
+                <view>物业交割信息</view>
+                 <view>
+                    <view style="background:red;color:#fff;padding:5rpx 10rpx;">{{isDelivery}}</view>
+                </view>
+            </view>
+            <view>
+                <view>租约账单</view>
+                <view>
+                    <view>{{number+"期"}}</view>
+                    <view style = "margin-left:10rpx">
+                          <view class="tenancies-p2 a-decor" wx:if="{{unbind}}" wx:key = "{{index}}" bindtap="lease" style="color:#3195d1">{{payStatus}}</view>
+                    <view class="tenancies-p2 a-decor" wx:if="{{!unbind}}" style="color:#d7d7d7">{{payStatus}}</view>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view>合租人</view>
+                <view>
+                  <view class="partnership-p2" style="color:#999">{{jointRentName}}</view>
+                    <view class="partnership-p3" style="color:#999">{{jointRentPhone}}</view>
+                </view>
+            </view>
+            <view>
+                <view>签约主体信息</view>
+                <view>{{ownerPhone}}</view>
+            </view>
+        </view>
+    </view>
+</view>

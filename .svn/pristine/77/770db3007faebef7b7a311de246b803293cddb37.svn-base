@@ -1,0 +1,107 @@
+.RepairMyList{
+    font-size: 30rpx;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.pages{
+  padding: 30rpx;
+  padding-bottom: 130rpx;
+}
+.isBorwer{
+  padding-top:160rpx;
+}
+.topTitle{
+  height: 100rpx;
+  padding-top:10rpx;  
+}
+.icon{
+  width: 90rpx;
+  height: 90rpx;
+  float: left;
+}
+.icon .icon_img{
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+.name{
+    font-size: 36rpx;
+    color: #000;
+    float: left;
+    padding-left:30rpx;
+}
+.closed{
+    width: 50rpx;
+    height: 50rpx;
+    /* background: url("../../../img/clear1.png") center no-repeat/100% 100%; */
+    float: right;
+    border-radius: 50%;
+}
+.closedimg{
+  width: 100%;
+  height: 100%;
+}
+.m_img .my_img{
+    float: left;
+    width: 90rpx;
+    height: 90rpx;
+    margin-right: 20rpx;
+    margin-top: 20rpx;
+}
+.marks{
+    margin-top: 20rpx;
+    width: 80%;
+    text-align: left;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 32rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap
+}
+.adressInfo{
+    padding: 30rpx 0 15rpx 0;
+    margin-top: 30rpx;
+    border-top:1px solid #ccc;
+
+}
+.adressInfo2{
+    padding: 30rpx 0;
+    border-top:1px solid #ccc;
+}
+.titles{
+    color: #999;
+    text-align: left;
+    font-size: 32rpx;
+    line-height: 50rpx;
+}
+.adreess{
+    margin-top: 8rpx;
+    font-size: 32rpx;
+    line-height: 50rpx;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap
+}
+.repTime{
+    margin-top: 8rpx;
+
+    height: 50rpx;
+}
+.datasave{
+    height: 100rpx;
+    width: 100%;
+    background-color: #E34B3E;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    line-height:  100rpx;
+    font-size: 36rpx;
+    color: #fff;
+}

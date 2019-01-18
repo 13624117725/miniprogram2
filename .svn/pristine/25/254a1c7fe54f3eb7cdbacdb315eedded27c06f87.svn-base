@@ -1,0 +1,94 @@
+
+<view class='home_detail'>
+  <view class='hd_left'>
+        <image class='hd_img_s' src='{{picImage}}'></image>
+        <!-- <image class='hd_img_s' src='http://img.guoanfamily.com/20180602144033_d1.jpeg'></image> -->
+  </view>
+  <view class='hd_right'>
+    <text class='hd_right_text1'>{{houseData.houseName+houseData.roomName+'房间'}}</text>
+    <text class='hd_right_text2'>{{houseData.buildNo}}号楼 {{houseData.buildUnitNo}}单元  {{houseData.buildFloor}}层/{{houseData.houseArea}}㎡</text>
+    <text class='hd_right_text2'>{{houseData.rent}}元/月</text>
+    <!-- <view>
+      <view class='tap' wx:for="{{taplist}}" wx:key="index">{{item}}</view>
+    </view> -->
+  </view>
+</view>
+
+<view class='nav-tol'></view>
+<view class='nav_tol_2'></view>
+
+  <view class='content_t'>
+      <view class='ctl_deatil'>
+        <view class='ctld_diput'>
+          <view class='ctp_two'>手机</view>
+          <view class='ctp_inpt'><input type='text'  type='number' bindinput="bindPhoneInput" placeholder='请输入手机号' value='{{houseData.renterPhone}}' /></view>
+         
+        </view>
+        <view class='ctld_diput'>
+          <view class='ctp_two'>姓名</view>
+          <view class='ctp_inpt'><input type='text'  bindinput="bindUserNameInput" placeholder='请输入您的姓名' value='{{houseData.renterName}}' /></view>
+        
+        </view>
+        <view class='ctld_diput'>
+          <view class='ctp_two'>称呼</view>
+          <view class='ctp_inpt'>
+              <view class='ctpi_switch'>
+                <radio-group class="radio-group" bindchange="radioChange">
+                  <label class="radio" wx:for="{{gengers}}" wx:key ="index">
+                    <radio value="{{item.name}}" checked="{{item.name===houseData.renterSex}}"/>{{item.value}}
+                  </label>
+                </radio-group>
+               </view> 
+          </view>
+        </view>
+      </view>
+  </view>
+
+  <view class='content_tr'>
+    <view class='select_home_time'>
+      <view class='ctld_diput ct_two'>
+          <view class='ctp_two'>时间</view>
+          <view class='ctp_inpt ctp_picker'>
+            <picker mode="date" bindchange="bindDateChange">
+              <view class='select_date'>{{selectDate === ''?'选择入住日期':selectDate }}></view>
+            </picker>
+           
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class='nav-tol'></view>
+
+  <view class='content_f'>
+    <view class='cf_content'>
+      <view class='cf_ly'>留言</view>
+      <view class='cf_txtarea'>
+        <textarea class='cf_txtarea_inner' placeholder='更多看房或找房需求' bindinput='bindTextTap' value='{{houseData.remark}}'></textarea>
+      </view>
+    </view>
+  </view>
+
+  <view class='nav-tol'></view>
+
+  <view class='info-group'>
+    <view class='info-line'>
+      <label class='label'>支付定金（元）</label>
+    </view>
+
+    <view class='info-line center'>
+    <view class = "list">
+        <view class='num-btn' bindtap='reduceMoney'>
+          <image src = "https://img.guoanfamily.com/miniProgram/jian.png"></image>
+        </view>
+        <input class='rant-number' type='number' maxlength="5" bindinput="changeRant" bindblur='clearMoney' value="{{payMoney}}"></input>
+        <view class='num-btn' bindtap='addMoney'>
+            <image src = "https://img.guoanfamily.com/miniProgram/add.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='content_btn'>
+    <view class='c_btn_tj'>
+      <button type="warn" disabled='{{btnDisable}}' loading='{{loading}}' bindtap="saveDepositReservation" > 定金预定 </button>
+    </view>
+  </view>

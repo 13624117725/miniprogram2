@@ -1,0 +1,76 @@
+/* component/zyslider.wxss */
+.container {
+    /*height: 100%;*/
+    width: 100%;
+    position: relative;
+}
+
+.slider-body {
+    height: 30rpx;
+    background-color: #ddd;
+    position: relative;
+    margin-top: -20rpx;
+    border-radius: 18rpx 0 0 18rpx;
+
+}
+.hides{
+  opacity: 0;
+}
+.slider-body.body {
+    bottom: 50rpx;
+    background-color: #19896f;
+    z-index: 0.3;
+    margin-top: -50rpx;
+}
+
+.slider-body.left {
+    bottom:70rpx;
+    z-index: 0.1;
+    margin-top: -6rpx;
+}
+
+.slider-body.right {
+    z-index: 0.2;
+    bottom: 80rpx;
+
+    margin-top: 0rpx;
+     border-radius: 0rpx 18rpx 18rpx 0;
+
+    
+}
+
+.slider-item {
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    transform: translateY(-5rpx);
+    background-color: #19896f;
+    z-index: 2;
+}
+.{
+
+}
+.min {
+    position: relative;
+    top: 0rpx;
+
+    /*left: 100rpx;*/
+}
+.minval{
+  width: 180rpx;
+  position: absolute;
+  bottom: -80rpx;
+  font-size: 30rpx;
+  left: 0%
+}
+.max {
+    position: relative;
+    bottom: 40rpx;
+    transform: translateX(-50%)  translateY(-5rpx);
+    
+    /*left: 600rpx;*/
+}
+
+.hide{
+  display: none;
+}

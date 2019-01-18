@@ -1,0 +1,324 @@
+.rentIndex {
+  padding: 0 30rpx;
+}
+
+.cards .bgi {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swipers {
+  position: relative;
+}
+
+.section {
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 20rpx;
+  box-shadow: #ccc 0px 0px 30rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-radius: 5px;
+}
+
+.section .left_box {
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+}
+
+.section .left_box .bgi {
+  width: 50%;
+  height: 50%;
+}
+
+.section .middle_box {
+  color: #ccc;
+}
+.bigSlide {
+  width: auto;
+  margin: 0 auto;
+  height: 50rpx;
+  text-align: center;
+}
+.bigSlide .smallSlidePage {
+  width: 30rpx;
+  height: 10rpx;
+  display: inline-block;
+  background: #CCCCCC;
+  margin-top: 25rpx;
+  margin-left: 10rpx;
+  border-radius: 5rpx;
+}
+.bigSlide .slideActive{
+  background: #F43333;
+}
+
+
+.section .right_box {
+  float: right;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  /* background: #000; */
+}
+
+.section .right_box .adress {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-left: 1px solid #fff;
+  height: 40rpx;
+}
+
+.section .right_box .adress .bgi {
+  width: 40%;
+  height: 90%;
+}
+
+.swiper_box {
+  height: 400rpx;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.quick-search {
+  width: 100%;
+  display: flex;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.quick-search .quick-search_li {
+  flex: 1;
+  text-align: center;
+}
+
+.quick-search .quick-search_li .img {
+  vertical-align: top;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.quick-search .quick-search_li .name {
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.segmentingLine {
+  width: 100%;
+  height: 20rpx;
+  background: rgb(245, 245, 245);
+}
+
+.houseNum_item {
+  display: flex;
+  padding: 50rpx 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.houseNum_item .houseNum_item_li {
+  width: 210rpx;
+  height: 130rpx;
+  margin-left: 20rpx;
+  background: #f5f5f5;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+
+.houseNum_item .houseNum_item_li .house_Num {
+  height: 60rpx;
+  font-size: 36rpx;
+  border-bottom: 1rpx solid #eee;
+  text-align: center;
+  font-weight: 600;
+  line-height: 60rpx;
+}
+
+.houseNum_item .houseNum_item_li .house_region {
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+  height: 55rpx;
+  line-height: 55rpx;
+}
+
+.gaHouse {
+  padding-top: 25rpx;
+  overflow: hidden;
+}
+
+.gaHouse .gaHouse_title {
+  width: 100%;
+  height: 80rpx;
+  font-size: 38rpx;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gaHouse .gaHouse_title .gaHouse_title_img {
+  height: 35rpx;
+  width: 115rpx;
+}
+
+.gaHouse .gaHouse_title .gaHouse_title_img .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/**国安家公寓**/
+
+.gaHouse_list {
+  width: auto;
+  height: 358rpx;
+  overflow: hidden;
+}
+
+.gaHouse_list .gaHouse_list_total {
+  height: 370rpx;
+  overflow-x: scroll;
+  box-sizing: border-box;
+}
+
+.gaHouse_list .gaHouse_list_total::scrollbar {
+  display: none;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide {
+  width: 1750rpx;
+  height: 345rpx;
+  padding: 10rpx 0;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide .gaHouse_list-item {
+  width: 320rpx;
+  height: 345rpx;
+  background: #fff;
+  margin-right: 30rpx;
+  float: left;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide .gaHouse_list-item .gaHouse_list-item_top {
+  width: 320rpx;
+  height: 240rpx;
+  display: block;
+  position: absolute;
+  border-radius: 10rpx;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #000;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide .gaHouse_list-item .gaHouse_list-item_top .img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide .gaHouse_list-item .gaHouse_list-item_top .imgOne {
+  width: 130rpx;
+  height: 40rpx;
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  z-index: 2;
+}
+
+.gaHouse_list .gaHouse_list_total .gaHouse_list-slide .gaHouse_list-item .gaHouse_list-item_bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 28rpx;
+}
+
+.gaMission {
+  width: 100%;
+  height: 150rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  margin: 20rpx 0;
+  padding-top: 20rpx;
+}
+
+.gaMission .gaMissionImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.newArrival {
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+/*业主委托  */
+
+.ownerEntrustment {
+  padding-top: 0;
+}
+
+.ownerEntrustment_img {
+  width: 100%;
+  height: 150rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+}
+
+.ownerEntrustment_img .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.ownerEntrustment_list {
+  width: 100%;
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.ownerEntrustment_list .ownerEntrustment_list_li {
+  flex: 1;
+  text-align: center;
+}
+
+.ownerEntrustment_list .ownerEntrustment_list_li .img {
+  vertical-align: top;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.ownerEntrustment_list .ownerEntrustment_list_li .name {
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+/*精彩活动  */
+
+.wonderfulActivity {
+  height: 200rpx;
+}

@@ -1,0 +1,83 @@
+<view class="rentIndex">
+  <view class='cards'>
+    <!-- 轮播 -->
+    <view class="section">
+      <view class='left_box'>
+        <image src="/img/search1.png" class='bgi' />
+      </view>
+      <view class='middle_box' bindtap="findRentRoom">输入您想居住的小区或区域</view>
+    </view>
+  </view>
+  <!-- 轮播图对应pages -->
+    <view class='bigSlide'>
+      <view class='smallSlidePage {{current == stateIndex?"slideActive":"" }}' wx:for="{{imgUrls}}" wx:for-index='stateIndex' wx:key="{{item.url}}"></view>
+    </view>
+  <view class="swipers">
+    <swiper class='swiper_box' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" bindchange='onSlideChange'>
+      <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+        <swiper-item bindtap="swiperClick" data-src="{{item.src}}">
+          <image src="{{item.url}}" class="slide-image" height="240" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+  <!-- 热门搜索 -->
+  <view class="quick-search">
+    <view wx:for="{{quickSearch}}" wx:key='{{item.id}}' class="quick-search_li">
+      <view bindtap="quickSearch" data-id="{{item.id}}">
+        <image src="{{item.url}}" class="img"></image>
+        <view class="name">{{item.nameL}}</view>
+      </view>
+    </view>
+  </view>
+  <!--分隔线  -->
+  <view class="segmentingLine"></view>
+  <!-- 房间数量-->
+  <view class="houseNum_item">
+    <view wx:for="{{houseNumItem}}" wx:key='{{item.name}}' bindtap='showRentList' data-name="{{item.name}}" class="houseNum_item_li">
+      <view class="house_Num">{{item.count}}</view>
+      <view class="house_region">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!--国安公寓-->
+  <view class="gaHouse">
+    <title titleName="{{gaHouseTileName}}" bind:titleClick="gaHouse"></title>
+    <houseList content="{{contentList}}" bind:getHouseListli="getHouseListli">
+    </houseList>
+  </view>
+  <!--国安使命-->
+  <view class="gaMission">
+    <image class="gaMissionImg" src='/img/poster.png'></image>
+  </view>
+  <!--最新上架-->
+  <view class="gaHouse newArrival">
+    <title titleName="{{newArrivalTileName}}" bind:titleClick="gaHouse"></title>
+    <houseList content="{{newArrivalContentList}}" bind:getHouseListli="getHouseListli">
+    </houseList>
+  </view>
+  <!--业主委托-->
+  <view class="gaHouse ownerEntrustment">
+    <title titleName="{{ownerEntrustmentTileName}}" bind:titleClick="gaHouse" isShow="{{ownerEntrustmentShowHide}}"></title>
+    <view class="ownerEntrustment_img" bindtap="ownerEntrustment">
+      <image src='https://media.guoanfamily.com/rent/static/HomePage/newEntrust.png' class="img"></image>
+    </view>
+    <view class="ownerEntrustment_list">
+      <view wx:for="{{ownerEntrustment_list_img}}" class="ownerEntrustment_list_li" wx:key="{{index}}">
+        <image src="{{item.url}}" class="img"></image>
+        <view class="name">{{item.nameL}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 精彩活动 
+       <view class = "gaHouse wonderfulActivity">
+          <title
+            titleName = "{{wonderfulActivityTileName}}"
+            bind:titleClick = "wonderfulActivity"
+            isShow = "{{wonderfulActivityShowHide}}"
+        ></title>
+    </view> -->
+</view>

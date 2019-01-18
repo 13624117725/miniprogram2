@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationBarTitleText": "建议列表",
+  "usingComponents": {},
+  "enablePullDownRefresh":true
+
+}

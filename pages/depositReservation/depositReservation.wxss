@@ -1,0 +1,271 @@
+/* pages/depositReservation/depositReservation.wxss */
+/* components/public/houseDetail/houseDetail.wxss */
+.home_detail{
+  width :100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hd_left{
+  width: 286rpx;
+  margin-left: 30rpx;
+  /* margin-right: 0.34rpx; */
+  float: left;
+}
+.hd_img_s{
+  width: 286rpx;
+  height: 220rpx;
+  border-radius: 10rpx;
+}
+.hd_right{
+  width:420rpx;
+  float: right;
+  box-sizing: border-box;
+  padding-left: 5rpx;
+}
+
+.hd_right_text1{
+  font-size: 33rpx;
+  color: black;
+  text-align: left;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.hd_right_text2{
+  font-size: 28rpx;
+  color: #666666;
+  text-align: left;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.tap{
+  padding: 10rpx;
+  border-radius: 8rpx;
+  background: #f5f5f5;
+  font-size: 28rpx;
+  color: #999999;
+  float: left;
+  margin-right: 10rpx;
+  margin-top: 15rpx;
+}
+
+
+
+
+
+
+
+.background {
+  background: #e8e8e8;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+.nav-tol{
+  width: 100%;
+  height: 20rpx;
+}
+
+.ctl_img{
+  width: 36rpx;
+  height: 30rpx;
+  padding:20rpx;
+}
+.ctl_p_de{
+  font-size: 16px;
+  line-height: 70rpx;
+}
+.nav_tol_2{
+  height: 20rpx;
+  width: 100%;
+  background-color: #eee;
+}
+.ctl_deatil {
+  width: 100%;
+  background-color: white;
+}
+.ctld_diput{ 
+  display: flex;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 31rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+  border-bottom:1rpx solid #eee;
+  width: 94%;
+  margin: auto;
+}
+.ctp_two{
+  width: 95rpx;
+}
+.ctp_inpt input{
+  height: 120rpx;
+}
+.ctpi_switch{
+  height: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.select_home_time{
+  background-color: white;
+}
+.ct_two .ctp_two{
+  width: 300rpx;
+}
+.nav_k{
+  width: 40rpx;
+}
+.select_date{
+  color: #ccc;
+  position: absolute;
+  right: 30rpx;
+}
+
+.content_f{
+  height: 300rpx;
+  background-color: white;
+}
+.cf_content{
+  width: 680rpx;
+  margin: 0 auto;
+}
+.cf_content .cf_ly{
+  padding-top:30rpx; 
+  font-size: 31rpx;
+}
+
+.cf_txtarea{
+  width: 340prx;
+  height:180rpx;
+  margin-top:20rpx;
+  background-color: #f5f5f5;
+  padding: 10rpx 5rpx; 
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+.cf_txtarea_inner{
+  width: 100%;
+  height:180rpx;
+  
+}
+.c_btn_tj{
+  margin:0 auto;
+  padding:20rpx 0 0;
+
+}
+.c_btn_tj button{
+   height: 90rpx;
+   line-height: 90rpx;
+   text-align: center;
+   margin:25rpx 0rpx 0;
+   font-size: 32rpx;
+   border-radius: 0;
+}
+
+.info-group{
+  background: #fff;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+}
+
+.info-group .info-line{
+
+}
+
+.info-line .info{
+  float: right;
+  color: #999;
+  max-width: 70%;
+}
+
+.info .number{
+  color: #e24e5a;
+}
+
+.info-line.center{
+  height: 100rpx;
+  padding: 0;
+  display: flex;
+  position: relative;
+  margin: 30rpx 0;
+}
+.list{
+  height: 100%;
+  display: flex;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0)
+}
+.info-line .num-btn{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 30rpx;
+}
+.info-line .num-btn>image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  
+
+}
+
+.info-line .rant-number{
+  display: inline-block;
+  width: 200rpx;
+  height: 100rpx;
+  margin: 0 40rpx;
+  color: #e24e5a;
+  font-size: 50rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info-line .tips{
+  font-size: 28rpx;
+  color: #e24e5a;
+}
+.pay-type{
+  width: 100%;
+  height: 66rpx;
+  line-height:66rpx;
+  padding-left:20rpx; 
+}
+
+.select-pay-type{
+  width: 100%;
+  height: 180rpx;
+  padding-left:20rpx; 
+
+}
+.pay-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.select-pay{
+  height:90rpx;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee; 
+}
+.select{
+  display: flex;
+  justify-content:flex-start; 
+  line-height:90rpx;
+  text-align: center;
+}
+.radio{
+  margin-right:30rpx;
+}
+.pay-type-radio{
+  position: relative;
+  top: 18rpx;
+}

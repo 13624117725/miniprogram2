@@ -1,0 +1,110 @@
+/* pages/personalCenter/LookAtTheRoom/LookAtTheRoom.wxss */
+.LookAtTheRoom_title{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  color: #999999;
+  font-size: 28rpx;
+  align-items: center;
+  border-bottom:1rpx solid #ddd;
+  border-top:1rpx solid #ddd;
+  background: #EEEEEE;
+  position: fixed;
+}
+.none{
+  flex:1;
+  text-align: center;
+  height:80rpx;
+  line-height: 80rpx;
+}
+.show{
+  background: #fff;
+  color:red;
+}
+.LookAtTheRoom_content{
+  padding:100rpx 30rpx 50rpx 30rpx;
+  height: 100%;
+  overflow-y:scroll; 
+}
+.LookAtTheRoom_content_list{
+  padding:0 30rpx;
+  width: 100%;
+  margin: auto;
+  background: #ffffff;
+  box-sizing: border-box;
+  margin-top:30rpx;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 3rpx 0.5rpx #ddd;
+
+}
+.LookAtTheRoom_content_list .content_title{
+  display: flex;
+  font-size: 32rpx;
+  color:#666666;
+  justify-content:space-between ;
+  align-items:center;
+  height: 88rpx;
+}
+.LookAtTheRoom_content_list .content_title .LookAtTheTime{
+  display: flex;
+}
+.LookAtTheRoom_content_list .content_defailt{
+  display: flex;
+  padding: 20rpx 0;
+  border: 1rpx solid #ddd;
+  border-left: none;
+  border-right:none;
+
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_left{
+    width:280rpx;
+    height: 210rpx;
+    border-radius: 10rpx;
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_left>image{
+     width: 100%;
+     height: 100%;
+     display: block;
+     border-radius: 10rpx;
+
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_right{
+  margin-left: 15rpx;
+
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_right>view:nth-child(1){
+  font-size:32rpx;
+  color:#000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_right>view:nth-child(2){
+  font-size: 26rpx;
+  color: #666666;
+  margin-top: 20rpx;
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_right>view:nth-child(3){
+  font-size: 26rpx;
+  color: #666666;
+  display: flex;
+}
+.LookAtTheRoom_content_list .content_defailt .content_defailt_right>view:nth-child(4){
+     font-size: 30rpx;
+    color:  #76b48f;
+    margin-top: 30rpx;
+}
+.content_bottom{
+  position: relative;
+  height: 80rpx;
+}
+.content_bottom>view:nth-child(1){
+  margin-top: 18rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  background: #999999;
+  color:#fff;
+  font-size: 24rpx;
+  width: 150rpx;
+  position: absolute;right: 0;
+}

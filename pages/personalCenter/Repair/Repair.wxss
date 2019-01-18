@@ -1,0 +1,137 @@
+/* pages/personalCenter/Repair/Repair.wxss */
+.repair{
+  padding: 0 30rpx;
+  padding-bottom:120rpx;
+}
+.info_box{
+    margin-bottom: 22rpx;
+}
+.title{
+  font-size: 32rpx;
+  color: #999;
+  line-height: 38rpx;
+  margin-bottom: 25rpx;
+}
+.check_btn{
+  padding-bottom:30rpx; 
+  border-bottom: 1px solid #ccc;
+}
+.btn{
+  float: left;
+  width: 33%;
+  border-right:1px solid #ccc;
+  text-align: center;
+
+}
+.btn:last-child{
+  border:none;
+}
+.btn_text{
+  font-size: 30rpx;
+  color: #000;
+  line-height: 46rpx;
+  text-align: center;
+}
+.btn_text.redF{
+  color: red
+}
+.imgAdd{
+  float: left;
+  width: 190rpx;
+  height: 190rpx;
+  margin:20rpx; 
+  background-color: #ccc;
+  position: relative;
+}
+.imgAdd.addBtn{
+  background: url("https://img.guoanfamily.com/miniProgram/AddPhoto.png") center no-repeat/100% 100%;
+}
+.imgAdd_img{
+  width: 100%;
+  height:100%;
+}
+.imgAdd .closed{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  right: -25rpx;
+  top: -25rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/imgClose.png") center no-repeat/80%;
+}
+.down{
+  display: inline-block;
+  vertical-align: middle;
+  width: 30rpx;
+  height: 30rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/open.png") center no-repeat/150%;
+  margin-left: 20rpx;
+}
+.underLine{
+
+  padding-bottom:30rpx; 
+  border-bottom:1px solid #ccc; 
+}
+.text_area{
+  height: 300rpx;
+  border:1px solid #ccc;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.textArea{
+  width:100%;
+}
+.pageBottom{
+  height:400rpx;
+}
+.bbtn_box{
+  height:100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.bbtn_box .bbtn{
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  color: #fff;
+  width: 50%;
+  text-align: center;
+  background-color: #666666;
+}
+.bbtn_box .bbtn.btn2{
+  background-color: #E34B3E;
+}
+.masks{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.9);
+  z-index:200;
+}
+.camBox{
+  position: absolute;
+  bottom: -300rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.camBox.showbtn{
+  transition: bottom 0.4s;
+   bottom: 30rpx;
+}
+.cbbtn{
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0,0,0,0.8);
+}

@@ -1,0 +1,8 @@
+.Myforward{
+   padding: 0 30rpx;
+}
+.top_card{
+  padding-top: 30rpx; 
+  height: 320rpx;
+  background: url("https://img.guoanfamily.com/miniProgram/jifenBG.png") center no-repeat/100% 100%;
+}

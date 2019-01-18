@@ -1,0 +1,117 @@
+
+.InvitedBuild{
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  position: fixed;
+  top:0rpx;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+.card{
+  box-sizing: border-box;
+  width: 99.2%;
+  padding: 10rpx;
+  border: 1px solid #ccc;
+  margin-bottom: 30rpx;
+  box-shadow: 2px 2px 7px #888888;
+}
+.card .top{
+  height: 70rpx;
+  border-bottom:1px solid #ccc;
+}
+.card .titles{
+  float: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color:#999;
+}
+.titles_msg{
+  line-height: 70rpx;
+  float: right;
+  font-size: 30rpx;
+  color:#999;
+  
+}
+.bname{
+  line-height: 60rpx;
+  font-size: 32rpx;
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.middle{
+  box-sizing: border-box;
+  height: 220rpx;
+  padding: 20rpx 10rpx;
+  border-bottom: 1px solid #ccc;
+}
+.leftImg{
+  float: left;
+  width: 240rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.build_info{
+  height: 180rpx;
+  padding-left: 250rpx;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color:#999; 
+}
+.list{
+  line-height: 42rpx;
+  color:#999; 
+}
+.list2{
+  line-height: 42rpx;
+  color:#000; 
+  
+}
+.bottom{
+  height:60rpx; 
+  position: relative;
+}
+
+.pay_bxo{
+  margin-top: 30rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+.moneys{
+  color: red;
+}
+.smbtn1{
+  position: absolute;
+  bottom: 10rpx;
+  width:140rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  border-radius: 6rpx;
+}
+.smbtn1{
+  right: 30rpx;
+  background: #d6000f;
+  color:#fff;
+  
+}
+
+.line{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  margin-bottom: 40rpx
+}
+.no-Data{
+  position: absolute;
+  left: 0;
+  top:0;
+  height: 100%;
+  width:100%;
+  background: #fff url("https://img.guoanfamily.com/rentPC/indexPage/noData.png") center no-repeat/60%;
+}

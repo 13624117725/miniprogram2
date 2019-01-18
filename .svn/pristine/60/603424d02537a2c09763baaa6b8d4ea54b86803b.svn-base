@@ -1,0 +1,87 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    
+    "pages/first/first",
+    "pages/membership/membership",
+    "pages/contractPay/contractPay",
+    "pages/depositReservation/depositReservation",
+    "pages/new/newIndex/newIndex",
+    "pages/new/newHouseDetail/newHouseDetail",
+    "pages/rent/rentIndex/rentIndex",
+    "pages/personalCenter/personalCenterIndex/personalCenterIndex",
+    "pages/rent/rentDetails/rentDetails",
+    "pages/login/login",
+    "pages/new/houseType/houseType",
+    "pages/rent/Reservations/Reservations",
+    "pages/new/predetermine/predetermine",
+    "pages/personalCenter/LookAtTheRoom/LookAtTheRoom",
+    "pages/personalCenter/contractDetails/contractDetails",
+    "pages/personalCenter/contract/contract",
+    "pages/personalCenter/lesseeContractDetails/lesseeContractDetails",
+    "pages/personalCenter/lesseeContractDetailsPay/lesseeContractDetailsPay",
+    "pages/personalCenter/Entrust/Entrust",
+    "pages/personalCenter/onLineEntrust/onLineEntrust",
+    "pages/personalCenter/myLease/myLease",
+    "pages/personalCenter/Myorder/Myorder",
+    "pages/personalCenter/InvitedBuild/InvitedBuild",
+    "pages/personalCenter/Myintegral/Myintegral",
+    "pages/personalCenter/Myforward/Myforward",
+    "pages/personalCenter/Withdrawals/Withdrawals",
+    "pages/personalCenter/Mycard/Mycard",
+    "pages/personalCenter/MyCollection/MyCollection",
+    "pages/personalCenter/suggestion/suggestion",
+    "pages/personalCenter/RepairDetails/RepairDetails",
+    "pages/personalCenter/Repair/Repair",
+    "pages/personalCenter/RepairMyList/RepairMyList",
+    "components/suggesScall/suggesScall",
+    "pages/personalCenter/setUp/setUp",
+    "pages/personalCenter/AboutUs/AboutUs",
+    "pages/new/newHouseList/newhouseList",
+    "pages/rent/Apartment/Apartment",
+    "pages/rent/VrLook/VrLook",
+    "pages/rent/HouseList/HouseList",
+    "pages/new/buildposter/buildpposter",
+    "pages/index/showCenter/showCenter",
+    "pages/personalCenter/myCleaning/myCleaning",
+    "pages/personalCenter/Maintenancelist/Maintenancelist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "国安家",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#000",
+    "selectedBackgroundColor": "#f00897",
+    "list": [
+      {
+        "selectedIconPath": "img/index1.png",
+        "iconPath": "img/index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/onlinerent1.png",
+        "iconPath": "img/onlinerent.png",
+        "pagePath": "pages/new/newIndex/newIndex",
+        "text": "新房"
+      },
+      {
+        "selectedIconPath": "img/onlineSroom1.png",
+        "iconPath": "img/onlineSroom.png",
+        "pagePath": "pages/rent/rentIndex/rentIndex",
+        "text": "租房"
+      },
+      {
+        "selectedIconPath": "img/personCenter1.png",
+        "iconPath": "img/personCenter.png",
+        "pagePath": "pages/personalCenter/personalCenterIndex/personalCenterIndex",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+.topbar{
+  height: 80rpx;
+}
+.ul{
+  white-space: nowrap;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 100%;
+}
+.ul .list{
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  border-right: 1px solid #ccc;
+}
+.list.active{
+  color: red;
+}
+.ul .list:last-child{
+  border-right:none;
+}
+.Myorder{
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  position: fixed;
+  top:80rpx;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+.card{
+  box-sizing: border-box;
+  width: 99.2%;
+  padding: 10rpx;
+  border: 1px solid #ccc;
+  margin-bottom: 30rpx;
+  box-shadow: 2px 2px 7px #888888;
+}
+.card .top{
+  height: 115rpx;
+  border-bottom:1px solid #ccc;
+}
+.card .titles{
+  line-height: 68rpx;
+  font-size: 38rpx;
+  color: red;
+}
+.titles_msg{
+  line-height: 42rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+.middle{
+  box-sizing: border-box;
+  height: 220rpx;
+  padding: 20rpx 10rpx;
+  border-bottom: 1px solid #ccc;
+}
+.leftImg{
+  float: left;
+  width: 240rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.build_info{
+  height: 180rpx;
+  padding-left: 250rpx;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color:#999; 
+}
+.list{
+  line-height: 50rpx;
+}
+.bottom{
+  height: 115rpx; 
+  position: relative;
+}
+.bottom .price{
+  font-size: 28rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+.pay_bxo{
+  margin-top: 20rpx;
+  line-height: 36rpx;
+  height: 36rpx;
+  font-size: 28rpx;
+}
+.moneys{
+  color: red;
+}
+.smbtn1,.smbtn2{
+  position: absolute;
+  bottom: 10rpx;
+  width:140rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  border:1px solid #ccc;
+  border-radius: 6rpx;
+}
+.smbtn1{
+  right: 100rpx;
+  background: #d6000f;
+  color:#fff;
+  
+}
+.smbtn2{
+  right: 10rpx;
+  background: #eee;
+  color:#999;
+}
+.line{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  margin-bottom: 40rpx
+}
+.no-Data{
+  position: absolute;
+  left: 0;
+  top:0;
+  height: 100%;
+  width:100%;
+  background: #fff url("https://img.guoanfamily.com/rentPC/indexPage/noData.png") center no-repeat/60%;
+}

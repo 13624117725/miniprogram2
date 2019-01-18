@@ -1,0 +1,7 @@
+<!--components/title/title.wxml-->
+<view class = "title">
+      <view class = "title_name">{{titleName}}</view>
+      <view class = "title_img" bindtap = "titleClick" hidden="{{!isShow}}">
+            <image src = "/img/more.png" class = "img"></image>
+      </view>
+</view>

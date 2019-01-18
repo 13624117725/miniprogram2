@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "国安家新房",
+  "usingComponents": {
+    "newTile":"/components/new_title/new_title"
+  }
+}
